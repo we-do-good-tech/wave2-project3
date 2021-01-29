@@ -79,5 +79,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 * node-sass - sass
 * node-sass-install - sass modules 
 * typac - install @types
-TODO
-* react-bootstrap
+* - prettier
+  - lint-staged
+  - husky : precommit format
+TODO  -
+* react-bootstrap - maybe
