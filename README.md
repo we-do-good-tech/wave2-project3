@@ -69,3 +69,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # wave2-project3
+
+
+### Packages installed 
+* react-router-dom - routing
+* images - require images
+* react-transition-group - sidebar tranisition
+* ahooks - more hooks
+* node-sass - sass
+* node-sass-install - sass modules 
+* typac - install @types
+TODO
+* react-bootstrap

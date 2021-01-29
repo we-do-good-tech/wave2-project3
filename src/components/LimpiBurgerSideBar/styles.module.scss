@@ -1,0 +1,60 @@
+@import '../../index.scss';
+
+
+@keyframes slideIn{
+  0%{
+    margin-left: px2rem(-500);
+  }
+  100%{
+    margin-left: 0;
+  }
+}
+@keyframes slideOut{
+  0%{
+    margin-left: 0;
+  }
+  100%{
+    margin-left: px2rem(-500);
+  }
+}
+
+.burgerSideBarContainer{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: fit-content;
+  z-index: 1001;
+  .openButton{
+    position: fixed;
+    left: px2rem(90);
+    top: px2rem(50);
+    cursor: pointer;
+  }
+  .sideBarPanel{
+    position: relative;
+    animation: slideIn 1s;
+    width: px2rem(500);
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1002;
+    @include flexCenter;
+    .closeButton{
+      width: px2rem(50);
+      position: absolute;
+      left: px2rem(90);
+      top: px2rem(50);
+      cursor: pointer;
+    }
+
+    .circlesImage{
+      position: absolute;
+
+      bottom: px2rem(100);
+    }
+  }
+  .goingOut{
+    animation: slideOut 1s;
+  }
+}

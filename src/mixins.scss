@@ -1,0 +1,31 @@
+// breakpoints
+$mobile-small: 360px;
+$mobile-medium: 480px;
+$mobile: 767px;
+$tablet: 1024px;
+$desktop-small: 1180px;
+$desktop: 1280px;
+$desktop-large: 1800px;
+
+
+@function px2rem($val: 1) {
+  @return $val / 16 * 1rem;
+}
+
+@mixin breakpoint($rule) {
+  @if $rule == $desktop-large {
+    @media only screen and (min-width: #{$rule}) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: #{$rule}) {
+      @content;
+    }
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
