@@ -38,5 +38,6 @@ delete `node_modules`
 | prettier         | format code        |
 | lint-staged      | trigger prettier   |
 | husky            |  pre-commit        |
+| classnames       |  using multiple classnames |
 
 
