@@ -1,38 +1,60 @@
 @import '../../index.scss';
 
-.sideBarContainer{
-  height: 100%;
-  left: px2rem(100);
-  z-index: 1000!important;
-  position: fixed;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.sideBar {
   @include flexCenter;
-  .sideBar{
-    @include flexCenter;
-    width: px2rem(24);
-    flex-direction: column;
-    a{
-      color: transparent;
+  flex-direction: column;
+
+  a {
+    color: transparent;
+  }
+
+  .routerLine {
+    display: inline-flex;
+    direction: rtl;
+    align-items: center;
+    margin: px2rem(10) 0;
+
+    .titleText {
+      color: black;
+      font-size: px2rem(18);
+      white-space: nowrap;
+      animation: fadeIn 1s;
+      &:hover {
+        text-decoration: underline;
+      }
     }
-    .dot{
+
+    .dotContainer {
+      display: inline-flex;
+      align-items: center;
       padding: px2rem(10);
-      background-color:black;
-      border-radius: 50%;
-      border: px2rem(1) solid transparent;
-      margin: px2rem(10) 0;
-      &:not(.activeDot){
+      .dot {
+        padding: px2rem(10);
+        background-color: black;
+        border-radius: 50%;
+        border: px2rem(1) solid transparent;
+        &:not(.activeDot) {
           transition: 200ms linear;
-          &:hover{
+          &:hover {
             transform: scale(1.1);
             transition: 300ms ease;
           }
+        }
       }
-    }
-    .activeDot{
-      background-color: #1298bb;
-      padding: px2rem(12);
-      border: 2px solid;
-      box-shadow: 0 0 0 2px #f3f5f6 inset;
- 
+      .activeDot {
+        background-color: #1298bb;
+        padding: px2rem(12);
+        border: 2px solid;
+        box-shadow: 0 0 0 2px #f3f5f6 inset;
+      }
     }
   }
 }

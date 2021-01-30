@@ -5,23 +5,26 @@ import { RouterType } from '../../layouts/types';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 
-export const LimpiDotsSideBar: FC = () => {
+interface ILimpiDotsSideBar {
+  showTitles?: boolean;
+}
+
+export const LimpiDotsSideBar: FC<ILimpiDotsSideBar> = ({ showTitles }) => {
   const location = useLocation();
   const isActive = useCallback((path) => path === location.pathname, [location.pathname]);
 
   const renderedDots = useMemo(
     () =>
       limpiRouters.map((router: RouterType) => (
-        <Link key={router.name} to={router.path}>
-          <div className={classnames(styles.dot, isActive(router.path) && styles.activeDot)} />
+        <Link key={router.name} to={router.path} className={styles.routerLine}>
+          <div className={styles.dotContainer}>
+            <div className={classnames(styles.dot, isActive(router.path) && styles.activeDot)} />
+          </div>
+          {showTitles && <span className={styles.titleText}> על ההתאחדות </span>}
         </Link>
       )),
-    [isActive],
+    [isActive, showTitles],
   );
 
-  return (
-    <div className={styles.sideBarContainer}>
-      <div className={styles.sideBar}>{renderedDots}</div>
-    </div>
-  );
+  return <div className={styles.sideBar}>{renderedDots}</div>;
 };
