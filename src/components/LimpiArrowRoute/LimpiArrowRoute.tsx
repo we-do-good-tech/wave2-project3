@@ -12,8 +12,6 @@ export const LimpiArrowRoute: FC = () => {
     location,
   ]);
 
-  console.log(nextRoute);
-
   return (
     <div className={styles.arrowContainer}>
       {nextRoute && (

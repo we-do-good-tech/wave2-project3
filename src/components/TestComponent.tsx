@@ -6,9 +6,9 @@ export interface ITestComponent {
 }
 
 export const testComponent: FC<ITestComponent> = () => {
-  return <div>test</div>;
+  return <div style={{ backgroundColor: 'blue', height: '100VH' }}>test</div>;
 };
 
 export const testComponent2: FC = () => {
-  return <div>test2</div>;
+  return <div style={{ backgroundColor: 'brown', height: '100VH' }}>test2</div>;
 };
