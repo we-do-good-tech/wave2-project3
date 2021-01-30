@@ -1,0 +1,26 @@
+@import '../../index.scss';
+
+@keyframes movingShadow {
+  0% {
+    filter: drop-shadow(0 0 2px black);
+  }
+  100% {
+    filter: drop-shadow(0 5px 5px black);
+    padding-bottom: 5px;
+  }
+}
+
+.arrowContainer {
+  position: fixed;
+  bottom: 0;
+  left: calc(50% - 3.125rem);
+  img {
+    width: px2rem(100);
+    animation: movingShadow 0.5s infinite alternate;
+    &:hover {
+      animation: none;
+      transform: scale(1.1);
+      transition: 0.5s;
+    }
+  }
+}
