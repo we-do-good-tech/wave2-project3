@@ -21,10 +21,7 @@ export const MainLayout: FC = () => {
     <Router>
       <LimpiBurgerSideBar />
       <LimpiDotsSideBar />
-      <Switch>
-        <Route exact path='/' component={LimpiHome} />
-        {makeRouters()}
-      </Switch>
+      <Switch>{makeRouters()}</Switch>
     </Router>
   );
 };
