@@ -1,38 +1,38 @@
 @import '../../index.scss';
 
-.sideBarContainer{
+.sideBarContainer {
   height: 100%;
   left: px2rem(100);
-  z-index: 1000!important;
+  z-index: 1000 !important;
   position: fixed;
   @include flexCenter;
-  .sideBar{
+  .sideBar {
     @include flexCenter;
     width: px2rem(24);
     flex-direction: column;
-    a{
+    a {
       color: transparent;
     }
-    .dot{
+    .dot {
+      cursor: pointer;
       padding: px2rem(10);
-      background-color:black;
+      background-color: black;
       border-radius: 50%;
       border: px2rem(1) solid transparent;
       margin: px2rem(10) 0;
-      &:not(.activeDot){
-          transition: 200ms linear;
-          &:hover{
-            transform: scale(1.1);
-            transition: 300ms ease;
-          }
+      &:not(.activeDot) {
+        transition: 200ms linear;
+        &:hover {
+          transform: scale(1.1);
+          transition: 300ms ease;
+        }
       }
     }
-    .activeDot{
+    .activeDot {
       background-color: #1298bb;
       padding: px2rem(12);
       border: 2px solid;
       box-shadow: 0 0 0 2px #f3f5f6 inset;
- 
     }
   }
 }

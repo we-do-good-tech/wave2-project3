@@ -7,7 +7,6 @@ $desktop-small: 1180px;
 $desktop: 1280px;
 $desktop-large: 1800px;
 
-
 @function px2rem($val: 1) {
   @return $val / 16 * 1rem;
 }
@@ -29,3 +28,7 @@ $desktop-large: 1800px;
   align-items: center;
   justify-content: center;
 }
+
+$orange: #ef4b23;
+
+$turqiz: #1298bb;

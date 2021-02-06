@@ -1,0 +1,34 @@
+@import '../../index.scss';
+
+.container {
+  @include flexCenter;
+  background-color: #f9f9f9;
+  background-size: 430px;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position: right bottom;
+  flex-direction: column;
+}
+.paper {
+  display: flex;
+  flex-direction: column;
+  width: px2rem(485);
+
+  p {
+    margin-top: px2rem(10);
+    font-size: px2rem(26);
+    font-weight: 100;
+    direction: rtl;
+  }
+}
+.firstHeader {
+  font-size: px2rem(30);
+  margin: 0;
+  margin-top: px2rem(80);
+  color: $orange;
+}
+.secondHeader {
+  font-size: px2rem(30);
+  margin: 0;
+  color: $turqiz;
+}
