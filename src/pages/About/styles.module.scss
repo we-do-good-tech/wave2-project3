@@ -1,0 +1,17 @@
+@import '../../index.scss';
+
+.container {
+  @include flexCenter;
+  flex-direction: column;
+
+  h1 {
+    color: #353535;
+    font-weight: 100;
+    text-align: center;
+    width: 80%;
+  }
+
+  .mainImage {
+    width: 70%;
+  }
+}

@@ -12,3 +12,7 @@ export const testComponent: FC<ITestComponent> = () => {
 export const testComponent2: FC = () => {
   return <div style={{ backgroundColor: 'brown', height: '100VH' }}>test2</div>;
 };
+
+export const testComponent3: FC = () => {
+  return <div style={{ backgroundColor: 'green', height: '100VH' }}>test3</div>;
+};
