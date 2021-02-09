@@ -19,7 +19,7 @@ export const LimpiHome: FC = () => {
 
   return (
     <div style={{ direction: 'rtl' }}>
-      <img src={logo} className={classnames('limpiLogo', scrollTopPosition >= 10 && 'limpiLogoRight')} />
+      <img src={logo} alt='logo' className={classnames('limpiLogo', scrollTopPosition >= 10 && 'limpiLogoRight')} />
       <LimpiDotsSideBar />
       <LimpiBurgerSideBar />
       {createPages}
