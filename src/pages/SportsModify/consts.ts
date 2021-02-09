@@ -143,7 +143,7 @@ export const SportCateories: ISportCategory[] = [
   {
     id: 1,
     categoryIds: [15],
-    name: 'Bicycle',
+    name: 'Bikes',
     title: 'אופניים',
   },
   {
@@ -215,13 +215,13 @@ export const SportCateories: ISportCategory[] = [
   {
     id: 13,
     categoryIds: [3, 4, 5, 6, 7, 8, 12, 13, 14, 15],
-    name: 'Kiaks',
+    name: 'Kayak',
     title: 'קיאקים',
   },
   {
     id: 14,
     categoryIds: [],
-    name: 'HorseRiding',
+    name: 'Riding',
     title: 'רכיבה',
   },
   {
@@ -245,7 +245,7 @@ export const SportCateories: ISportCategory[] = [
   {
     id: 18,
     categoryIds: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 13, 14, 15],
-    name: 'Rogby',
+    name: 'Rugby',
     title: 'רוגבי',
   },
   {
@@ -275,7 +275,7 @@ export const SportCateories: ISportCategory[] = [
   {
     id: 23,
     categoryIds: [1, 3, 4, 5, 6, 7, 8, 10, 12, 13, 14, 15],
-    name: 'Dancing',
+    name: 'Dance',
     title: 'ריקודים',
   },
   {
