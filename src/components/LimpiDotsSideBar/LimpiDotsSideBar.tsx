@@ -12,7 +12,11 @@ export const LimpiDotsSideBar: FC = () => {
   const currentActiveIdx = toInteger(scrollTopPosition / (customerWindowHeight * 0.8));
 
   const renderedDots = limpiHomeComponents.map((_, idx) => (
-    <div className={classnames(styles.dot, idx === currentActiveIdx && styles.activeDot)} onClick={() => jumpTo(idx)} />
+    <div
+      key={idx}
+      className={classnames(styles.dot, idx === currentActiveIdx && styles.activeDot)}
+      onClick={() => jumpTo(idx)}
+    />
   ));
 
   return (

@@ -1,6 +1,7 @@
 import { testComponent, testComponent2 } from '../../components/TestComponent';
 import { About } from '../About';
 import { Association } from '../Association';
+import { SportsModify } from '../SportsModify';
 import { LimpiHomePage } from './types';
 
 export const limpiHomeComponents: LimpiHomePage[] = [
@@ -16,7 +17,7 @@ export const limpiHomeComponents: LimpiHomePage[] = [
   },
   {
     name: 'home3',
-    component: testComponent,
+    component: SportsModify,
     title: 'קצת השראה',
   },
 ];
