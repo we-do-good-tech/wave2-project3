@@ -29,6 +29,25 @@ $desktop-large: 1800px;
   justify-content: center;
 }
 
+$font-sizes: 10 12 14 16 18 20 22 24 32 56;
+
+@each $size in $font-sizes {
+  .font-size-#{$size} {
+    font-size: px2rem($size) !important;
+  }
+}
+
 $orange: #ef4b23;
 
 $turqiz: #1298bb;
+
+.d-flex {
+  display: flex;
+}
+.flex-columns {
+  flex-direction: column;
+}
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
