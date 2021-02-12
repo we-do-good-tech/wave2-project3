@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { IconProps, SVGsType } from './types';
-import { ReactComponent as Ui } from '../../images/sportLogos/Arrow.svg';
+import { ReactComponent as Arrow } from '../../images/sportLogos/Arrow.svg';
 
 export const SVGs: SVGsType<JSX.IntrinsicElements | any> = {
-  ui: Ui,
+  arrow: Arrow,
 };
 
 export const Icon: FC<IconProps> = ({ type, ...props }) => React.createElement(SVGs[type], props);

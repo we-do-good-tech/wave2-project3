@@ -1,4 +1,3 @@
-import { testComponent, testComponent2 } from '../../components/TestComponent';
 import { About } from '../About';
 import { Association } from '../Association';
 import { SportsModify } from '../SportsModify';

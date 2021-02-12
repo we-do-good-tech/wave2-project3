@@ -1,4 +1,4 @@
-export type IconType = 'ui';
+export type IconType = 'arrow';
 
 export interface IconProps {
   type: IconType;

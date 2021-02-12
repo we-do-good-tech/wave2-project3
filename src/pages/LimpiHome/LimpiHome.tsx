@@ -1,11 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import { limpiHomeComponents } from './consts';
 import { LimpiDotsSideBar } from '../../components/LimpiDotsSideBar';
 import logo from '../../images/logoSmall.png';
 import classnames from 'classnames';
 import { useScrollPosition } from 'react-use-scroll-position';
 import { LimpiBurgerSideBar } from '../../components/LimpiBurgerSideBar';
-import { SportsModify } from '../SportsModify';
 
 export const LimpiHome: FC = () => {
   const { y: scrollTopPosition } = useScrollPosition();

@@ -1,5 +1,15 @@
-import React, { FC, useMemo, useState } from 'react';
-import { disabilitiesSubCategoris, IDisabilitiesSubCategory, ISportCategory, SportCateories } from './consts';
+import React, { FC, useEffect, useMemo, useState } from 'react';
+import { DisabilityCategory } from './components';
+import {
+  disabilitiesCategories,
+  disabilitiesSubCategoris,
+  IDisabilitiesCategory,
+  IDisabilitiesSubCategory,
+  ISportCategory,
+  SportCateories,
+} from './consts';
+import styles from './styles.module.scss';
+import classnames from 'classnames';
 
 export const SportsModify: FC = () => {
   const [state, setState] = useState({});
@@ -23,10 +33,10 @@ export const SportsModify: FC = () => {
       else model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1].id;
     }
     setState(model);
-    const arr = SportCateories.filter((category: ISportCategory) =>
+    const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
       checkValid(category.categoryIds, Object.values(model)),
     );
-    setActiveSports(arr);
+    setActiveSports(wouldBeActiveSports);
   };
 
   //rendered the active sports
@@ -40,22 +50,27 @@ export const SportsModify: FC = () => {
     setActiveSports(SportCateories);
   };
 
+  useEffect(() => {
+    console.log(activeSports);
+  }, [activeSports]);
+
   return (
-    <div>
-      {disabilitiesSubCategoris.map((disability: IDisabilitiesSubCategory) => {
-        return (
-          <button
-            onClick={() => {
-              changeDisablity(disability);
-            }}
-            key={disability.name}
-            className='font-size-16 d-flex flex-columns flex-center'>
-            {disability.name}
-          </button>
-        );
-      })}
-      <button onClick={() => reset()}>reset</button>
-      <div className={'d-flex flex-columns'}></div>
+    <div className={styles.container}>
+      <div className={styles.sideMenu}>
+        <h1>התאמת ענף ספורט לפי סיווג</h1>
+        <hr />
+        <div className={classnames('d-flex flex-column', styles.chooseMenu)}>
+          {disabilitiesCategories.map((category: IDisabilitiesCategory) => (
+            <DisabilityCategory
+              title={category.title}
+              subcategories={disabilitiesSubCategoris.filter(
+                (subCategory: IDisabilitiesSubCategory) => subCategory.categoryId === category.id,
+              )}
+              onSubCategoryChose={changeDisablity}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
