@@ -3,13 +3,14 @@
 .container {
   background-color: #f9f9f9;
   height: 100%;
+  padding: 20px; //to delete
 
   .sideMenu {
     width: px2rem(350);
     padding: px2rem(20);
     border: 4px solid rgb(232, 232, 232);
     background-color: white;
-    height: px2rem(700);
+    height: px2rem(600);
     h1 {
       color: #1298bb;
       font-size: px2rem(28);
