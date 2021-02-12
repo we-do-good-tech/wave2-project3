@@ -18,7 +18,7 @@ export interface ISportCategory {
   title: string;
 }
 
-export const disabilitiesCategoris: IDisabilitiesCategory[] = [
+export const disabilitiesCategories: IDisabilitiesCategory[] = [
   {
     id: 1,
     name: 'amputatin',

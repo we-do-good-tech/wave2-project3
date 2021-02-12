@@ -1,0 +1,64 @@
+@import '../../../index.scss';
+
+.container {
+  border-bottom: 1px solid #e5e5e5;
+  padding: px2rem(20) px2rem(10) px2rem(10) 0;
+  .categoryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      color: #8e8d8d;
+      font-size: px2rem(26);
+      font-weight: 100;
+      direction: ltr;
+    }
+    .dropDownToggle,
+    .openDropdownToggle {
+      width: px2rem(20);
+      height: px2rem(20);
+      color: red;
+      cursor: pointer;
+    }
+  }
+
+  .subCategory {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: px2rem(10) px2rem(5) px2rem(5) px2rem(5);
+    input[type='checkbox'] {
+      transition: 100ms;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      /* create custom checkbox appearance */
+      display: inline-block;
+      width: px2rem(20);
+      height: px2rem(20);
+      padding: px2rem(1.2);
+      /* background-color only for content */
+      background-clip: content-box;
+      border: 1.5px solid #1298bb;
+      border-radius: 0;
+      background-color: white;
+      margin-left: 5px;
+      margin-right: 5px;
+
+      &:checked {
+        transition: 100ms;
+        background-color: #1298bb;
+      }
+
+      &:focus {
+        outline: none !important;
+      }
+    }
+    span {
+      color: #8e8d8d;
+      font-size: px2rem(22);
+      font-weight: 100;
+    }
+  }
+}
