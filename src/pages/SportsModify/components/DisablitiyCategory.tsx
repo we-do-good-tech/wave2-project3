@@ -30,58 +30,58 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
   }, [stateIds]);
 
   //Check combinations of body parts - for example: one hand + one leg => one hand and one leg combination
-  const translateValues = (model: number[], incomingId?: number) => {
-    model = replaceValuesInArr(model, [], []);
-
-    if (model.includes(2) && incomingId === 1) {
-      model = replaceValuesInArr(model, [], [2]);
-    }
-    if (model.includes(1) && incomingId === 2) {
-      model = replaceValuesInArr(model, [], [1]);
-    }
-    if (model.includes(4) && incomingId === 3) {
-      model = replaceValuesInArr(model, [], [4]);
-    }
-    if (model.includes(3) && incomingId === 4) {
-      model = replaceValuesInArr(model, [], [3]);
-    }
-
-    if (model.includes(1) && model.includes(3)) {
-      model.push(5);
-    } else {
-      model = replaceValuesInArr(model, [], [5]);
-    }
-
-    if (model.includes(2) && model.includes(4)) {
-      model.push(6);
-    } else {
-      model = replaceValuesInArr(model, [], [6]);
-    }
-
-    if (model.includes(1) && model.includes(4)) {
-      model.push(6);
-    } else {
-      model = replaceValuesInArr(model, [], [6]);
-    }
-
-    if (model.includes(2) && model.includes(3)) {
-      model.push(7);
-    } else {
-      model = replaceValuesInArr(model, [], [7]);
-    }
-
-    if (model.includes(2) && model.includes(4)) {
-      model.push(8);
-    } else {
-      model = replaceValuesInArr(model, [], [8]);
-    }
-
-    model = replaceValuesInArr(model, [], []);
-    return model;
-  };
 
   const clickHandler = useCallback(
     (subCategory: IDisabilitiesSubCategory) => {
+      const translateValues = (translateModel: number[], incomingId?: number) => {
+        translateModel = replaceValuesInArr(translateModel, [], []);
+
+        if (translateModel.includes(2) && incomingId === 1) {
+          translateModel = replaceValuesInArr(translateModel, [], [2]);
+        }
+        if (translateModel.includes(1) && incomingId === 2) {
+          translateModel = replaceValuesInArr(translateModel, [], [1]);
+        }
+        if (translateModel.includes(4) && incomingId === 3) {
+          translateModel = replaceValuesInArr(translateModel, [], [4]);
+        }
+        if (translateModel.includes(3) && incomingId === 4) {
+          translateModel = replaceValuesInArr(translateModel, [], [3]);
+        }
+
+        if (translateModel.includes(1) && translateModel.includes(3)) {
+          translateModel.push(5);
+        } else {
+          translateModel = replaceValuesInArr(translateModel, [], [5]);
+        }
+
+        if (translateModel.includes(2) && translateModel.includes(4)) {
+          translateModel.push(6);
+        } else {
+          translateModel = replaceValuesInArr(translateModel, [], [6]);
+        }
+
+        if (translateModel.includes(1) && translateModel.includes(4)) {
+          translateModel.push(6);
+        } else {
+          translateModel = replaceValuesInArr(translateModel, [], [6]);
+        }
+
+        if (translateModel.includes(2) && translateModel.includes(3)) {
+          translateModel.push(7);
+        } else {
+          translateModel = replaceValuesInArr(translateModel, [], [7]);
+        }
+
+        if (translateModel.includes(2) && translateModel.includes(4)) {
+          translateModel.push(8);
+        } else {
+          translateModel = replaceValuesInArr(translateModel, [], [8]);
+        }
+
+        translateModel = replaceValuesInArr(translateModel, [], []);
+        return translateModel;
+      };
       const model = stateIds.concat();
       if (subCategory.categoryId === 1) {
         if (model.includes(subCategory.id)) {
@@ -100,7 +100,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
         }
       }
     },
-    [stateIds, setStateIds, translateValues],
+    [stateIds, setStateIds],
   );
 
   const replaceValuesInArr = (arr: number[], valuesToEnter: number[], valuesToDelete: number[]) => {
