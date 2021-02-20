@@ -5,6 +5,10 @@
   left: px2rem(50);
   z-index: 1000 !important;
   position: fixed;
+  @media screen and (max-width: $mobile) {
+    left: px2rem(20);
+    opacity: 0.4;
+  }
   @include flexCenter;
   .sideBar {
     @include flexCenter;

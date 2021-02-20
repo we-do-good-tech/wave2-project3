@@ -15,15 +15,16 @@
   }
 }
 .paper {
-  display: flex;
+  overflow-wrap: break-word;
   flex-direction: column;
-  width: px2rem(485);
+  max-width: px2rem(485);
+  width: fit-content;
+  display: flex;
   @media screen and (max-width: $tablet) {
     background-color: rgba(255, 255, 255, 0.4);
     padding: px2rem(10);
     margin: px2rem(10) 0;
   }
-
   p {
     margin-top: px2rem(10);
     font-size: px2rem(26);

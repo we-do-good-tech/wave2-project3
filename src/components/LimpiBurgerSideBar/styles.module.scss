@@ -30,6 +30,13 @@
     left: px2rem(40);
     top: px2rem(50);
     cursor: pointer;
+
+    @media screen and (max-width: $mobile) {
+      left: px2rem(20);
+      top: px2rem(40);
+      opacity: 0.4;
+      width: px2rem(30);
+    }
   }
   .sideBarPanel {
     position: relative;
@@ -49,16 +56,37 @@
       filter: invert(100%);
       cursor: pointer;
     }
+    @media screen and(max-width: $tablet) {
+      width: px2rem(250);
+      height: fit-content;
+      padding-bottom: px2rem(50);
+      animation: none;
+      .closeButton {
+        width: px2rem(25);
+        left: px2rem(21);
+        top: px2rem(37);
+      }
+    }
 
     .circlesImageContainer {
       position: absolute;
       bottom: px2rem(100);
       width: 100%;
       @include flexCenter;
+      @media screen and(max-width: $tablet) {
+        position: static;
+        padding-top: px2rem(50);
+        img {
+          width: px2rem(100);
+        }
+      }
     }
   }
   .goingOut {
     animation: slideOut 1s;
+    @media screen and(max-width: $tablet) {
+      animation: none;
+    }
   }
 }
 
@@ -78,5 +106,9 @@
   }
   p:hover {
     text-decoration: underline;
+  }
+  @media screen and(max-width: $tablet) {
+    margin-top: 50px;
+    margin-right: 50px;
   }
 }

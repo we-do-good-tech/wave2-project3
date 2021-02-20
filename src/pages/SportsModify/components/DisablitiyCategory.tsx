@@ -1,5 +1,5 @@
 import { useBoolean } from 'ahooks';
-import React, { FC, useCallback, useMemo, useState, useEffect } from 'react';
+import React, { FC, useCallback, useState, useEffect } from 'react';
 import { IDisabilitiesSubCategory } from '../consts';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
@@ -100,7 +100,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
         }
       }
     },
-    [stateIds, setStateIds, subcategories, translateValues],
+    [stateIds, setStateIds, translateValues],
   );
 
   const replaceValuesInArr = (arr: number[], valuesToEnter: number[], valuesToDelete: number[]) => {
@@ -115,14 +115,16 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
     () =>
       !isOpen
         ? undefined
-        : subcategories.map((subCategory: IDisabilitiesSubCategory) =>
+        : subcategories.map((subCategory: IDisabilitiesSubCategory, idx: number) =>
             subCategory.hide ? undefined : (
-              <div className={styles.subCategory}>
+              <div className={styles.subCategory} key={idx} onClick={() => clickHandler(subCategory)}>
                 <input
                   key={subCategory.id}
                   type='checkbox'
                   checked={stateIds.includes(subCategory.id)}
-                  onClick={() => clickHandler(subCategory)}
+                  onChange={() => {
+                    return;
+                  }}
                 />
                 <span>{subCategory.title}</span>
               </div>
@@ -133,13 +135,12 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
 
   return (
     <div className={classnames(styles.container, isOpen && styles.openContainer)}>
-      <div className={styles.categoryContainer}>
+      <div className={styles.categoryContainer} onClick={() => toggleOpen()}>
         <span className={styles.title}>{title}</span>
         <img
           src={isOpen ? closeImage : plusImage}
           alt='down-arrow'
           className={classnames(styles.dropDownToggle, isOpen && styles.openDropdownToggle)}
-          onClick={() => toggleOpen()}
         />
       </div>
       {renderedSubCategories()}

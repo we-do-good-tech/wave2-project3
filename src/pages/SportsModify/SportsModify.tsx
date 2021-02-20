@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { DisabilityCategory } from './components';
 import {
   disabilitiesCategories,
@@ -51,10 +51,11 @@ export const SportsModify: FC = () => {
   const SportLogos = useMemo(
     () => (
       <div className={styles.SportIcons}>
-        {SportCateories.map((sportCategory: ISportCategory) => {
+        {SportCateories.map((sportCategory: ISportCategory, idx: number) => {
           return (
             <SportLogo
               type={sportCategory.name}
+              key={idx}
               disabled={!activeSportIds.includes(sportCategory.id)}
               color={getColor(toInteger((sportCategory.id - 1) / 6))}
             />
@@ -65,22 +66,25 @@ export const SportsModify: FC = () => {
     [getColor, activeSportIds],
   );
 
-  const changeDisablity = (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => {
-    const model: any = state;
-    if (disablitity?.id) {
-      const { categoryId, id: subCetegoryId } = disablitity;
-      model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1]?.id;
-    }
-    if (deleteOne) {
-      delete model[deleteOne];
-    }
+  const changedisability = useCallback(
+    (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => {
+      const model: any = state;
+      if (disablitity?.id) {
+        const { categoryId, id: subCetegoryId } = disablitity;
+        model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1]?.id;
+      }
+      if (deleteOne) {
+        delete model[deleteOne];
+      }
 
-    setState(model);
-    const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
-      checkValid(category.categoryIds, Object.values(model)),
-    );
-    setActiveSports(wouldBeActiveSports);
-  };
+      setState(model);
+      const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
+        checkValid(category.categoryIds, Object.values(model)),
+      );
+      setActiveSports(wouldBeActiveSports);
+    },
+    [state],
+  );
 
   const rightSideMenu = useCallback(() => {
     return (
@@ -88,19 +92,20 @@ export const SportsModify: FC = () => {
         <h1>התאמת ענף ספורט לפי סיווג</h1>
         <hr />
         <div className={classnames('d-flex flex-column', styles.chooseMenu)}>
-          {disabilitiesCategories.map((category: IDisabilitiesCategory) => (
+          {disabilitiesCategories.map((category: IDisabilitiesCategory, idx: number) => (
             <DisabilityCategory
               title={category.title}
+              key={idx}
               subcategories={disabilitiesSubCategoris.filter(
                 (subCategory: IDisabilitiesSubCategory) => subCategory.categoryId === category.id,
               )}
-              onSubCategoryChose={changeDisablity}
+              onSubCategoryChose={changedisability}
             />
           ))}
         </div>
       </div>
     );
-  }, [changeDisablity]);
+  }, [changedisability]);
 
   return (
     <div className={styles.fullContainer}>
