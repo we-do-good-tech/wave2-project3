@@ -13,6 +13,17 @@
   }
 }
 
+@keyframes blurIn {
+  0% {
+    text-shadow: 0 0 15px white;
+    color: transparent;
+  }
+  100% {
+    text-shadow: none;
+    color: white;
+  }
+}
+
 .shadow {
   position: absolute;
   bottom: 0;
@@ -29,7 +40,12 @@
     margin: auto auto;
     box-shadow: 0px 3px 10px #353535ba;
     @include flexCenter;
-    animation: popIn 400ms;
+    animation: popIn 300ms;
+  }
+  p,
+  a,
+  span {
+    animation: blurIn 800ms;
   }
 }
 

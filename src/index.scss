@@ -25,20 +25,18 @@ h6 {
 
 .limpiLogo {
   @media screen and (max-width: $tablet) {
-    right: 40vw;
   }
-  position: sticky;
+  @media screen and (max-width: $mobile) {
+  }
+  position: fixed;
   top: px2rem(36);
-  right: 45vw;
   transition: 200ms;
   width: px2rem(140);
+  z-index: 2;
 }
 .limpiLogoRight {
-  position: sticky;
+  transition: width 200ms;
+  right: 0;
   top: 0;
-  left: 0;
-  right: 0px;
-  transition: 200ms;
-  z-index: 2;
   width: px2rem(100);
 }

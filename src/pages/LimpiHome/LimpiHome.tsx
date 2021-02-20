@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { limpiHomeComponents } from './consts';
 import { LimpiDotsSideBar } from '../../components/LimpiDotsSideBar';
 import logo from '../../images/logoSmall.png';
-import classnames from 'classnames';
 import { useScrollPosition } from 'react-use-scroll-position';
+import classnames from 'classnames';
 import { LimpiBurgerSideBar } from '../../components/LimpiBurgerSideBar';
 
 export const LimpiHome: FC = () => {
@@ -19,12 +19,12 @@ export const LimpiHome: FC = () => {
 
   return (
     <div style={{ direction: 'rtl' }}>
-      <img
+      {/* <img
         src={logo}
         alt='logo'
         id='limpiLogo'
         className={classnames('limpiLogo', scrollTopPosition >= 40 && 'limpiLogoRight')}
-      />
+      /> */}
       <LimpiDotsSideBar />
       <LimpiBurgerSideBar />
       {createPages()}
