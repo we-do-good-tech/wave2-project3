@@ -21,7 +21,7 @@ export const LimpiBurgerSideBar: FC = () => {
 
   const handleSideBarExit = () => {
     turnOnGoingOut();
-    setTimeout(() => hideSideBar(), 900);
+    setTimeout(() => hideSideBar(), 600);
   };
 
   return (

@@ -31,6 +31,7 @@ h6 {
   top: px2rem(36);
   right: 45vw;
   transition: 200ms;
+  width: px2rem(140);
 }
 .limpiLogoRight {
   position: sticky;
@@ -38,4 +39,6 @@ h6 {
   left: 0;
   right: 0px;
   transition: 200ms;
+  z-index: 2;
+  width: px2rem(100);
 }

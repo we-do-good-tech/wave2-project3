@@ -41,20 +41,24 @@
   .sideBarPanel {
     position: relative;
     animation: slideIn 1s;
-    width: px2rem(500);
+    width: px2rem(400);
     height: 100%;
     background-color: #191818f2;
     z-index: 1002;
     display: flex;
     flex-direction: column;
     .closeButton {
-      width: px2rem(50);
+      width: px2rem(30);
       position: absolute;
-      left: px2rem(90);
+      left: px2rem(50);
       top: px2rem(50);
       -webkit-filter: invert(100%);
       filter: invert(100%);
       cursor: pointer;
+      transition: 200ms;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
     @media screen and(max-width: $tablet) {
       width: px2rem(250);
@@ -70,9 +74,12 @@
 
     .circlesImageContainer {
       position: absolute;
-      bottom: px2rem(100);
+      bottom: px2rem(80);
       width: 100%;
       @include flexCenter;
+      img {
+        width: px2rem(130);
+      }
       @media screen and(max-width: $tablet) {
         position: static;
         padding-top: px2rem(50);
@@ -94,7 +101,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 100px;
-  margin-right: 100px;
+  margin-right: 70px;
   p {
     color: white;
     cursor: pointer;

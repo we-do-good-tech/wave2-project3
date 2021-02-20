@@ -76,6 +76,11 @@
       align-items: center;
       overflow: scroll;
       margin: px2rem(5);
+      @media screen and (max-width: $tablet) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
   }
 }
@@ -88,10 +93,28 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  a,
+  h2,
   h1,
   p {
     color: white;
   }
+  p {
+    width: 85%;
+    font-weight: 100;
+    font-size: px2rem(26);
+    text-align: center;
+    h2 {
+      font-size: px2rem(26);
+      font-weight: 100;
+    }
+    a {
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+
   svg {
     height: px2rem(100);
     width: px2rem(150);
@@ -102,9 +125,13 @@
   position: absolute;
   top: px2rem(35);
   right: px2rem(35);
-  width: px2rem(35);
-  height: px2rem(35);
+  width: px2rem(30);
+  height: px2rem(30);
   -webkit-filter: invert(100%);
   filter: invert(100%);
   cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    transition: 100ms;
+  }
 }

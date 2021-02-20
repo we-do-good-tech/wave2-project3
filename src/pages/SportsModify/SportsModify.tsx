@@ -66,6 +66,16 @@ export const SportsModify: FC = () => {
             />
             <div className={styles.popupBody}>
               <h1>{activePopup.title}</h1>
+              <p>
+                {activePopup.description}
+                <h2>
+                  הענף נשמע לכם מעניין? <br /> פנו ל
+                  <a href='https://isad.org.il/' target='_blank'>
+                    התאחדות הישראלית
+                  </a>{' '}
+                  לספורט נכים וגלו איפה אפשר להשתתף!
+                </h2>
+              </p>
               <Icon type={activePopup.name} />
             </div>
           </SportPopup>
