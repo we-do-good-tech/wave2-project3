@@ -73,9 +73,19 @@
       height: px2rem(600);
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 40px;
+      grid-auto-rows: 143px;
       align-items: center;
       overflow: scroll;
       margin: px2rem(5);
+      .wasFound {
+        grid-column: 1 / -1;
+        flex-basis: 100%;
+        padding-right: px2rem(20);
+        color: #8e8d8d;
+        font-weight: 100;
+        font-size: px2rem(22);
+      }
       @media screen and (max-width: $tablet) {
         display: flex;
         flex-wrap: wrap;

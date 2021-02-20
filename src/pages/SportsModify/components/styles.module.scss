@@ -96,19 +96,12 @@
     width: px2rem(70);
     height: px2rem(70);
   }
-  &:hover {
+  &:hover:not(.disabled) {
     transform: scale(1.1);
   }
 
   @media screen and (max-width: $tablet) {
     margin: px2rem(16);
-    // width: px2rem(75);
-    // height: px2rem(75);
-    // svg {
-    //   padding: px2rem(7);
-    //   width: px2rem(50);
-    //   height: px2rem(50);
-    // }
   }
 }
 
@@ -141,5 +134,6 @@
   border-color: gray;
   svg {
     background-color: gray;
+    cursor: default !important;
   }
 }

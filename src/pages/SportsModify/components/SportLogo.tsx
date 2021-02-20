@@ -12,7 +12,9 @@ interface ISportLogo {
 
 export const SportLogo: FC<ISportLogo> = ({ type, color, disabled, onClick }) => {
   return (
-    <div onClick={() => onClick?.()} className={classnames(styles.Icon, styles[color], disabled && styles.disabled)}>
+    <div
+      onClick={() => !disabled && onClick?.()}
+      className={classnames(styles.Icon, styles[color], disabled && styles.disabled)}>
       <Icon type={type} />
     </div>
   );

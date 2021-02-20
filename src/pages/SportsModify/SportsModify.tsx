@@ -56,6 +56,7 @@ export const SportsModify: FC = () => {
   const SportLogos = useMemo(
     () => (
       <div className={styles.SportIcons}>
+        <h6 className={styles.wasFound}>נמצאו {activeSportIds.length} ענפי ספורט מתאימים</h6>
         {!!activePopup && (
           <SportPopup backgroundColor={getColor(toInteger((activePopup.id - 1) / 6))}>
             <img
