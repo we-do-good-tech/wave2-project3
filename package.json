@@ -2,7 +2,7 @@
   "name": "limpi",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://we-do-good-tech.github.io/wave2-project3/",
+  "homepage": "https://we-do-good-tech.github.io/wave2-project3/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
