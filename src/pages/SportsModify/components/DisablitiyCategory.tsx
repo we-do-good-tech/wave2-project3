@@ -137,11 +137,14 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
     <div className={classnames(styles.container, isOpen && styles.openContainer)}>
       <div className={styles.categoryContainer} onClick={() => toggleOpen()}>
         <span className={styles.title}>{title}</span>
-        <img
-          src={isOpen ? closeImage : plusImage}
-          alt='down-arrow'
-          className={classnames(styles.dropDownToggle, isOpen && styles.openDropdownToggle)}
-        />
+        <div className={styles.left}>
+          {stateIds.length > 0 && <span className={styles.indicator}>{stateIds.length > 2 ? 2 : stateIds.length}</span>}
+          <img
+            src={isOpen ? closeImage : plusImage}
+            alt='down-arrow'
+            className={classnames(styles.dropDownToggle, isOpen && styles.openDropdownToggle)}
+          />
+        </div>
       </div>
       {renderedSubCategories()}
     </div>

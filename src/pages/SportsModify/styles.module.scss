@@ -64,6 +64,7 @@
     }
 
     .SportIcons {
+      position: relative;
       flex-basis: 63%;
       flex-grow: 1;
       padding: px2rem(20);
@@ -77,4 +78,33 @@
       margin: px2rem(5);
     }
   }
+}
+
+.popupBody {
+  width: 96%;
+  height: 93%;
+  border: 7px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  h1,
+  p {
+    color: white;
+  }
+  svg {
+    height: px2rem(130);
+    width: px2rem(150);
+    margin: px2rem(30) 0;
+  }
+}
+.closeButton {
+  position: absolute;
+  top: px2rem(35);
+  right: px2rem(35);
+  width: px2rem(35);
+  height: px2rem(35);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  cursor: pointer;
 }

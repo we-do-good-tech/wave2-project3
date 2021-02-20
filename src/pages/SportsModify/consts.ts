@@ -169,7 +169,7 @@ export const SportCateories: ISportCategory[] = [
     id: 4,
     categoryIds: [13, 14, 15],
     name: 'arrow',
-    title: 'חץ וקשתץ',
+    title: 'חץ וקשת',
   },
   {
     id: 5,

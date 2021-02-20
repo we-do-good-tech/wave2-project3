@@ -8,18 +8,35 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    .left {
+      display: flex;
+      align-items: center;
+      .dropDownToggle,
+      .openDropdownToggle {
+        width: px2rem(20);
+        height: px2rem(20);
+        color: red;
+        cursor: pointer;
+      }
+
+      .indicator {
+        margin: 0 px2rem(20);
+        background-color: #e5e5e5;
+        color: #8e8d8d;
+        border-radius: 50%;
+        height: 26px;
+        width: 26px;
+        line-height: 26px;
+        display: inline-block;
+        text-align: center;
+        margin-right: 6px;
+      }
+    }
     .title {
       color: #8e8d8d;
       font-size: px2rem(26);
       font-weight: 100;
       direction: ltr;
-    }
-    .dropDownToggle,
-    .openDropdownToggle {
-      width: px2rem(20);
-      height: px2rem(20);
-      color: red;
-      cursor: pointer;
     }
   }
 
@@ -72,10 +89,15 @@
   @include flexCenter;
   background-color: white;
   border: 2px solid;
+  transition: 100ms;
   svg {
     padding: px2rem(10);
+    cursor: pointer;
     width: px2rem(70);
     height: px2rem(70);
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 
   @media screen and (max-width: $tablet) {

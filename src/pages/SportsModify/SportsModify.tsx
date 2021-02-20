@@ -12,6 +12,9 @@ import styles from './styles.module.scss';
 import classnames from 'classnames';
 import { SportLogo } from './components/SportLogo';
 import { toInteger } from 'lodash';
+import { SportPopup } from '../../components/SportPopup/SportPopup';
+import { Icon } from '../../components/Icon';
+import closeImage from '../../images/close.svg';
 
 export const SportsModify: FC = () => {
   const [state, setState] = useState({});
@@ -19,6 +22,8 @@ export const SportsModify: FC = () => {
   const activeSportIds = useMemo(() => activeSports.map((activeSport: ISportCategory) => activeSport.id), [
     activeSports,
   ]);
+
+  const [activePopup, setActivePopup] = useState<ISportCategory | undefined>();
 
   //check if there are not matching disablities ids
   const checkValid = (arrOne: number[], arrTwo: number[]) => {
@@ -51,6 +56,20 @@ export const SportsModify: FC = () => {
   const SportLogos = useMemo(
     () => (
       <div className={styles.SportIcons}>
+        {!!activePopup && (
+          <SportPopup backgroundColor={getColor(toInteger((activePopup.id - 1) / 6))}>
+            <img
+              src={closeImage}
+              alt='burger'
+              className={styles.closeButton}
+              onClick={() => setActivePopup(undefined)}
+            />
+            <div className={styles.popupBody}>
+              <h1>{activePopup.title}</h1>
+              <Icon type={activePopup.name} />
+            </div>
+          </SportPopup>
+        )}
         {SportCateories.map((sportCategory: ISportCategory, idx: number) => {
           return (
             <SportLogo
@@ -58,12 +77,13 @@ export const SportsModify: FC = () => {
               key={idx}
               disabled={!activeSportIds.includes(sportCategory.id)}
               color={getColor(toInteger((sportCategory.id - 1) / 6))}
+              onClick={() => (!!activePopup ? setActivePopup(undefined) : setActivePopup(sportCategory))}
             />
           );
         })}
       </div>
     ),
-    [getColor, activeSportIds],
+    [getColor, activeSportIds, activePopup],
   );
 
   const changedisability = useCallback(

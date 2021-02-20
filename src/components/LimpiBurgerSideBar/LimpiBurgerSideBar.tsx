@@ -31,7 +31,7 @@ export const LimpiBurgerSideBar: FC = () => {
       )}
       {isSideBarShow && (
         <div className={classnames(styles.sideBarPanel, isGoingOut && styles.goingOut)}>
-          <img src={closeImage} alt='burger' className={styles.closeButton} onClick={handleSideBarExit} />
+          <img src={closeImage} alt='close' className={styles.closeButton} onClick={handleSideBarExit} />
           <div className={styles.navLinks}>
             {limpiHomeComponents.map((limpiPage: LimpiHomePage, idx: number) => (
               <p onClick={() => jumpTo(idx)}>{limpiPage.title}</p>
