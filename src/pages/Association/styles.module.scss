@@ -8,11 +8,21 @@
   background-position: right;
   background-position: right bottom;
   flex-direction: column;
+  transition: 200ms;
+  @media screen and (max-width: $tablet) {
+    background-size: 200px;
+    transition: 200ms;
+  }
 }
 .paper {
   display: flex;
   flex-direction: column;
   width: px2rem(485);
+  @media screen and (max-width: $tablet) {
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: px2rem(10);
+    margin: px2rem(10) 0;
+  }
 
   p {
     margin-top: px2rem(10);

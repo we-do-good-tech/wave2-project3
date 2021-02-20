@@ -9,8 +9,10 @@ import { jumpTo } from '../../utils/jumpTo';
 export const LimpiDotsSideBar: FC = () => {
   const { y: scrollTopPosition } = useScrollPosition();
   const customerWindowHeight = window.innerHeight;
-  const currentActiveIdx = toInteger(scrollTopPosition / (customerWindowHeight * 0.8));
-
+  const currentActiveIdx =
+    toInteger(scrollTopPosition / (customerWindowHeight * 0.8)) < limpiHomeComponents.length
+      ? toInteger(scrollTopPosition / (customerWindowHeight * 0.8))
+      : limpiHomeComponents.length - 1;
   const renderedDots = limpiHomeComponents.map((_, idx) => (
     <div
       key={idx}

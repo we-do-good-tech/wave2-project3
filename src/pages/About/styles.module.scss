@@ -9,10 +9,13 @@
     font-weight: 100;
     text-align: center;
     width: 80%;
-    margin-top: px2rem(80);
+    margin-top: px2rem(40);
   }
 
   .mainImage {
-    width: px2rem(800);
+    @media screen and (min-width: $tablet) {
+      width: px2rem(800);
+    }
+    width: 80vh;
   }
 }

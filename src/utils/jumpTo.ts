@@ -1,6 +1,12 @@
+import { limpiHomeComponents } from '../pages/LimpiHome/consts';
+
+const scroll = (element: string) => {
+  let ele = document.getElementById(element);
+  window.scrollTo({ left: ele?.offsetLeft || 0, top: ele?.offsetTop || 0, behavior: 'smooth' });
+};
+
 export const jumpTo = (idx: number) => {
-  const jumpLocation = idx * 797;
   if (idx === 0) {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  } else window.scrollTo({ top: jumpLocation, left: 0, behavior: 'smooth' });
+    scroll('root');
+  } else scroll(limpiHomeComponents[idx].name);
 };

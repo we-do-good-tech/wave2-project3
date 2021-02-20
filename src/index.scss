@@ -18,17 +18,18 @@ h6 {
 }
 
 .section {
-  height: 800px;
+  height: fit-content;
   overflow: hidden;
-}
-.firstSection {
-  height: 700px !important;
+  min-height: 100vh;
 }
 
 .limpiLogo {
+  @media screen and (max-width: $tablet) {
+    right: 40vw;
+  }
   position: sticky;
-  top: 0;
-  right: 46vw;
+  top: px2rem(36);
+  right: 45vw;
   transition: 200ms;
 }
 .limpiLogoRight {

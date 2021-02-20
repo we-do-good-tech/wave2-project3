@@ -7,7 +7,7 @@ export const Association: FC = () => {
   return (
     <div className={classnames('section', styles.container)} style={{ backgroundImage: `url(${main})` }}>
       <div className={styles.paper}>
-        <h1 className={styles.firstHeader}>ההתאחדות הישראלית לספורט נכים</h1>
+        <h1>ההתאחדות הישראלית לספורט נכים</h1>
         <p>
           מנהלת את כל פעילות הספורט התחרותית וההישגית , של ספורט הנכים בישראל. בנוסף, אמונה על איתור ,פיתוח וקידום
           ספורטאים צעירים עם מוגבלות מוטורית .ליקויי ראייה ועיוורים

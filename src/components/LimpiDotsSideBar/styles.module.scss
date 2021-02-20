@@ -2,7 +2,7 @@
 
 .sideBarContainer {
   height: 100%;
-  left: px2rem(100);
+  left: px2rem(50);
   z-index: 1000 !important;
   position: fixed;
   @include flexCenter;
@@ -31,7 +31,7 @@
     .activeDot {
       background-color: #1298bb;
       padding: px2rem(12);
-      border: 2px solid;
+      border: 2px solid #1298bb;
       box-shadow: 0 0 0 2px #f3f5f6 inset;
     }
   }

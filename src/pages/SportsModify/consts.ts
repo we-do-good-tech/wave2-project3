@@ -1,3 +1,5 @@
+import { IconType } from '../../components/Icon';
+
 export interface IDisabilitiesCategory {
   id: number;
   name: string;
@@ -9,12 +11,13 @@ export interface IDisabilitiesSubCategory {
   categoryId: number;
   name: string;
   title: string;
+  hide?: boolean;
 }
 
 export interface ISportCategory {
   id: number;
   categoryIds: number[];
-  name: string;
+  name: IconType;
   title: string;
 }
 
@@ -76,24 +79,28 @@ export const disabilitiesSubCategoris: IDisabilitiesSubCategory[] = [
     categoryId: 1,
     name: 'handLeg',
     title: 'יד ורגל',
+    hide: true,
   },
   {
     id: 6,
     categoryId: 1,
     name: 'twoHandsLeg',
     title: 'שתי ידיים ורגל',
+    hide: true,
   },
   {
     id: 7,
     categoryId: 1,
     name: 'twoLegsHand',
     title: 'שתי רגליים ויד',
+    hide: true,
   },
   {
     id: 8,
     categoryId: 1,
     name: 'twoLegsTwoHands',
     title: 'שתי רגליים ושתי ידיים',
+    hide: true,
   },
   {
     id: 9,
@@ -143,145 +150,145 @@ export const SportCateories: ISportCategory[] = [
   {
     id: 1,
     categoryIds: [15],
-    name: 'Bikes',
+    name: 'bikes',
     title: 'אופניים',
   },
   {
     id: 2,
     categoryIds: [],
-    name: 'Athletics',
+    name: 'athletics',
     title: 'אתלטיקה',
   },
   {
     id: 3,
     categoryIds: [3, 4, 5, 6, 7, 8, 12, 13, 14],
-    name: 'PowerLifting',
+    name: 'powerlifting',
     title: 'הרמת כוח',
   },
   {
     id: 4,
     categoryIds: [13, 14, 15],
-    name: 'Arrow',
+    name: 'arrow',
     title: 'חץ וקשתץ',
   },
   {
     id: 5,
     categoryIds: [4, 6, 7, 8, 12, 15],
-    name: 'Rowing',
+    name: 'rowing',
     title: 'חתירה',
   },
   {
     id: 6,
     categoryIds: [3, 4, 5, 6, 7, 8, 12, 13, 14, 15],
-    name: 'Tennis',
+    name: 'tennis',
     title: 'טניס',
   },
   {
     id: 7,
     categoryIds: [8, 9, 10, 13, 14, 15],
-    name: 'TableTennis',
+    name: 'tabletennis',
     title: 'טניס שולחן',
   },
   {
     id: 8,
     categoryIds: [4, 5, 6, 7, 8, 12, 13, 14, 15],
-    name: 'Triathlon',
+    name: 'triathlon',
     title: 'טריאתלון',
   },
   {
     id: 9,
     categoryIds: [2, 3, 4, 7, 8, 9, 10, 13, 14, 15],
-    name: 'Volleyball',
+    name: 'volleyball',
     title: 'כדורעף',
   },
   {
     id: 10,
     categoryIds: [3, 4, 6, 8, 13, 14, 15],
-    name: 'Basketball',
+    name: 'basketball',
     title: 'כדורסל',
   },
   {
     id: 11,
     categoryIds: [3, 4, 8, 13, 14, 15],
-    name: 'Fencing',
+    name: 'fencing',
     title: 'סייף',
   },
   {
     id: 12,
     categoryIds: [6, 8, 13, 14, 15],
-    name: 'Shooting',
+    name: 'shooting',
     title: 'קליעה',
   },
   {
     id: 13,
     categoryIds: [3, 4, 5, 6, 7, 8, 12, 13, 14, 15],
-    name: 'Kayak',
+    name: 'kayak',
     title: 'קיאקים',
   },
   {
     id: 14,
     categoryIds: [],
-    name: 'Riding',
+    name: 'riding',
     title: 'רכיבה',
   },
   {
     id: 15,
     categoryIds: [],
-    name: 'Swimming',
+    name: 'swimming',
     title: 'שחייה',
   },
   {
     id: 16,
     categoryIds: [13, 14, 15],
-    name: 'Sailing',
+    name: 'sailing',
     title: 'שייט',
   },
   {
     id: 17,
     categoryIds: [1, 2, 3, 4, 5, 11, 13, 14, 15],
-    name: 'Boccia',
+    name: 'boccia',
     title: 'בוצ׳ה',
   },
   {
     id: 18,
     categoryIds: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 13, 14, 15],
-    name: 'Rugby',
+    name: 'rugby',
     title: 'רוגבי',
   },
   {
     id: 19,
     categoryIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15],
-    name: 'Judo',
+    name: 'judo',
     title: 'ג׳ודו',
   },
   {
     id: 20,
     categoryIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15],
-    name: 'Soccer',
+    name: 'soccer',
     title: 'כדורגל',
   },
   {
     id: 21,
     categoryIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15],
-    name: 'Goalball',
+    name: 'goalball',
     title: 'כדור שער',
   },
   {
     id: 22,
     categoryIds: [4, 6, 8, 12, 13, 14],
-    name: 'Badminton',
+    name: 'badminton',
     title: 'בדמינטון',
   },
   {
     id: 23,
     categoryIds: [1, 3, 4, 5, 6, 7, 8, 10, 12, 13, 14, 15],
-    name: 'Dance',
+    name: 'dance',
     title: 'ריקודים',
   },
   {
     id: 24,
     categoryIds: [1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-    name: 'Taekwondo',
+    name: 'taekwondo',
     title: 'טקוואנדו',
   },
 ];
