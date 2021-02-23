@@ -1,0 +1,35 @@
+@import '../../index.scss';
+
+.container {
+  @include flexCenter;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #353535;
+  font-weight: 100;
+  font-size: x-large;
+  text-align: right;
+}
+
+p {
+  color: #353535;
+  font-weight: 100;
+  font-size: medium;
+  text-align: right;
+}
+
+.Column1 {
+  width: 30%;
+  .limpiLogo {
+    width: 10%;
+  }
+}
+
+.Column2 {
+  width: 30%;
+}
+
+.Column3 {
+  width: 30%;
+}
