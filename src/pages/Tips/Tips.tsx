@@ -1,53 +1,35 @@
 import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
-import carolin from '../../images/tips/Carolin.png';
 import classnames from 'classnames';
 import { ITips, ITipsCategory } from './consts';
+import Caroline from '../../images/tips/Carolin.png';
 
 export const Tips: FC = () => {
   const [tipbox, setTipBox] = useState<ITipsCategory>(ITips[0]);
-  console.log(tipbox);
 
   return (
     <div className={styles.container}>
       <div className={classnames(styles.Column1)}>
-        {/* <div className={classnames(styles.cards)}> */}
-        {/* <div className={classnames(styles.card1)}>
-              <img alt='cardImage' src={carolin}/>
-            </div>
-            <div className={classnames(styles.card2)}>
-              <img alt='cardImage' src={carolin} />
-            </div>
-            <div className={classnames(styles.card3)}>
-              <img alt='cardImage' src={carolin} />
-            </div>
-          </div>
-         <div className={classnames(styles.cards)} >
-            <div className={classnames(styles.card4)}>
-              <img alt='cardImage' src={carolin}/>
-            </div>
-            <div className={classnames(styles.card5)}>
-              <img alt='cardImage' src={carolin} />
-            </div>
-            <div className={classnames(styles.card6)}>
-              <img alt='cardImage' src={carolin} />
-            </div>
-        </div> */}
         {ITips.map((ITip: ITipsCategory) => (
-          <div className={classnames(styles.card2)} onClick={() => setTipBox(ITip)}>
-            <img alt='cardImage' src={ITip.image} />
+          <div
+            key={ITip.id}
+            className={classnames(styles.cards)}
+            style={{ border: '8px solid', borderColor: ITip.color }}
+            onClick={() => setTipBox(ITip)}>
+            <img loading='lazy' src={Caroline} />
           </div>
         ))}
       </div>
 
       <div className={classnames(styles.Column2)}>
         <div className={classnames(styles.tip)}>
+          <h1 style={{ color: tipbox.color }}>הטיפ של</h1>
+          <h2 style={{ color: tipbox.color }}>{tipbox.name}</h2>
           <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo nunc, nec tempus mi? Curabitur id
-            nisl mi, ut vulputate urna. Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae! Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo nunc, nec tempus mi? Curabitur id nisl
-            mi, ut vulputate urna. Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae!
-            <cite>Somebody famous</cite>
+            {tipbox.tip}
+            <h3>
+              {tipbox.name} {tipbox.lastName} | {tipbox.title} | {tipbox.gender} {tipbox.age}
+            </h3>
           </blockquote>
         </div>
       </div>
