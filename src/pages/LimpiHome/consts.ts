@@ -1,5 +1,6 @@
 import { About } from '../About';
 import { Association } from '../Association';
+import { Successes } from '../Successes';
 import { SportsModify } from '../SportsModify';
 import { Tips } from '../Tips';
 import { LimpiHomePage } from './types';
@@ -15,6 +16,11 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     name: 'Association',
     component: Association,
     title: 'על ההתאחדות',
+  },
+  {
+    name: 'Successes',
+    component: Successes,
+    title: 'הצלחות',
   },
   {
     name: 'home3',
