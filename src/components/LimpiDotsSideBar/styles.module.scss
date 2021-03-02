@@ -2,7 +2,7 @@
 
 .sideBarContainer {
   height: 100%;
-  left: px2rem(50);
+  left: 0;
   z-index: 1000 !important;
   position: fixed;
   @media screen and (max-width: $mobile) {
@@ -39,4 +39,13 @@
       box-shadow: 0 0 0 2px #f3f5f6 inset;
     }
   }
+}
+
+.container {
+  width: 15px;
+  height: 100%;
+  z-index: 99;
+  background-image: linear-gradient(to bottom, #ef4c23, #0f9e53, #1198ba);
+  background-position: top;
+  background-repeat: no-repeat;
 }
