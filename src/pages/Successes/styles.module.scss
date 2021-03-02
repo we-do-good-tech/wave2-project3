@@ -47,6 +47,19 @@
         margin-right: auto;
         cursor: pointer;
       }
+      Button {
+        font-size: px2rem(13);
+        background-color: white;
+        border-radius: px2rem(40);
+        font-weight: 300;
+        width: px2rem(100);
+        height: px2rem(30);
+        margin-top: px2rem(35);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+      }
       img {
         padding-top: px2rem(60);
         display: block;
