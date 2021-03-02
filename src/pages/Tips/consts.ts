@@ -12,7 +12,7 @@ export interface ITipsCategory {
   color: string;
 }
 
-export const ITips: ITipsCategory[] = [
+export const tips: ITipsCategory[] = [
   {
     id: 1,
     name: 'ליאת',
