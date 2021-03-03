@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 import { tips, ITipsCategory } from './consts';
@@ -6,13 +6,24 @@ import Caroline from '../../images/tips/Carolin.png';
 
 export const Tips: FC = () => {
   const [tipbox, setTipBox] = useState<ITipsCategory>(tips[0]);
-
+  const getStyles = useCallback(
+    (id, color: string) => {
+      if (tipbox.id === id) return { borderColor: color, backgroundColor: color };
+      return { borderColor: color, color: color };
+    },
+    [tipbox],
+  );
   return (
     <div className={styles.container}>
       <div className={classnames(styles.right)}>
         <div className={styles.squaresContaienr}>
-          {tips.map((ITip: ITipsCategory) => (
-            <img src={Caroline} key={ITip.id} style={{ borderColor: ITip.color }} onClick={() => setTipBox(ITip)} />
+          {tips.map((tip: ITipsCategory) => (
+            <img
+              src={Caroline}
+              key={tip.id}
+              className={classnames(styles[tip.className], tipbox.id === tip.id && styles.active)}
+              onClick={() => setTipBox(tip)}
+            />
           ))}
         </div>
       </div>
@@ -21,12 +32,12 @@ export const Tips: FC = () => {
         <div className={classnames(styles.tip)}>
           <h1 style={{ color: tipbox.color }}>הטיפ של</h1>
           <h2 style={{ color: tipbox.color }}>{tipbox.name}</h2>
-          <blockquote>
+          <p>
             {tipbox.tip}
-            <h3>
+            <span>
               {tipbox.name} {tipbox.lastName} | {tipbox.title} | {tipbox.gender} {tipbox.age}
-            </h3>
-          </blockquote>
+            </span>
+          </p>
         </div>
       </div>
     </div>

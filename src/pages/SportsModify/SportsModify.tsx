@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { DisabilityCategory } from './components';
 import {
   disabilitiesCategories,
@@ -10,10 +10,20 @@ import {
 } from './consts';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
+import { SportLogo } from './components/SportLogo';
+import { toInteger } from 'lodash';
+import { SportPopup } from '../../components/SportPopup/SportPopup';
+import { Icon } from '../../components/Icon';
+import closeImage from '../../images/close.svg';
 
 export const SportsModify: FC = () => {
   const [state, setState] = useState({});
   const [activeSports, setActiveSports] = useState<ISportCategory[]>(SportCateories);
+  const activeSportIds = useMemo(() => activeSports.map((activeSport: ISportCategory) => activeSport.id), [
+    activeSports,
+  ]);
+
+  const [activePopup, setActivePopup] = useState<ISportCategory | undefined>();
 
   //check if there are not matching disablities ids
   const checkValid = (arrOne: number[], arrTwo: number[]) => {
@@ -24,52 +34,119 @@ export const SportsModify: FC = () => {
     return flag;
   };
 
-  // change the categoryId state to the right subCategoryId
-  const changeDisablity = (disablitity: IDisabilitiesSubCategory) => {
-    const { categoryId, id: subCetegoryId } = disablitity;
-    const model: any = state;
-    if (model) {
-      if (model[categoryId] === disablitity.id) model[categoryId] = undefined;
-      else model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1].id;
-    }
-    setState(model);
-    const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
-      checkValid(category.categoryIds, Object.values(model)),
-    );
-    setActiveSports(wouldBeActiveSports);
-  };
-
-  //rendered the active sports
-  const activeIds = useMemo(() => {
-    return activeSports.map((sport: ISportCategory) => sport.id);
-  }, [activeSports]);
-
   //reset disablities
   const reset = () => {
     setState({});
     setActiveSports(SportCateories);
   };
 
-  useEffect(() => {
-    console.log(activeSports);
-  }, [activeSports]);
+  const getColor = useCallback((num: number) => {
+    switch (num) {
+      case 0:
+        return 'green';
+      case 1:
+        return 'orange';
+      case 2:
+        return 'turqiz';
+      default:
+        return 'blue';
+    }
+  }, []);
 
-  return (
-    <div className={styles.container}>
+  const SportLogos = useMemo(
+    () => (
+      <div className={styles.SportIcons}>
+        <h6 className={styles.wasFound}>נמצאו {activeSportIds.length} ענפי ספורט מתאימים</h6>
+        {!!activePopup && (
+          <SportPopup backgroundColor={getColor(toInteger((activePopup.id - 1) / 6))}>
+            <img
+              src={closeImage}
+              alt='burger'
+              className={styles.closeButton}
+              onClick={() => setActivePopup(undefined)}
+            />
+            <div className={styles.popupBody}>
+              <h1>{activePopup.title}</h1>
+              <p>
+                {activePopup.description}
+                <span>
+                  הענף נשמע לכם מעניין? <br /> פנו ל
+                  <a href='https://isad.org.il/' target='_blank'>
+                    התאחדות הישראלית
+                  </a>{' '}
+                  לספורט נכים וגלו איפה אפשר להשתתף!
+                </span>
+              </p>
+              <Icon type={activePopup.name} />
+            </div>
+          </SportPopup>
+        )}
+        {SportCateories.map((sportCategory: ISportCategory, idx: number) => {
+          return (
+            <SportLogo
+              type={sportCategory.name}
+              key={idx}
+              disabled={!activeSportIds.includes(sportCategory.id)}
+              color={getColor(toInteger((sportCategory.id - 1) / 6))}
+              onClick={() => (!!activePopup ? setActivePopup(undefined) : setActivePopup(sportCategory))}
+            />
+          );
+        })}
+      </div>
+    ),
+    [getColor, activeSportIds, activePopup],
+  );
+
+  const changedisability = useCallback(
+    (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => {
+      const model: any = state;
+      if (disablitity?.id) {
+        const { categoryId, id: subCetegoryId } = disablitity;
+        model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1]?.id;
+      }
+      if (deleteOne) {
+        delete model[deleteOne];
+      }
+
+      setState(model);
+      const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
+        checkValid(category.categoryIds, Object.values(model)),
+      );
+      setActiveSports(wouldBeActiveSports);
+    },
+    [state],
+  );
+
+  const rightSideMenu = useCallback(() => {
+    return (
       <div className={styles.sideMenu}>
         <h1>התאמת ענף ספורט לפי סיווג</h1>
         <hr />
         <div className={classnames('d-flex flex-column', styles.chooseMenu)}>
-          {disabilitiesCategories.map((category: IDisabilitiesCategory) => (
+          {disabilitiesCategories.map((category: IDisabilitiesCategory, idx: number) => (
             <DisabilityCategory
               title={category.title}
+              key={idx}
               subcategories={disabilitiesSubCategoris.filter(
                 (subCategory: IDisabilitiesSubCategory) => subCategory.categoryId === category.id,
               )}
-              onSubCategoryChose={changeDisablity}
+              onSubCategoryChose={changedisability}
             />
           ))}
         </div>
+      </div>
+    );
+  }, [changedisability]);
+
+  return (
+    <div className={styles.fullContainer}>
+      <div className={styles.titleContainer}>
+        <h1>מצאו את ענפי הספורט המתאימים לכם</h1>
+        <h2>בלחיצה על כל אחד תקבלו מידע נוסף</h2>
+      </div>
+      <div className={styles.container}>
+        {rightSideMenu()}
+        {SportLogos}
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ export const Footer: FC = () => {
   return (
     <div className={styles.container}>
       <div className={classnames(styles.Column1)}>
-        <img src={logo} alt='logo' className={classnames('limpiLogo')} />
         <h1>
           סביבת מוטיבציה לילדים בעלי מוגבלויות
           <br />

@@ -7,7 +7,7 @@ export const MainLayout: FC = () => {
   const makeRouters = () =>
     limpiRouters.map((component: RouterType) => (
       <Route
-        path={component.path}
+        path={component.path === '/' ? process.env.PUBLIC_URL : component.path}
         exact={component.path === '/'}
         key={component.name}
         component={component.Component}></Route>

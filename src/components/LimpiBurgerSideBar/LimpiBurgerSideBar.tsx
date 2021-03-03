@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import styles from './styles.module.scss';
 import { useBoolean, useDebounce } from 'ahooks';
 import burgerImage from '../../images/menu.svg';
@@ -14,6 +14,8 @@ export const LimpiBurgerSideBar: FC = () => {
   const [isGoingOut, { setTrue: turnOnGoingOut, setFalse: turnOffGoingOut }] = useBoolean(false);
 
   const goOutDebounce = useDebounce(isGoingOut, { wait: 1000 });
+  const { innerWidth } = window;
+  const effectDelay = useMemo(() => (innerWidth < 770 ? 0 : 600), [innerWidth]);
 
   useEffect(() => {
     turnOffGoingOut();
@@ -21,7 +23,7 @@ export const LimpiBurgerSideBar: FC = () => {
 
   const handleSideBarExit = () => {
     turnOnGoingOut();
-    setTimeout(() => hideSideBar(), 900);
+    setTimeout(() => hideSideBar(), effectDelay);
   };
 
   return (
@@ -31,10 +33,12 @@ export const LimpiBurgerSideBar: FC = () => {
       )}
       {isSideBarShow && (
         <div className={classnames(styles.sideBarPanel, isGoingOut && styles.goingOut)}>
-          <img src={closeImage} alt='burger' className={styles.closeButton} onClick={handleSideBarExit} />
+          <img src={closeImage} alt='close' className={styles.closeButton} onClick={handleSideBarExit} />
           <div className={styles.navLinks}>
             {limpiHomeComponents.map((limpiPage: LimpiHomePage, idx: number) => (
-              <p onClick={() => jumpTo(idx)}>{limpiPage.title}</p>
+              <p onClick={() => jumpTo(idx)} key={idx}>
+                {limpiPage.title}
+              </p>
             ))}
           </div>
           <div className={styles.circlesImageContainer}>

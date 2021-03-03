@@ -1,31 +1,159 @@
 @import '../../index.scss';
-
-.container {
+.fullContainer {
+  display: flex;
+  flex-direction: column;
   background-color: #f9f9f9;
   height: 100%;
-  padding: 20px; //to delete
-
-  .sideMenu {
-    width: px2rem(350);
-    padding: px2rem(20);
-    border: 4px solid rgb(232, 232, 232);
-    background-color: white;
-    height: px2rem(600);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    h1,
+    h2 {
+      color: #8e8d8d;
+      margin: 0;
+    }
     h1 {
-      color: #1298bb;
-      font-size: px2rem(28);
+      font-weight: 400;
+    }
+    h2 {
       font-weight: 100;
     }
-    hr {
-      opacity: 0.2;
-      border: 0.1px solid #8e8d8d;
-      box-shadow: 0 0 8px 1px black;
+
+    @media screen and (min-width: $tablet) {
+      margin-right: 32%;
+      margin-bottom: px2rem(20);
     }
-    .chooseMenu {
+  }
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .sideMenu {
+      flex-basis: 26%;
+      flex-grow: 1;
+      padding: px2rem(20);
+      margin: px2rem(5);
+      border: 4px solid rgb(232, 232, 232);
+      background-color: white;
+      height: px2rem(600);
+
+      h1 {
+        color: #1298bb;
+        font-size: px2rem(28);
+        font-weight: 100;
+      }
+      hr {
+        opacity: 0.2;
+        border: 0.1px solid #8e8d8d;
+        box-shadow: 0 0 8px 1px black;
+      }
+      .chooseMenu {
+        overflow: scroll;
+        width: 100%;
+        height: 90%;
+        padding-left: px2rem(15);
+      }
+    }
+
+    .SportIcons {
+      position: relative;
+      flex-basis: 63%;
+      flex-grow: 1;
+      padding: px2rem(20);
+      border: 4px solid rgb(232, 232, 232);
+      background-color: white;
+      height: px2rem(600);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 40px;
+      grid-auto-rows: 143px;
+      align-items: center;
       overflow: scroll;
-      width: 100%;
-      height: 90%;
-      padding-left: px2rem(15);
+      margin: px2rem(5);
+      .wasFound {
+        grid-column: 1 / -1;
+        flex-basis: 100%;
+        padding-right: px2rem(20);
+        color: #8e8d8d;
+        font-weight: 100;
+        font-size: px2rem(22);
+        margin: 0;
+      }
+      @media screen and (max-width: $tablet) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
+  }
+}
+
+.popupBody {
+  width: 96%;
+  height: 93%;
+  overflow: scroll;
+  border: 7px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  a,
+  span,
+  h1,
+  p {
+    color: white;
+  }
+  p {
+    width: 85%;
+    font-weight: 100;
+    font-size: px2rem(26);
+    text-align: center;
+    margin: 0;
+    span {
+      display: block;
+      font-size: px2rem(26);
+      font-weight: 100;
+      padding-top: px2rem(25);
+    }
+    a {
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    margin-top: px2rem(40);
+  }
+
+  svg {
+    height: px2rem(100);
+    width: px2rem(150);
+    min-height: px2rem(70);
+    min-width: px2rem(90);
+    margin-bottom: px2rem(20);
+  }
+}
+.closeButton {
+  position: absolute;
+  top: px2rem(35);
+  right: px2rem(35);
+  width: px2rem(30);
+  height: px2rem(30);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    transition: 100ms;
   }
 }

@@ -18,23 +18,43 @@ h6 {
 }
 
 .section {
-  height: 800px;
+  height: fit-content;
   overflow: hidden;
+  min-height: 100vh;
 }
-.firstSection {
-  height: 700px !important;
+.footerSection {
+  height: fit-content !important;
+  min-height: unset;
+  background-color: #f9f9f9;
+}
+
+#Successes {
+  background-position-x: 5%;
+  background-image: linear-gradient(90deg, #f9f9f9, #f9f9f9);
+  background-size: 30% 100%;
+  background-repeat: no-repeat;
+}
+#Tips {
+  background-position-x: 95%;
+  background-image: linear-gradient(90deg, #f9f9f9, #f9f9f9);
+  background-size: 30% 100%;
+  background-repeat: no-repeat;
 }
 
 .limpiLogo {
-  position: sticky;
-  top: 0;
-  right: 46vw;
+  @media screen and (max-width: $tablet) {
+  }
+  @media screen and (max-width: $mobile) {
+  }
+  position: fixed;
+  top: px2rem(36);
   transition: 200ms;
+  width: px2rem(140);
+  z-index: 2;
 }
 .limpiLogoRight {
-  position: sticky;
+  transition: width 200ms;
+  right: 0;
   top: 0;
-  left: 0;
-  right: 0px;
-  transition: 200ms;
+  width: px2rem(100);
 }

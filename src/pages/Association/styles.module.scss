@@ -3,17 +3,28 @@
 .container {
   @include flexCenter;
   background-color: #f9f9f9;
-  background-size: 430px;
+  background-size: 30%;
   background-repeat: no-repeat;
   background-position: right;
   background-position: right bottom;
   flex-direction: column;
+  transition: 200ms;
+  @media screen and (max-width: $tablet) {
+    background-size: 150px;
+    transition: 200ms;
+  }
 }
 .paper {
-  display: flex;
+  overflow-wrap: break-word;
   flex-direction: column;
-  width: px2rem(485);
-
+  max-width: px2rem(485);
+  width: fit-content;
+  display: flex;
+  @media screen and (max-width: $tablet) {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: px2rem(10);
+    margin: px2rem(10) 0;
+  }
   p {
     margin-top: px2rem(10);
     font-size: px2rem(26);

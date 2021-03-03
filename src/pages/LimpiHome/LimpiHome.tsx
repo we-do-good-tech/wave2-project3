@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { limpiHomeComponents } from './consts';
 import { LimpiDotsSideBar } from '../../components/LimpiDotsSideBar';
 import logo from '../../images/logoSmall.png';
-import classnames from 'classnames';
 import { useScrollPosition } from 'react-use-scroll-position';
+import classnames from 'classnames';
 import { LimpiBurgerSideBar } from '../../components/LimpiBurgerSideBar';
 
 export const LimpiHome: FC = () => {
@@ -11,7 +11,7 @@ export const LimpiHome: FC = () => {
 
   const createPages = () => {
     return limpiHomeComponents.map((page, idx) => (
-      <div key={idx} id={page.name} className={classnames('section', idx === 0 && 'firstSection')}>
+      <div key={idx} id={page.name} className={classnames('section', page.name === 'Footer' && 'footerSection')}>
         <page.component />
       </div>
     ));
@@ -19,7 +19,12 @@ export const LimpiHome: FC = () => {
 
   return (
     <div style={{ direction: 'rtl' }}>
-      <img src={logo} alt='logo' className={classnames('limpiLogo', scrollTopPosition >= 10 && 'limpiLogoRight')} />
+      {/* <img
+        src={logo}
+        alt='logo'
+        id='limpiLogo'
+        className={classnames('limpiLogo', scrollTopPosition >= 40 && 'limpiLogoRight')}
+      /> */}
       <LimpiDotsSideBar />
       <LimpiBurgerSideBar />
       {createPages()}

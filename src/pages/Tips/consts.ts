@@ -10,6 +10,7 @@ export interface ITipsCategory {
   image?: String;
   gender: string;
   color: string;
+  className: string;
 }
 
 export const tips: ITipsCategory[] = [
@@ -23,6 +24,7 @@ export const tips: ITipsCategory[] = [
     gender: 'בת',
     image: '{Caroline}',
     color: '#f18267',
+    className: 'orange',
   },
   {
     id: 2,
@@ -34,6 +36,7 @@ export const tips: ITipsCategory[] = [
     gender: 'בן',
     image: '{Caroline}',
     color: '#60cce8',
+    className: 'turqiz',
   },
   {
     id: 3,
@@ -45,6 +48,7 @@ export const tips: ITipsCategory[] = [
     gender: 'בת',
     image: '{Caroline}',
     color: '#7587ae',
+    className: 'darkblue',
   },
   {
     id: 4,
@@ -56,6 +60,7 @@ export const tips: ITipsCategory[] = [
     gender: 'בן',
     image: '{Caroline}',
     color: '#4fb27f',
+    className: 'green',
   },
   {
     id: 5,
@@ -67,6 +72,7 @@ export const tips: ITipsCategory[] = [
     gender: 'בת',
     image: '{Caroline}',
     color: '#60cce8',
+    className: 'turqiz',
   },
   {
     id: 6,
@@ -78,5 +84,6 @@ export const tips: ITipsCategory[] = [
     gender: 'בן',
     image: '{Caroline}',
     color: '#f18267',
+    className: 'orange',
   },
 ];

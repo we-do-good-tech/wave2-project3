@@ -27,38 +27,73 @@
   z-index: 1001;
   .openButton {
     position: fixed;
-    left: px2rem(90);
+    left: px2rem(40);
     top: px2rem(50);
     cursor: pointer;
+
+    @media screen and (max-width: $mobile) {
+      left: px2rem(20);
+      top: px2rem(40);
+      opacity: 0.4;
+      width: px2rem(30);
+    }
   }
   .sideBarPanel {
     position: relative;
     animation: slideIn 1s;
-    width: px2rem(500);
+    width: px2rem(400);
     height: 100%;
     background-color: #191818f2;
     z-index: 1002;
     display: flex;
     flex-direction: column;
     .closeButton {
-      width: px2rem(50);
+      width: px2rem(30);
       position: absolute;
-      left: px2rem(90);
+      left: px2rem(50);
       top: px2rem(50);
       -webkit-filter: invert(100%);
       filter: invert(100%);
       cursor: pointer;
+      transition: 200ms;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    @media screen and(max-width: $tablet) {
+      width: px2rem(250);
+      height: fit-content;
+      padding-bottom: px2rem(50);
+      animation: none;
+      .closeButton {
+        width: px2rem(25);
+        left: px2rem(21);
+        top: px2rem(37);
+      }
     }
 
     .circlesImageContainer {
       position: absolute;
-      bottom: px2rem(100);
+      bottom: px2rem(80);
       width: 100%;
       @include flexCenter;
+      img {
+        width: px2rem(130);
+      }
+      @media screen and(max-width: $tablet) {
+        position: static;
+        padding-top: px2rem(50);
+        img {
+          width: px2rem(100);
+        }
+      }
     }
   }
   .goingOut {
     animation: slideOut 1s;
+    @media screen and(max-width: $tablet) {
+      animation: none;
+    }
   }
 }
 
@@ -66,7 +101,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 100px;
-  margin-right: 100px;
+  margin-right: 70px;
   p {
     color: white;
     cursor: pointer;
@@ -78,5 +113,9 @@
   }
   p:hover {
     text-decoration: underline;
+  }
+  @media screen and(max-width: $tablet) {
+    margin-top: 50px;
+    margin-right: 50px;
   }
 }

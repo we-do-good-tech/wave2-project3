@@ -15,8 +15,8 @@ export const Successes: FC = () => {
   return (
     <div className={styles.container}>
       <div className={classnames(styles.Column1)}>
-        {ISuccesses.map((ISuccesse: ISuccessesCategory) => (
-          <Carousel>
+        {ISuccesses.map((ISuccesse: ISuccessesCategory, idx) => (
+          <Carousel key={idx.toString()}>
             <Carousel.Item>
               <div
                 key={ISuccesse.id}

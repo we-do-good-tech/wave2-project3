@@ -23,7 +23,7 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     title: 'הצלחות',
   },
   {
-    name: 'home3',
+    name: 'SportsModify',
     component: SportsModify,
     title: 'קצת השראה',
   },

@@ -7,6 +7,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
+    .left {
+      display: flex;
+      align-items: center;
+      .dropDownToggle,
+      .openDropdownToggle {
+        width: px2rem(20);
+        height: px2rem(20);
+        color: red;
+        cursor: pointer;
+      }
+
+      .indicator {
+        margin: 0 px2rem(20);
+        background-color: #e5e5e5;
+        color: #8e8d8d;
+        border-radius: 50%;
+        height: 26px;
+        width: 26px;
+        line-height: 26px;
+        display: inline-block;
+        text-align: center;
+        margin-right: 6px;
+      }
+    }
     .title {
       color: #8e8d8d;
       font-size: px2rem(26);
@@ -25,6 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    cursor: pointer;
     padding: px2rem(10) px2rem(5) px2rem(5) px2rem(5);
     input[type='checkbox'] {
       transition: 100ms;
@@ -59,5 +85,61 @@
       font-size: px2rem(22);
       font-weight: 100;
     }
+  }
+}
+
+.Icon {
+  width: px2rem(100);
+  height: px2rem(100);
+  margin: 0 px2rem(16);
+  @include flexCenter;
+  background-color: white;
+  border: 2px solid;
+  transition: 100ms;
+  svg {
+    padding: px2rem(10);
+    cursor: pointer;
+    width: px2rem(70);
+    height: px2rem(70);
+  }
+  &:hover:not(.disabled) {
+    transform: scale(1.1);
+  }
+
+  @media screen and (max-width: $tablet) {
+    margin: px2rem(16);
+  }
+}
+
+.green {
+  border-color: #4fb27f;
+  svg {
+    background-color: #4fb27f;
+  }
+}
+.orange {
+  border-color: #f18267;
+  svg {
+    background-color: #f18267;
+  }
+}
+.turqiz {
+  border-color: #60cce8;
+  svg {
+    background-color: #60cce8;
+  }
+}
+.blue {
+  border-color: #7587ae;
+  svg {
+    background-color: #7587ae;
+  }
+}
+
+.disabled {
+  border-color: gray;
+  svg {
+    background-color: gray;
+    cursor: default !important;
   }
 }
