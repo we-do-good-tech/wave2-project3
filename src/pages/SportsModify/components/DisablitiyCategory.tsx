@@ -1,4 +1,3 @@
-import { useBoolean } from 'ahooks';
 import React, { FC, useCallback, useState, useEffect } from 'react';
 import { IDisabilitiesSubCategory } from '../consts';
 import styles from './styles.module.scss';

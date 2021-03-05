@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Icon, IconProps, IconType } from '../../../components/Icon';
+import { Icon, IconType } from '../../../components/Icon';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 

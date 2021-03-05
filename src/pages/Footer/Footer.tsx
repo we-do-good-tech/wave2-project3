@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
-import logo from '../../images/logoSmall.png';
 
 export const Footer: FC = () => {
   return (

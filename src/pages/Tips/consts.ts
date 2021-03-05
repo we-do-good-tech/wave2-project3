@@ -1,5 +1,3 @@
-import Caroline from '../../images/tips/Carolin.png';
-
 export interface ITipsCategory {
   id: number;
   name: string;

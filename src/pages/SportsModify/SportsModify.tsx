@@ -121,8 +121,6 @@ export const SportsModify: FC = () => {
     [state],
   );
 
-  console.log(currentOpen);
-
   const rightSideMenu = useCallback(() => {
     return (
       <div className={styles.sideMenu}>

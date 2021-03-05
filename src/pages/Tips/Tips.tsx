@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 import { tips, ITipsCategory } from './consts';
@@ -6,13 +6,6 @@ import Caroline from '../../images/tips/Carolin.png';
 
 export const Tips: FC = () => {
   const [tipbox, setTipBox] = useState<ITipsCategory>(tips[0]);
-  const getStyles = useCallback(
-    (id, color: string) => {
-      if (tipbox.id === id) return { borderColor: color, backgroundColor: color };
-      return { borderColor: color, color: color };
-    },
-    [tipbox],
-  );
   return (
     <div className={styles.container}>
       <div className={classnames(styles.right)}>
@@ -23,6 +16,7 @@ export const Tips: FC = () => {
               key={tip.id}
               className={classnames(styles[tip.className], tipbox.id === tip.id && styles.active)}
               onClick={() => setTipBox(tip)}
+              alt={tip.name}
             />
           ))}
         </div>
