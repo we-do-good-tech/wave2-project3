@@ -54,7 +54,11 @@ h6 {
 }
 .limpiLogoRight {
   transition: width 200ms;
-  right: 0;
-  top: 0;
+  right: px2rem(20);
+  top: px2rem(20);
   width: px2rem(100);
+}
+
+.rounded {
+  border-radius: 50% !important;
 }

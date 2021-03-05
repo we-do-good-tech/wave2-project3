@@ -9,12 +9,19 @@ import closeImage from '../../../images/line.svg';
 interface IDisabilityCategory {
   title: string;
   subcategories: IDisabilitiesSubCategory[];
+  isOpen: boolean;
+  toggleOpen: (id: number) => void;
   onSubCategoryChose: (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => void;
 }
 
-export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategories, onSubCategoryChose }) => {
+export const DisabilityCategory: FC<IDisabilityCategory> = ({
+  title,
+  subcategories,
+  onSubCategoryChose,
+  isOpen,
+  toggleOpen,
+}) => {
   const [stateIds, setStateIds] = useState<number[]>([]);
-  const [isOpen, { toggle: toggleOpen }] = useBoolean(false);
 
   //changeTheMainState
   useEffect(() => {
@@ -121,6 +128,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
                 <input
                   key={subCategory.id}
                   type='checkbox'
+                  className={classnames(subCategory.categoryId !== 1 && 'rounded')}
                   checked={stateIds.includes(subCategory.id)}
                   onChange={() => {
                     return;
@@ -135,7 +143,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({ title, subcategori
 
   return (
     <div className={classnames(styles.container, isOpen && styles.openContainer)}>
-      <div className={styles.categoryContainer} onClick={() => toggleOpen()}>
+      <div className={styles.categoryContainer} onClick={() => toggleOpen(subcategories[0].categoryId)}>
         <span className={styles.title}>{title}</span>
         <div className={styles.left}>
           {stateIds.length > 0 && <span className={styles.indicator}>{stateIds.length > 2 ? 2 : stateIds.length}</span>}

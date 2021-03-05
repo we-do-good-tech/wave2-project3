@@ -25,7 +25,7 @@ export const limpiHomeComponents: LimpiHomePage[] = [
   {
     name: 'SportsModify',
     component: SportsModify,
-    title: 'קצת השראה',
+    title: 'התאמת ענף ספורט',
   },
   {
     name: 'Tips',

@@ -27,8 +27,9 @@
   z-index: 1001;
   .openButton {
     position: fixed;
-    left: px2rem(40);
-    top: px2rem(50);
+    left: px2rem(20);
+    top: px2rem(40);
+    width: px2rem(40);
     cursor: pointer;
 
     @media screen and (max-width: $mobile) {
@@ -62,7 +63,7 @@
     }
     @media screen and(max-width: $tablet) {
       width: px2rem(250);
-      height: fit-content;
+      // height: fit-content;
       padding-bottom: px2rem(50);
       animation: none;
       .closeButton {
@@ -81,8 +82,8 @@
         width: px2rem(130);
       }
       @media screen and(max-width: $tablet) {
-        position: static;
-        padding-top: px2rem(50);
+        // position: static;
+        // padding-top: px2rem(50);
         img {
           width: px2rem(100);
         }
