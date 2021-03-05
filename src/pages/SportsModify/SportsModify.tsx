@@ -76,9 +76,9 @@ export const SportsModify: FC = () => {
                 <span>
                   הענף נשמע לכם מעניין? <br /> פנו ל
                   <a href='https://isad.org.il/' rel='noreferrer' target='_blank'>
-                    התאחדות הישראלית
+                    התאחדות הישראלית לספורט נכים
                   </a>{' '}
-                  לספורט נכים וגלו איפה אפשר להשתתף!
+                  וגלו איפה אפשר להשתתף!
                 </span>
               </p>
               <Icon type={activePopup.name} />
@@ -90,6 +90,7 @@ export const SportsModify: FC = () => {
             <SportLogo
               type={sportCategory.name}
               key={idx}
+              name={sportCategory.title}
               disabled={!activeSportIds.includes(sportCategory.id)}
               color={getColor(toInteger((sportCategory.id - 1) / 6))}
               onClick={() => (!!activePopup ? setActivePopup(undefined) : setActivePopup(sportCategory))}

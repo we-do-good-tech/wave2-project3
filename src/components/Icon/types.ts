@@ -22,6 +22,7 @@ export type IconType =
   | 'taekwondo'
   | 'tennis'
   | 'triathlon'
+  | 'ski'
   | 'volleyball';
 
 export interface IconProps {

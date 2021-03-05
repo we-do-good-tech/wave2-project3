@@ -103,7 +103,7 @@
     height: px2rem(70);
   }
   &:hover:not(.disabled) {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   @media screen and (max-width: $tablet) {

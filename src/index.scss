@@ -62,3 +62,17 @@ h6 {
 .rounded {
   border-radius: 50% !important;
 }
+
+.text-align-center {
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}
+.d-flex-center {
+  @include flexCenter;
+}
+.flex-column {
+  flex-direction: column;
+}

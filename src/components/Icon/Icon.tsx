@@ -24,6 +24,7 @@ import { ReactComponent as Taekwondo } from '../../images/sportLogos/Taekwondo.s
 import { ReactComponent as Tennis } from '../../images/sportLogos/Tennis.svg';
 import { ReactComponent as Triathlon } from '../../images/sportLogos/Triathlon.svg';
 import { ReactComponent as Volleyball } from '../../images/sportLogos/Volleyball.svg';
+import { ReactComponent as Ski } from '../../images/sportLogos/Ski.svg';
 
 export const SVGs: SVGsType<JSX.IntrinsicElements | any> = {
   arrow: Arrow,
@@ -50,6 +51,7 @@ export const SVGs: SVGsType<JSX.IntrinsicElements | any> = {
   tennis: Tennis,
   triathlon: Triathlon,
   volleyball: Volleyball,
+  ski: Ski,
 };
 
 export const Icon: FC<IconProps> = ({ type, ...props }) => React.createElement(SVGs[type], props);

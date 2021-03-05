@@ -37,6 +37,23 @@ $font-sizes: 10 12 14 16 18 20 22 24 32 56;
   }
 }
 
+$padding-sizes: 10 12 14 16 18 20 22 24 32 56;
+
+@each $size in $padding-sizes {
+  .padding-#{$size} {
+    padding: px2rem($size) !important;
+  }
+}
+$margin-sizes: 10 12 14 16 18 20 22 24 32 56;
+
+$directions: top bottom right left;
+
+@each $size in $margin-sizes {
+  .margin-#{$size} {
+    margin: px2rem($size) !important;
+  }
+}
+
 $orange: #ef4b23;
 
 $turqiz: #1298bb;

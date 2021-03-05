@@ -6,16 +6,20 @@ import classnames from 'classnames';
 interface ISportLogo {
   type: IconType;
   color: string;
+  name: string;
   disabled?: boolean;
   onClick: () => void;
 }
 
-export const SportLogo: FC<ISportLogo> = ({ type, color, disabled, onClick }) => {
+export const SportLogo: FC<ISportLogo> = ({ type, color, disabled, onClick, name }) => {
   return (
-    <div
-      onClick={() => !disabled && onClick?.()}
-      className={classnames(styles.Icon, styles[color], disabled && styles.disabled)}>
-      <Icon type={type} />
+    <div className='text-align-center d-flex-center flex-column'>
+      <div
+        onClick={() => !disabled && onClick?.()}
+        className={classnames(styles.Icon, styles[color], disabled && styles.disabled)}>
+        <Icon type={type} />
+      </div>
+      <label>{name}</label>
     </div>
   );
 };
