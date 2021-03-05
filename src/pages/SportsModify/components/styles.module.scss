@@ -38,6 +38,12 @@
       font-weight: 100;
       direction: ltr;
     }
+    .dropDownToggle,
+    .openDropdownToggle {
+      width: px2rem(20);
+      height: px2rem(20);
+      cursor: pointer;
+    }
   }
 
   .subCategory {
@@ -131,9 +137,9 @@
 }
 
 .disabled {
-  border-color: gray;
+  border-color: #e5e5e5;
   svg {
-    background-color: gray;
+    background-color: #e5e5e5;
     cursor: default !important;
   }
 }

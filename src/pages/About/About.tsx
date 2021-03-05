@@ -3,7 +3,7 @@ import { useBoolean } from 'ahooks';
 import { LimpiArrowRoute } from '../../components/LimpiArrowRoute';
 import main from '../../images/about/main.png';
 import styles from './styles.module.scss';
-import logo from '../../images/logoSmall.png';
+import logo from '../../images/logoSmall.svg';
 import { useScrollPosition } from 'react-use-scroll-position';
 import classnames from 'classnames';
 import { Loading } from '../../components/Loading';

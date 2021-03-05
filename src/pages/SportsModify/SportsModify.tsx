@@ -22,8 +22,12 @@ export const SportsModify: FC = () => {
   const activeSportIds = useMemo(() => activeSports.map((activeSport: ISportCategory) => activeSport.id), [
     activeSports,
   ]);
-
+  const [currentOpen, setCurrentOpen] = useState<number | undefined>();
   const [activePopup, setActivePopup] = useState<ISportCategory | undefined>();
+  const toggleOpen = useCallback(
+    (id: number) => (currentOpen === id ? setCurrentOpen(undefined) : setCurrentOpen(id)),
+    [currentOpen, setCurrentOpen],
+  );
 
   //check if there are not matching disablities ids
   const checkValid = (arrOne: number[], arrTwo: number[]) => {
@@ -71,7 +75,7 @@ export const SportsModify: FC = () => {
                 {activePopup.description}
                 <span>
                   הענף נשמע לכם מעניין? <br /> פנו ל
-                  <a href='https://isad.org.il/' target='_blank'>
+                  <a href='https://isad.org.il/' rel='noreferrer' target='_blank'>
                     התאחדות הישראלית
                   </a>{' '}
                   לספורט נכים וגלו איפה אפשר להשתתף!
@@ -127,6 +131,8 @@ export const SportsModify: FC = () => {
             <DisabilityCategory
               title={category.title}
               key={idx}
+              isOpen={currentOpen === category.id}
+              toggleOpen={toggleOpen}
               subcategories={disabilitiesSubCategoris.filter(
                 (subCategory: IDisabilitiesSubCategory) => subCategory.categoryId === category.id,
               )}
@@ -136,7 +142,7 @@ export const SportsModify: FC = () => {
         </div>
       </div>
     );
-  }, [changedisability]);
+  }, [changedisability, currentOpen, toggleOpen]);
 
   return (
     <div className={styles.fullContainer}>
