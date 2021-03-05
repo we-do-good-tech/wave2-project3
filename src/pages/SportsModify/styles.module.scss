@@ -100,6 +100,7 @@
   width: 96%;
   @media screen and (max-width: $mobile) {
     width: 90%;
+    padding-bottom: px2rem(10);
   }
   height: 93%;
   overflow: scroll;
