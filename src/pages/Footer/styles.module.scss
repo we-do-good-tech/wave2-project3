@@ -1,7 +1,8 @@
 @import '../../index.scss';
 
 .container {
-  @include flexCenter;
+  display: flex;
+  justify-content: center;
   box-sizing: border-box;
 }
 
