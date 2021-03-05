@@ -98,6 +98,9 @@
 
 .popupBody {
   width: 96%;
+  @media screen and (max-width: $mobile) {
+    width: 90%;
+  }
   height: 93%;
   overflow: scroll;
   border: 7px solid white;
