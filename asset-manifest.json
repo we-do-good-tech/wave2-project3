@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/wave2-project3/static/css/main.3eb9f3e2.chunk.css",
-    "main.js": "/wave2-project3/static/js/main.be5b638c.chunk.js",
-    "main.js.map": "/wave2-project3/static/js/main.be5b638c.chunk.js.map",
+    "main.css": "/wave2-project3/static/css/main.c7118038.chunk.css",
+    "main.js": "/wave2-project3/static/js/main.f4757628.chunk.js",
+    "main.js.map": "/wave2-project3/static/js/main.f4757628.chunk.js.map",
     "runtime-main.js": "/wave2-project3/static/js/runtime-main.4017473d.js",
     "runtime-main.js.map": "/wave2-project3/static/js/runtime-main.4017473d.js.map",
     "static/js/2.bbf91cdd.chunk.js": "/wave2-project3/static/js/2.bbf91cdd.chunk.js",
     "static/js/2.bbf91cdd.chunk.js.map": "/wave2-project3/static/js/2.bbf91cdd.chunk.js.map",
     "index.html": "/wave2-project3/index.html",
-    "static/css/main.3eb9f3e2.chunk.css.map": "/wave2-project3/static/css/main.3eb9f3e2.chunk.css.map",
+    "static/css/main.c7118038.chunk.css.map": "/wave2-project3/static/css/main.c7118038.chunk.css.map",
     "static/js/2.bbf91cdd.chunk.js.LICENSE.txt": "/wave2-project3/static/js/2.bbf91cdd.chunk.js.LICENSE.txt",
     "static/media/Arrow.2b2071cf.svg": "/wave2-project3/static/media/Arrow.2b2071cf.svg",
     "static/media/Athletics.95cdd650.svg": "/wave2-project3/static/media/Athletics.95cdd650.svg",
@@ -28,6 +28,7 @@
     "static/media/Rugby.fb481580.svg": "/wave2-project3/static/media/Rugby.fb481580.svg",
     "static/media/Sailing.24d685c0.svg": "/wave2-project3/static/media/Sailing.24d685c0.svg",
     "static/media/Shooting.5a81c417.svg": "/wave2-project3/static/media/Shooting.5a81c417.svg",
+    "static/media/Ski.79c3b06a.svg": "/wave2-project3/static/media/Ski.79c3b06a.svg",
     "static/media/Soccer.4f5b6a9b.svg": "/wave2-project3/static/media/Soccer.4f5b6a9b.svg",
     "static/media/Swimming.d42dc8e1.svg": "/wave2-project3/static/media/Swimming.d42dc8e1.svg",
     "static/media/TableTennis.1fc5e61a.svg": "/wave2-project3/static/media/TableTennis.1fc5e61a.svg",
@@ -47,7 +48,7 @@
   "entrypoints": [
     "static/js/runtime-main.4017473d.js",
     "static/js/2.bbf91cdd.chunk.js",
-    "static/css/main.3eb9f3e2.chunk.css",
-    "static/js/main.be5b638c.chunk.js"
+    "static/css/main.c7118038.chunk.css",
+    "static/js/main.f4757628.chunk.js"
   ]
 }
