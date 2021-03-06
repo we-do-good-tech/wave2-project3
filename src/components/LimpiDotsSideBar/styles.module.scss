@@ -1,5 +1,14 @@
 @import '../../index.scss';
 
+@keyframes slideIn {
+  from {
+    background-position-y: -100px;
+  }
+  to {
+    background-position-y: 0;
+  }
+}
+
 .sideBarContainer {
   height: 100%;
   left: px2rem(25);
@@ -18,24 +27,35 @@
     }
     .dot {
       cursor: pointer;
+      @include flexCenter;
+      position: relative;
       padding: px2rem(10);
       background-color: black;
       border-radius: 50%;
       border: px2rem(1) solid transparent;
-      margin: px2rem(10) 0;
-      &:not(.activeDot) {
-        transition: 200ms linear;
-        &:hover {
-          transform: scale(1.1);
-          transition: 300ms ease;
-        }
-      }
+      margin: px2rem(40) 0;
+    }
+
+    .dot:not(:nth-of-type(1)):before {
+      content: '';
+      position: absolute;
+      background-color: black;
+      height: px2rem(60);
+      width: px2rem(5);
+      top: px2rem(-70);
+      border-radius: px2rem(8);
+      background-repeat: no-repeat;
+      background-size: 100%;
     }
     .activeDot {
+      transition-delay: 300ms;
       background-color: #1298bb;
       padding: px2rem(12);
-      border: 2px solid #1298bb;
       box-shadow: 0 0 0 2px #f3f5f6 inset;
+    }
+    .activeDot::before {
+      animation: slideIn 300ms ease-in;
+      background-image: linear-gradient(to bottom, #1298bb, #1298bb);
     }
   }
 }

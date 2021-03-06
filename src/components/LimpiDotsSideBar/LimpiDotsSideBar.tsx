@@ -29,7 +29,7 @@ export const LimpiDotsSideBar: FC = () => {
   const currentActiveIdx = useMemo(() => {
     let current = 0;
     limpiHomeComponents.forEach((_: LimpiHomePage, idx: number) => {
-      if (scrollTopPosition > steps[idx]) current = idx + 1;
+      if (scrollTopPosition + 300 > steps[idx]) current = idx + 1;
     });
     return current;
   }, [steps, scrollTopPosition]);
@@ -37,7 +37,7 @@ export const LimpiDotsSideBar: FC = () => {
   const renderedDots = limpiHomeComponents.map((_, idx) => (
     <div
       key={idx}
-      className={classnames(styles.dot, idx === currentActiveIdx && styles.activeDot)}
+      className={classnames(styles.dot, idx <= currentActiveIdx && styles.activeDot)}
       onClick={() => jumpTo(idx)}
     />
   ));
