@@ -118,6 +118,7 @@ export const SportsModify: FC = () => {
       if (deleteOne) {
         delete model[deleteOne];
       }
+
       dispatch(setDisability(model));
       const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
         checkValid(category.categoryIds, Object.values(model)),
