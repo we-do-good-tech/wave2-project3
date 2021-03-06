@@ -15,9 +15,15 @@ import { toInteger } from 'lodash';
 import { SportPopup } from '../../components/SportPopup/SportPopup';
 import { Icon } from '../../components/Icon';
 import closeImage from '../../images/close.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import allActions from '../../actions';
+import { ApplicationState } from '../../reducers';
+
+const { resetDisability, setDisability } = allActions.disabilityActions;
 
 export const SportsModify: FC = () => {
-  const [state, setState] = useState({});
+  const { disabilityState } = useSelector((state: ApplicationState) => state);
+  const dispatch = useDispatch();
   const [activeSports, setActiveSports] = useState<ISportCategory[]>(SportCateories);
   const activeSportIds = useMemo(() => activeSports.map((activeSport: ISportCategory) => activeSport.id), [
     activeSports,
@@ -40,7 +46,7 @@ export const SportsModify: FC = () => {
 
   //reset disablities
   const reset = () => {
-    setState({});
+    dispatch(resetDisability());
     setActiveSports(SportCateories);
   };
 
@@ -104,7 +110,7 @@ export const SportsModify: FC = () => {
 
   const changedisability = useCallback(
     (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => {
-      const model: any = state;
+      const model: any = disabilityState;
       if (disablitity?.id) {
         const { categoryId, id: subCetegoryId } = disablitity;
         model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1]?.id;
@@ -113,13 +119,13 @@ export const SportsModify: FC = () => {
         delete model[deleteOne];
       }
 
-      setState(model);
+      dispatch(setDisability(model));
       const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
         checkValid(category.categoryIds, Object.values(model)),
       );
       setActiveSports(wouldBeActiveSports);
     },
-    [state],
+    [disabilityState, dispatch],
   );
 
   const rightSideMenu = useCallback(() => {
