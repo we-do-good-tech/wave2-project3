@@ -3,6 +3,8 @@ import { limpiHomeComponents } from './consts';
 import { LimpiDotsSideBar } from '../../components/LimpiDotsSideBar';
 import classnames from 'classnames';
 import { LimpiBurgerSideBar } from '../../components/LimpiBurgerSideBar';
+import { useSelector, useDispatch } from 'react-redux';
+import allActions from '../../actions';
 
 export const LimpiHome: FC = () => {
   const createPages = () => {
