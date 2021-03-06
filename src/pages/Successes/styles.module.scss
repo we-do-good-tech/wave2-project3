@@ -6,62 +6,43 @@
 }
 
 .Column1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .cards {
-    height: 100%;
-    width: 50%;
-    text-align: left;
-    display: inline-block;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: px2rem(10);
     margin: px2rem(50);
     opacity: 1;
     width: px2rem(350);
-    height: px2rem(450);
+    height: px2rem(350);
     .card {
-      width: px2rem(350);
-      height: px2rem(450);
+      width: px2rem(315);
+      height: px2rem(350);
       h1 {
-        padding-top: px2rem(20);
         text-align: center;
         font-size: px2rem(25);
         font-weight: 400;
         color: white;
       }
       h2 {
-        padding-top: px2rem(10);
         text-align: center;
         font-size: px2rem(18);
         font-weight: 100;
         color: white;
-      }
-      button {
-        font-size: px2rem(13);
-        background-color: white;
-        border-radius: px2rem(40);
-        font-weight: 300;
-        width: px2rem(100);
-        height: px2rem(30);
-        margin-top: px2rem(35);
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        cursor: pointer;
       }
       Button {
         font-size: px2rem(13);
         background-color: white;
         border-radius: px2rem(40);
         font-weight: 300;
-        width: px2rem(100);
-        height: px2rem(30);
-        margin-top: px2rem(35);
         display: block;
         margin-left: auto;
         margin-right: auto;
         cursor: pointer;
       }
       img {
-        padding-top: px2rem(60);
+        padding-top: px2rem(20);
         display: block;
         margin-left: auto;
         margin-right: auto;
