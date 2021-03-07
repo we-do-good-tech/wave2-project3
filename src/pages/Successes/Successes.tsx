@@ -1,12 +1,31 @@
 import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
-import { ISuccesses, ISuccessesCategory } from './consts';
+import { ISuccessCategory, ISuccessConsts } from './consts';
 import Caroline from '../../images/tips/Carolin.png';
-import { Carousel, Button, Modal } from 'react-bootstrap';
+import Carousel from 'react-elastic-carousel';
+
+interface ICardProps extends ISuccessCategory {
+  onClickHandler: (_: ICardProps) => void;
+}
+
+const Card: FC<ICardProps> = (ISuccess: ICardProps) => (
+  <div
+    key={ISuccess.id}
+    className={styles.card}
+    style={{ border: '6px solid', borderColor: ISuccess.color, backgroundColor: ISuccess.color }}
+    onClick={() => ISuccess.onClickHandler(ISuccess)}>
+    <img alt='carol' loading='lazy' src={Caroline} />
+    <div className={styles.textBox}>
+      <h1>ההצלחה של {ISuccess.name}</h1>
+      <p>{ISuccess.detail}</p>
+      <button style={{ color: ISuccess.color }}>כנסו לקרוא</button>
+    </div>
+  </div>
+);
 
 export const Successes: FC = () => {
-  const [successebox, setSuccesseBox] = useState<ISuccessesCategory>(ISuccesses[0]);
+  const [successebox, setSuccesseBox] = useState<ISuccessCategory>(ISuccessConsts[0]);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -14,46 +33,22 @@ export const Successes: FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={classnames(styles.Column1)}>
-        {ISuccesses.map((ISuccesse: ISuccessesCategory, idx) => (
-          <Carousel key={idx.toString()}>
-            <Carousel.Item>
-              <div
-                key={ISuccesse.id}
-                className={classnames(styles.cards)}
-                style={{ border: '8px solid', borderColor: ISuccesse.color }}
-                onClick={() => setSuccesseBox(ISuccesse)}>
-                <div className={classnames(styles.card)} style={{ backgroundColor: ISuccesse.color }}>
-                  <img loading='lazy' src={Caroline} />
-
-                  <Carousel.Caption>
-                    <h1>ההצלחה של {ISuccesse.name}</h1>
-                    <h2>{ISuccesse.detail}</h2>
-                    <Button onClick={handleShow} style={{ color: ISuccesse.color }}>
-                      כנסו לקרוא
-                    </Button>
-
-                    <Modal show={show} onHide={handleClose} style={{ backgroundColor: ISuccesse.color }}>
-                      <Modal.Header>
-                        <Modal.Title>ההצלחה של {ISuccesse.name}</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        <h1>{ISuccesse.question}</h1>
-                        <h2>{ISuccesse.answer}</h2>
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <Button variant='secondary' onClick={handleClose}>
-                          סגירה
-                        </Button>
-                      </Modal.Footer>
-                    </Modal>
-                  </Carousel.Caption>
-                </div>
-              </div>
-            </Carousel.Item>
-          </Carousel>
+      <Carousel
+        breakPoints={[
+          { width: 600, itemsToScroll: 1, itemsToShow: 1 },
+          { width: 800, itemsToScroll: 1, itemsToShow: 2 },
+          { width: 900, itemsToScroll: 1, itemsToShow: 3 },
+        ]}
+        pagination={false}
+        isRTL
+        itemsToShow={3}
+        easing='cubic-bezier(1,.15,.55,1.54)'
+        tiltEasing='cubic-bezier(0.110, 1, 1.000, 0.210)'
+        transitionMs={700}>
+        {ISuccessConsts.map((model: ISuccessCategory) => (
+          <Card {...model} onClickHandler={() => alert(1)} />
         ))}
-      </div>
+      </Carousel>
     </div>
   );
 };

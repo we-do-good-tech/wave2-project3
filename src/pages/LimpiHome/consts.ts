@@ -17,11 +17,11 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     component: Association,
     title: 'על ההתאחדות',
   },
-  // {
-  //   name: 'Successes',
-  //   component: Successes,
-  //   title: 'הצלחות',
-  // },
+  {
+    name: 'Successes',
+    component: Successes,
+    title: 'הצלחות',
+  },
   {
     name: 'SportsModify',
     component: SportsModify,

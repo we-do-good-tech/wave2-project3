@@ -76,3 +76,62 @@ h6 {
 .flex-column {
   flex-direction: column;
 }
+
+/* carousle start */
+.rec-carousel-wrapper {
+  padding: 0 px2rem(40);
+}
+
+.rec-carousel {
+  position: relative;
+  .rec-arrow-left {
+    position: absolute;
+    bottom: -25%;
+    right: 40%;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    @media screen and (max-width: $desktop-large) {
+      right: 45%;
+    }
+    @media screen and (max-width: $tablet) {
+      right: 35%;
+    }
+    @media screen and (max-width: $mobile) {
+      right: 25%;
+    }
+  }
+}
+
+.rec-slider-container {
+  position: relative;
+}
+
+.rec-arrow-right {
+  position: absolute;
+  bottom: -25%;
+  left: 40%;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  @media screen and (max-width: $desktop-large) {
+    left: 45%;
+  }
+  @media screen and (max-width: $tablet) {
+    left: 35%;
+  }
+  @media screen and (max-width: $mobile) {
+    left: 25%;
+  }
+}
+.rec-arrow {
+  transition: 100ms;
+}
+
+.rec-arrow:enabled {
+  color: #333 !important;
+}
+.rec-arrow:hover {
+  transform: scale(1.1) !important;
+  transition: 100ms;
+}
+
+/* carousle end*/

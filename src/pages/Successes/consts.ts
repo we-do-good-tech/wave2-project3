@@ -1,4 +1,4 @@
-export interface ISuccessesCategory {
+export interface ISuccessCategory {
   id: number;
   name: string;
   detail: string;
@@ -8,7 +8,7 @@ export interface ISuccessesCategory {
   answer: string;
 }
 
-export const ISuccesses: ISuccessesCategory[] = [
+export const ISuccessConsts: ISuccessCategory[] = [
   {
     id: 1,
     name: 'שם ומשפחה',
@@ -26,6 +26,24 @@ export const ISuccesses: ISuccessesCategory[] = [
     color: '#f18267',
     question: 'שאלה 2',
     answer: 'תשובה 2',
+  },
+  {
+    id: 3,
+    name: 'שם ומשפחה 3',
+    detail: 'סיפור הצלחה 3',
+    image: '',
+    color: '#60cce8',
+    question: 'שאלה 3',
+    answer: 'תשובה 3',
+  },
+  {
+    id: 4,
+    name: 'שם ומשפחה 4',
+    detail: 'סיפור הצלחה 4',
+    image: '',
+    color: '#4fb27f',
+    question: 'שאלה 4',
+    answer: 'תשובה 4',
   },
   {
     id: 3,

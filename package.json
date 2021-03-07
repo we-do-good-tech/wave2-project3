@@ -84,7 +84,9 @@
     "node-sass-install": "^1.0.2",
     "prettier": "^2.2.1",
     "react-bootstrap": "^1.5.1",
+    "react-elastic-carousel": "^0.11.1",
     "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1",
     "typescript": "^4.1.3"
   }
 }
