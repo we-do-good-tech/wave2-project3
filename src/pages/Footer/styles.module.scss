@@ -6,6 +6,13 @@
   box-sizing: border-box;
 }
 
+.Column1 {
+  margin: px2rem(10);
+
+  img {
+    width: 20%;
+  }
+}
 h1 {
   color: #353535;
   font-weight: 100;
@@ -18,13 +25,6 @@ p {
   font-weight: 100;
   font-size: medium;
   text-align: right;
-}
-
-.Column1 {
-  width: 30%;
-  .limpiLogo {
-    width: 10%;
-  }
 }
 
 .Column2 {

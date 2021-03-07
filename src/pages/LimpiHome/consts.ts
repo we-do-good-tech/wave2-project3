@@ -32,9 +32,9 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     component: Tips,
     title: 'טיפים',
   },
-  // {
-  //   name: 'Footer',
-  //   component: Footer,
-  //   title: 'אודות',
-  // },
+  {
+    name: 'Footer',
+    component: Footer,
+    title: 'אודות',
+  },
 ];

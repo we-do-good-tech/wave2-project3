@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
+import logo from '../../images/logoSmall.svg';
 
 export const Footer: FC = () => {
   return (
     <div className={styles.container}>
       <div className={classnames(styles.Column1)}>
+        <img src={logo} alt='logo' />
         <h1>
           סביבת מוטיבציה לילדים בעלי מוגבלויות
           <br />
