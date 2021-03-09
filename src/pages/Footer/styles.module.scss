@@ -4,33 +4,38 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
+  margin: px2rem(150);
 }
 
-.Column1 {
-  margin: px2rem(10);
-
-  img {
-    width: 20%;
-  }
-}
 h1 {
   color: #353535;
-  font-weight: 100;
+  font-weight: 400;
   font-size: x-large;
   text-align: right;
 }
 
 p {
+  line-height: 1.8;
   color: #353535;
   font-weight: 100;
   font-size: medium;
   text-align: right;
 }
 
+.Column1 {
+  width: 30%;
+  img {
+    width: 20%;
+  }
+}
+
 .Column2 {
+  margin-right: px2rem(100);
+  margin-top: px2rem(38);
   width: 30%;
 }
 
 .Column3 {
+  margin-top: px2rem(38);
   width: 30%;
 }

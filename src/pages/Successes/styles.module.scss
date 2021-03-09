@@ -4,7 +4,20 @@
   @include flexCenter;
   box-sizing: border-box;
 }
-
+.modal {
+  border: px2rem(10) solid;
+  margin: auto;
+  margin-top: px2rem(50);
+  height: px2rem(830);
+  width: px2rem(1600);
+  form {
+    margin: auto;
+    padding: px2rem(50);
+    height: px2rem(800);
+    width: px2rem(1500);
+    background-color: #4fb27f;
+  }
+}
 .card {
   width: px2rem(280);
   height: px2rem(360);

@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { ISuccessCategory, ISuccessConsts } from './consts';
 import Caroline from '../../images/tips/Carolin.png';
 import Carousel from 'react-elastic-carousel';
+import Modal from 'react-modal';
 
 interface ICardProps extends ISuccessCategory {
   onClickHandler: (_: ICardProps) => void;
@@ -27,9 +28,17 @@ const Card: FC<ICardProps> = (ISuccess: ICardProps) => (
 export const Successes: FC = () => {
   const [successebox, setSuccesseBox] = useState<ISuccessCategory>(ISuccessConsts[0]);
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {}
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div className={styles.container}>
@@ -46,9 +55,21 @@ export const Successes: FC = () => {
         tiltEasing='cubic-bezier(0.110, 1, 1.000, 0.210)'
         transitionMs={700}>
         {ISuccessConsts.map((model: ISuccessCategory) => (
-          <Card {...model} onClickHandler={() => alert(1)} />
+          <Card {...model} onClickHandler={openModal} />
         ))}
       </Carousel>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        contentLabel='Example Modal'
+        className={classnames(styles.modal)}>
+        <form>
+          <h1>ההצלחה של {successebox.name}</h1>
+          <button onClick={closeModal}>close</button>
+        </form>
+      </Modal>
     </div>
   );
 };
