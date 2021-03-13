@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/wave2-project3/static/css/main.dbb06018.chunk.css",
-    "main.js": "/wave2-project3/static/js/main.f021aca6.chunk.js",
-    "main.js.map": "/wave2-project3/static/js/main.f021aca6.chunk.js.map",
+    "main.css": "/wave2-project3/static/css/main.5309f12a.chunk.css",
+    "main.js": "/wave2-project3/static/js/main.c64f723b.chunk.js",
+    "main.js.map": "/wave2-project3/static/js/main.c64f723b.chunk.js.map",
     "runtime-main.js": "/wave2-project3/static/js/runtime-main.4017473d.js",
     "runtime-main.js.map": "/wave2-project3/static/js/runtime-main.4017473d.js.map",
-    "static/js/2.bb4cb9b9.chunk.js": "/wave2-project3/static/js/2.bb4cb9b9.chunk.js",
-    "static/js/2.bb4cb9b9.chunk.js.map": "/wave2-project3/static/js/2.bb4cb9b9.chunk.js.map",
+    "static/js/2.9fc0be85.chunk.js": "/wave2-project3/static/js/2.9fc0be85.chunk.js",
+    "static/js/2.9fc0be85.chunk.js.map": "/wave2-project3/static/js/2.9fc0be85.chunk.js.map",
     "index.html": "/wave2-project3/index.html",
-    "static/css/main.dbb06018.chunk.css.map": "/wave2-project3/static/css/main.dbb06018.chunk.css.map",
-    "static/js/2.bb4cb9b9.chunk.js.LICENSE.txt": "/wave2-project3/static/js/2.bb4cb9b9.chunk.js.LICENSE.txt",
+    "static/css/main.5309f12a.chunk.css.map": "/wave2-project3/static/css/main.5309f12a.chunk.css.map",
+    "static/js/2.9fc0be85.chunk.js.LICENSE.txt": "/wave2-project3/static/js/2.9fc0be85.chunk.js.LICENSE.txt",
     "static/media/Arrow.2b2071cf.svg": "/wave2-project3/static/media/Arrow.2b2071cf.svg",
     "static/media/Athletics.95cdd650.svg": "/wave2-project3/static/media/Athletics.95cdd650.svg",
     "static/media/Badminton.209e8391.svg": "/wave2-project3/static/media/Badminton.209e8391.svg",
@@ -47,8 +47,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4017473d.js",
-    "static/js/2.bb4cb9b9.chunk.js",
-    "static/css/main.dbb06018.chunk.css",
-    "static/js/main.f021aca6.chunk.js"
+    "static/js/2.9fc0be85.chunk.js",
+    "static/css/main.5309f12a.chunk.css",
+    "static/js/main.c64f723b.chunk.js"
   ]
 }
