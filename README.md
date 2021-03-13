@@ -34,7 +34,7 @@ delete `node_modules`
 | ahooks           | extends hooks      |
 | node-sass        | sass               |
 | node-sass-install| sass modules       |
-| typac            | install @types     |
+| redux            | app state     |
 | prettier         | format code        |
 | lint-staged      | trigger prettier   |
 | husky            |  pre-commit        |

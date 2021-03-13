@@ -31,7 +31,7 @@ export const disabilitiesCategories: IDisabilitiesCategory[] = [
   {
     id: 2,
     name: 'headInjured',
-    title: 'ופגיעות ראש CP שיתוק מוחין',
+    title: `ופגיעות ראש CP שיתוק מוחין`,
   },
   {
     id: 3,
