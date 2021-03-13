@@ -21,6 +21,9 @@ h6 {
   height: fit-content;
   overflow: hidden;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .footerSection {
   height: fit-content !important;

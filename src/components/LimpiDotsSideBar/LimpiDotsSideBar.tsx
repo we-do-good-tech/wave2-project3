@@ -34,13 +34,15 @@ export const LimpiDotsSideBar: FC = () => {
     return current;
   }, [steps, scrollTopPosition]);
 
-  const renderedDots = limpiHomeComponents.map((_, idx) => (
-    <div
-      key={idx}
-      className={classnames(styles.dot, idx <= currentActiveIdx && styles.activeDot)}
-      onClick={() => jumpTo(idx)}
-    />
-  ));
+  const renderedDots = limpiHomeComponents
+    .filter((_: LimpiHomePage) => !_.hideInBar)
+    .map((_, idx) => (
+      <div
+        key={idx}
+        className={classnames(styles.dot, idx <= currentActiveIdx && styles.activeDot)}
+        onClick={() => jumpTo(idx)}
+      />
+    ));
 
   return (
     <div className={styles.sideBarContainer}>

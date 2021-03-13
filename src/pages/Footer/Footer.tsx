@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 
 export const Footer: FC = () => {
   return (
     <div className={styles.container}>
-      <div className={classnames(styles.Column1)}>
+      <div className={classnames(styles.column)}>
         <h1>
           סביבת מוטיבציה לילדים בעלי מוגבלויות
           <br />
@@ -21,7 +21,7 @@ export const Footer: FC = () => {
           03-6493132
         </p>
       </div>
-      <div className={classnames(styles.Column2)}>
+      <div className={classnames(styles.column)}>
         <h1>תכנים מעוררים השראה</h1>
         <p>
           סיפורים של ספורטאים פראלימפיים
@@ -31,7 +31,7 @@ export const Footer: FC = () => {
           טיפים
         </p>
       </div>
-      <div className={classnames(styles.Column3)}>
+      <div className={classnames(styles.column)}>
         <h1>תודות</h1>
         <p>
           קרן איזקסון | מנהלת דיגטלית בהתאחדות
@@ -41,6 +41,7 @@ export const Footer: FC = () => {
           שם מלא | תפקיד
         </p>
       </div>
+      <p className={styles.redesigneBy}>Redesign & Developed by WeDoGood.Tech 2020</p>
     </div>
   );
 };

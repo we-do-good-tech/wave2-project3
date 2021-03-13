@@ -2,8 +2,15 @@
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: flex-start;
   box-sizing: border-box;
+  padding: px2rem(100) 10%;
+  @media screen and (max-width: $mobile) {
+    padding: px2rem(70) 10% px2rem(30) 10%;
+  }
+  position: relative;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -20,17 +27,11 @@ p {
   text-align: right;
 }
 
-.Column1 {
-  width: 30%;
-  .limpiLogo {
-    width: 10%;
-  }
+.column {
+  flex-grow: 1;
 }
 
-.Column2 {
-  width: 30%;
-}
-
-.Column3 {
-  width: 30%;
+.redesigneBy {
+  position: absolute;
+  bottom: 0;
 }

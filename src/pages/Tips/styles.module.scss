@@ -3,10 +3,9 @@
 .container {
   @include flexCenter;
   box-sizing: border-box;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   @media screen and (max-width: $tablet) {
     width: 100%;
-    flex-wrap: wrap-reverse;
   }
 }
 
