@@ -3,7 +3,7 @@ export interface ISuccessCategory {
   name: string;
   detail: string;
   image?: String;
-  color: string;
+  color: 'green' | 'orange' | 'turqiz';
   question: string;
   answer: string;
 }
@@ -14,7 +14,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     name: 'שם ומשפחה',
     detail: 'סיפור הצלחה',
     image: '',
-    color: '#4fb27f',
+    color: 'green',
     question: 'שאלה 1',
     answer: 'תשובה 1',
   },
@@ -23,7 +23,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     name: 'שם ומשפחה 2',
     detail: 'סיפור הצלחה 2',
     image: '',
-    color: '#f18267',
+    color: 'orange',
     question: 'שאלה 2',
     answer: 'תשובה 2',
   },
@@ -32,7 +32,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     name: 'שם ומשפחה 3',
     detail: 'סיפור הצלחה 3',
     image: '',
-    color: '#60cce8',
+    color: 'turqiz',
     question: 'שאלה 3',
     answer: 'תשובה 3',
   },
@@ -41,7 +41,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     name: 'שם ומשפחה 4',
     detail: 'סיפור הצלחה 4',
     image: '',
-    color: '#4fb27f',
+    color: 'green',
     question: 'שאלה 4',
     answer: 'תשובה 4',
   },
@@ -50,7 +50,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     name: 'שם ומשפחה 3',
     detail: 'סיפור הצלחה 3',
     image: '',
-    color: '#60cce8',
+    color: 'turqiz',
     question: 'שאלה 3',
     answer: 'תשובה 3',
   },
@@ -59,7 +59,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     name: 'שם ומשפחה 4',
     detail: 'סיפור הצלחה 4',
     image: '',
-    color: '#4fb27f',
+    color: 'orange',
     question: 'שאלה 4',
     answer: 'תשובה 4',
   },

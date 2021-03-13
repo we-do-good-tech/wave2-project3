@@ -43,9 +43,58 @@
       padding: px2rem(3) px2rem(20);
       background-color: white;
       border: none;
+      outline: none;
+      cursor: pointer;
       border-radius: px2rem(10);
       font-size: px2rem(16);
       font-weight: 100;
     }
+  }
+}
+
+.popup {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 90% !important;
+  height: 90% !important;
+}
+.closeButton {
+  position: absolute;
+  top: px2rem(35);
+  right: px2rem(35);
+  width: px2rem(30);
+  height: px2rem(30);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    transition: 100ms;
+  }
+}
+
+.green {
+  background-color: #4fb27f;
+  border: 6px solid #4fb27f;
+  button {
+    color: #4fb27f;
+  }
+}
+
+.orange {
+  background-color: #f18267;
+  border: 6px solid #f18267;
+  button {
+    color: #f18267;
+  }
+}
+.turqiz {
+  background-color: #60cce8;
+  border: 6px solid #60cce8;
+  button {
+    color: #60cce8;
   }
 }

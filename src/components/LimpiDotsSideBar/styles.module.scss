@@ -29,17 +29,17 @@
       cursor: pointer;
       @include flexCenter;
       position: relative;
-      padding: px2rem(10);
+      padding: px2rem(8);
       background-color: black;
       border-radius: 50%;
-      border: px2rem(1) solid transparent;
+      border: px2rem(2) solid transparent;
       margin: px2rem(20) 0;
     }
 
     .activeDot {
-      transition-delay: 300ms;
       background-color: #1298bb;
-      padding: px2rem(12);
+      padding: px2rem(11);
+      margin: px2rem(18) 0;
       box-shadow: 0 0 0 2px #f3f5f6 inset;
     }
   }

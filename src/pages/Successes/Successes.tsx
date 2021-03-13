@@ -1,35 +1,29 @@
 import React, { FC, useState } from 'react';
 import styles from './styles.module.scss';
-import classnames from 'classnames';
 import { ISuccessCategory, ISuccessConsts } from './consts';
 import Caroline from '../../images/tips/Carolin.png';
 import Carousel from 'react-elastic-carousel';
+import { Popup } from '../../components/SportPopup';
+import closeImage from '../../images/close.svg';
+import classnames from 'classnames';
 
 interface ICardProps extends ISuccessCategory {
   onClickHandler: (_: ICardProps) => void;
 }
 
 const Card: FC<ICardProps> = (ISuccess: ICardProps) => (
-  <div
-    key={ISuccess.id}
-    className={styles.card}
-    style={{ border: '6px solid', borderColor: ISuccess.color, backgroundColor: ISuccess.color }}
-    onClick={() => ISuccess.onClickHandler(ISuccess)}>
+  <div key={ISuccess.id} className={classnames(styles.card, styles[ISuccess.color])}>
     <img alt='carol' loading='lazy' src={Caroline} />
     <div className={styles.textBox}>
       <h1>ההצלחה של {ISuccess.name}</h1>
       <p>{ISuccess.detail}</p>
-      <button style={{ color: ISuccess.color }}>כנסו לקרוא</button>
+      <button onClick={() => ISuccess.onClickHandler(ISuccess)}>כנסו לקרוא</button>
     </div>
   </div>
 );
 
 export const Successes: FC = () => {
-  const [successebox, setSuccesseBox] = useState<ISuccessCategory>(ISuccessConsts[0]);
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [currentModal, setModal] = useState<ISuccessCategory | undefined>();
 
   return (
     <div className={styles.container}>
@@ -42,13 +36,18 @@ export const Successes: FC = () => {
         pagination={false}
         isRTL
         itemsToShow={3}
-        easing='cubic-bezier(1,.15,.55,1.54)'
-        tiltEasing='cubic-bezier(0.110, 1, 1.000, 0.210)'
-        transitionMs={700}>
+        easing='cubic-bezier(0.2, .15, .55, 1)'
+        tiltEasing='cubic-bezier(0.210, 1, 1.000, 0.210)'
+        transitionMs={400}>
         {ISuccessConsts.map((model: ISuccessCategory) => (
-          <Card {...model} onClickHandler={() => alert(1)} />
+          <Card {...model} onClickHandler={() => setModal(model)} />
         ))}
       </Carousel>
+      {!!currentModal && (
+        <Popup containerClassName={styles.popup} backgroundColor={currentModal.color}>
+          <img src={closeImage} alt='burger' className={styles.closeButton} onClick={() => setModal(undefined)} />
+        </Popup>
+      )}
     </div>
   );
 };

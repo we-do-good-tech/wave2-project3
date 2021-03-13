@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 export interface IPopup {
   containerClassName?: string;
-  backgroundColor?: string;
+  backgroundColor?: 'green' | 'blue' | 'turqiz' | 'orange';
 }
 
 export const Popup: FC<IPopup> = ({ containerClassName, backgroundColor, children }) => {
