@@ -25,9 +25,7 @@ export const SportsModify: FC = () => {
   const { disabilityState } = useSelector((state: ApplicationState) => state);
   const dispatch = useDispatch();
   const [activeSports, setActiveSports] = useState<ISportCategory[]>(SportCateories);
-  const activeSportIds = useMemo(() => activeSports.map((activeSport: ISportCategory) => activeSport.id), [
-    activeSports,
-  ]);
+  const activeSportIds = useMemo(() => activeSports.map((_: ISportCategory) => _.id), [activeSports]);
   const [currentOpen, setCurrentOpen] = useState<number | undefined>();
   const [activePopup, setActivePopup] = useState<ISportCategory | undefined>();
   const toggleOpen = useCallback(

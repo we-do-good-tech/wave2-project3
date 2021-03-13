@@ -16,8 +16,8 @@ export const LimpiDotsSideBar: FC = () => {
   const steps: number[] = useMemo(() => {
     if (wasMount) {
       let counter: number = 0;
-      return limpiHomeComponents.map((page: LimpiHomePage, idx: number) => {
-        const el = window.document.getElementById(page.name);
+      return limpiHomeComponents.map((_: LimpiHomePage) => {
+        const el = window.document.getElementById(_.name);
         const height = el?.getBoundingClientRect().height ?? 0;
         counter += height;
         return counter;

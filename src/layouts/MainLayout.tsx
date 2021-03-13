@@ -5,12 +5,12 @@ import { RouterType } from './types';
 
 export const MainLayout: FC = () => {
   const makeRouters = () =>
-    limpiRouters.map((component: RouterType) => (
+    limpiRouters.map((_: RouterType) => (
       <Route
-        path={component.path === '/' ? process.env.PUBLIC_URL : component.path}
-        exact={component.path === '/'}
-        key={component.name}
-        component={component.Component}></Route>
+        path={_.path === '/' ? process.env.PUBLIC_URL : _.path}
+        exact={_.path === '/'}
+        key={_.name}
+        component={_.Component}></Route>
     ));
 
   return (

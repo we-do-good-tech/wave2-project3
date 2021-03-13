@@ -10,13 +10,13 @@ export const Tips: FC = () => {
     <div className={styles.container}>
       <div className={classnames(styles.right)}>
         <div className={styles.squaresContaienr}>
-          {tips.map((tip: ITipsCategory) => (
+          {tips.map((_: ITipsCategory) => (
             <img
               src={Caroline}
-              key={tip.id}
-              className={classnames(styles[tip.className], tipbox.id === tip.id && styles.active)}
-              onClick={() => setTipBox(tip)}
-              alt={tip.name}
+              key={_.id}
+              className={classnames(styles[_.className], tipbox.id === _.id && styles.active)}
+              onClick={() => setTipBox(_)}
+              alt={_.name}
             />
           ))}
         </div>

@@ -12,13 +12,13 @@ interface ICardProps extends ISuccessCategory {
   onClickHandler: (_: ICardProps) => void;
 }
 
-const Card: FC<ICardProps> = (ISuccess: ICardProps) => (
-  <div key={ISuccess.id} className={classnames(styles.card, styles[ISuccess.color])}>
+const Card: FC<ICardProps> = (_: ICardProps) => (
+  <div key={_.id} className={classnames(styles.card, styles[_.color])}>
     <img alt='carol' loading='lazy' src={Caroline} />
     <div className={styles.textBox}>
-      <h1>ההצלחה של {ISuccess.name}</h1>
-      <p>{ISuccess.detail}</p>
-      <button onClick={() => ISuccess.onClickHandler(ISuccess)}>כנסו לקרוא</button>
+      <h1>ההצלחה של {_.name}</h1>
+      <p>{_.detail}</p>
+      <button onClick={() => _.onClickHandler(_)}>כנסו לקרוא</button>
     </div>
   </div>
 );
