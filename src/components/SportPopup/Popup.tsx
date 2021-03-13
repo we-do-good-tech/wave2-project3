@@ -5,11 +5,12 @@ import classnames from 'classnames';
 export interface IPopup {
   containerClassName?: string;
   backgroundColor?: 'green' | 'blue' | 'turqiz' | 'orange';
+  isFixed?: boolean;
 }
 
-export const Popup: FC<IPopup> = ({ containerClassName, backgroundColor, children }) => {
+export const Popup: FC<IPopup> = ({ containerClassName, backgroundColor, isFixed, children }) => {
   return (
-    <div className={styles.shadow}>
+    <div className={classnames(styles.shadow, isFixed && styles.isFixed)}>
       <div className={classnames(styles.main, containerClassName, backgroundColor && styles[backgroundColor])}>
         {children}
       </div>

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { ISuccessCategory, ISuccessConsts } from './consts';
 import Caroline from '../../images/tips/Carolin.png';
@@ -6,6 +6,7 @@ import Carousel from 'react-elastic-carousel';
 import { Popup } from '../../components/SportPopup';
 import closeImage from '../../images/close.svg';
 import classnames from 'classnames';
+import { lockScreen, unlockScreen } from '../../utils/lockScreen';
 
 interface ICardProps extends ISuccessCategory {
   onClickHandler: (_: ICardProps) => void;
@@ -24,6 +25,14 @@ const Card: FC<ICardProps> = (ISuccess: ICardProps) => (
 
 export const Successes: FC = () => {
   const [currentModal, setModal] = useState<ISuccessCategory | undefined>();
+
+  useEffect(() => {
+    if (!!currentModal) {
+      lockScreen();
+    } else {
+      unlockScreen();
+    }
+  }, [currentModal]);
 
   return (
     <div className={styles.container}>
@@ -44,7 +53,7 @@ export const Successes: FC = () => {
         ))}
       </Carousel>
       {!!currentModal && (
-        <Popup containerClassName={styles.popup} backgroundColor={currentModal.color}>
+        <Popup isFixed containerClassName={styles.popup} backgroundColor={currentModal.color}>
           <img src={closeImage} alt='burger' className={styles.closeButton} onClick={() => setModal(undefined)} />
         </Popup>
       )}
