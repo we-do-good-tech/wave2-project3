@@ -48,8 +48,8 @@ export const Successes: FC = () => {
         easing='cubic-bezier(0.2, .15, .55, 1)'
         tiltEasing='cubic-bezier(0.210, 1, 1.000, 0.210)'
         transitionMs={400}>
-        {ISuccessConsts.map((model: ISuccessCategory) => (
-          <Card {...model} onClickHandler={() => setModal(model)} />
+        {ISuccessConsts.map((model: ISuccessCategory, idx: number) => (
+          <Card key={idx} {...model} onClickHandler={() => setModal(model)} />
         ))}
       </Carousel>
       {!!currentModal && (

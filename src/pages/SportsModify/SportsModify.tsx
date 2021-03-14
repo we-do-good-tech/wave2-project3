@@ -48,7 +48,7 @@ export const SportsModify: FC = () => {
     setActiveSports(SportCateories);
   };
 
-  const getColor = useCallback((num: number) => {
+  const getColor = (num: number) => {
     switch (num) {
       case 0:
         return 'green';
@@ -59,7 +59,7 @@ export const SportsModify: FC = () => {
       default:
         return 'blue';
     }
-  }, []);
+  };
 
   const SportLogos = useMemo(
     () => (
@@ -103,7 +103,7 @@ export const SportsModify: FC = () => {
         })}
       </div>
     ),
-    [getColor, activeSportIds, activePopup],
+    [activeSportIds, activePopup],
   );
 
   const changedisability = useCallback(

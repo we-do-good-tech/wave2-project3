@@ -9,7 +9,7 @@ import classnames from 'classnames';
 
 export const About: FC = () => {
   const { y: scrollTopPosition } = useScrollPosition();
-  const [isLoaded, { setTrue: setLoaded }] = useBoolean(false);
+  // const [isLoaded, { setTrue: setLoaded }] = useBoolean(false);
 
   return (
     <div className={styles.container}>

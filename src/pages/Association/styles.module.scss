@@ -10,7 +10,7 @@
   flex-direction: column;
   transition: 200ms;
   @media screen and (max-width: $tablet) {
-    background-size: 150px;
+    background-size: px2rem(150);
     transition: 200ms;
   }
 }

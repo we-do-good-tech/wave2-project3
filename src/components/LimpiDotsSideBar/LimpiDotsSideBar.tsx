@@ -39,7 +39,7 @@ export const LimpiDotsSideBar: FC = () => {
     .map((_, idx) => (
       <div
         key={idx}
-        className={classnames(styles.dot, idx <= currentActiveIdx && styles.activeDot)}
+        className={classnames(styles.dot, idx === currentActiveIdx && styles.activeDot)}
         onClick={() => jumpTo(idx)}
       />
     ));

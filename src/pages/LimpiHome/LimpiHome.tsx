@@ -7,7 +7,7 @@ import { LimpiBurgerSideBar } from '../../components/LimpiBurgerSideBar';
 export const LimpiHome: FC = () => {
   const createPages = () => {
     return limpiHomeComponents.map((page, idx) => (
-      <div key={idx} id={page.name} className={classnames('section', page.name === 'Footer' && 'footerSection')}>
+      <div key={idx} id={page.name} className={classnames('section', page.specialClassName)}>
         <page.component />
       </div>
     ));

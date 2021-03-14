@@ -3,4 +3,5 @@ export interface LimpiHomePage {
   component: any;
   title: string;
   hideInBar?: boolean;
+  specialClassName?: string;
 }

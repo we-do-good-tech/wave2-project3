@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 

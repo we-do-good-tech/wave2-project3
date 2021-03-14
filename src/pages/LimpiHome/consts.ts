@@ -26,6 +26,7 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     name: 'SportsModify',
     component: SportsModify,
     title: 'התאמת ענף ספורט',
+    specialClassName: 'graySection',
   },
   {
     name: 'Tips',
@@ -37,5 +38,6 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     component: Footer,
     title: 'אודות',
     hideInBar: true,
+    specialClassName: 'footerSection',
   },
 ];
