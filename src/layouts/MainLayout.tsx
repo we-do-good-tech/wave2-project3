@@ -22,7 +22,7 @@ export const MainLayout: FC = () => {
         component={_.Component}></Route>
     ));
   const { loading } = useSelector((state: ApplicationState) => state.loadingState);
-  document.onload = () => dispatch(setNotLoading());
+  window.onload = () => dispatch(setNotLoading());
 
   return (
     <Router>
