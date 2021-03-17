@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { RouterType } from './types';
 import { useDispatch } from 'react-redux';
 import allActions from '../actions';
+import { Loading } from '../components/Loading';
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../reducers';
 
 const { setNotLoading } = allActions.loadingActions;
 
@@ -18,12 +21,13 @@ export const MainLayout: FC = () => {
         key={_.name}
         component={_.Component}></Route>
     ));
-
+  const { loading } = useSelector((state: ApplicationState) => state.loadingState);
   document.onload = () => dispatch(setNotLoading());
 
   return (
     <Router>
       <Switch>{makeRouters()}</Switch>
+      {loading && <Loading />}
     </Router>
   );
 };
