@@ -22,7 +22,8 @@ export const LimpiHome: FC = () => {
     <div style={{ direction: 'rtl' }}>
       <LimpiDotsSideBar />
       <LimpiBurgerSideBar />
-      {createPages()}t{loading && <Loading />}
+      {createPages()}
+      {loading && <Loading />}
     </div>
   );
 };
