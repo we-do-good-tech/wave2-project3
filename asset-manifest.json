@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/wave2-project3/static/css/main.42b5924d.chunk.css",
-    "main.js": "/wave2-project3/static/js/main.148a047c.chunk.js",
-    "main.js.map": "/wave2-project3/static/js/main.148a047c.chunk.js.map",
+    "main.css": "/wave2-project3/static/css/main.08400ce8.chunk.css",
+    "main.js": "/wave2-project3/static/js/main.ac46910a.chunk.js",
+    "main.js.map": "/wave2-project3/static/js/main.ac46910a.chunk.js.map",
     "runtime-main.js": "/wave2-project3/static/js/runtime-main.4017473d.js",
     "runtime-main.js.map": "/wave2-project3/static/js/runtime-main.4017473d.js.map",
-    "static/js/2.ac2591da.chunk.js": "/wave2-project3/static/js/2.ac2591da.chunk.js",
-    "static/js/2.ac2591da.chunk.js.map": "/wave2-project3/static/js/2.ac2591da.chunk.js.map",
+    "static/js/2.89ab82aa.chunk.js": "/wave2-project3/static/js/2.89ab82aa.chunk.js",
+    "static/js/2.89ab82aa.chunk.js.map": "/wave2-project3/static/js/2.89ab82aa.chunk.js.map",
     "index.html": "/wave2-project3/index.html",
-    "static/css/main.42b5924d.chunk.css.map": "/wave2-project3/static/css/main.42b5924d.chunk.css.map",
-    "static/js/2.ac2591da.chunk.js.LICENSE.txt": "/wave2-project3/static/js/2.ac2591da.chunk.js.LICENSE.txt",
+    "static/css/main.08400ce8.chunk.css.map": "/wave2-project3/static/css/main.08400ce8.chunk.css.map",
+    "static/js/2.89ab82aa.chunk.js.LICENSE.txt": "/wave2-project3/static/js/2.89ab82aa.chunk.js.LICENSE.txt",
     "static/media/Arrow.2b2071cf.svg": "/wave2-project3/static/media/Arrow.2b2071cf.svg",
     "static/media/Athletics.95cdd650.svg": "/wave2-project3/static/media/Athletics.95cdd650.svg",
     "static/media/Badminton.209e8391.svg": "/wave2-project3/static/media/Badminton.209e8391.svg",
@@ -47,8 +47,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4017473d.js",
-    "static/js/2.ac2591da.chunk.js",
-    "static/css/main.42b5924d.chunk.css",
-    "static/js/main.148a047c.chunk.js"
+    "static/js/2.89ab82aa.chunk.js",
+    "static/css/main.08400ce8.chunk.css",
+    "static/js/main.ac46910a.chunk.js"
   ]
 }
