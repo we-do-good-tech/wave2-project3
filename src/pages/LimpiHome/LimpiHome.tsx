@@ -3,6 +3,9 @@ import { limpiHomeComponents } from './consts';
 import { LimpiDotsSideBar } from '../../components/LimpiDotsSideBar';
 import classnames from 'classnames';
 import { LimpiBurgerSideBar } from '../../components/LimpiBurgerSideBar';
+import { Loading } from '../../components/Loading';
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../reducers';
 
 export const LimpiHome: FC = () => {
   const createPages = () => {
@@ -13,11 +16,13 @@ export const LimpiHome: FC = () => {
     ));
   };
 
+  const { loading } = useSelector((state: ApplicationState) => state.loadingState);
+
   return (
     <div style={{ direction: 'rtl' }}>
       <LimpiDotsSideBar />
       <LimpiBurgerSideBar />
-      {createPages()}
+      {createPages()}t{loading && <Loading />}
     </div>
   );
 };

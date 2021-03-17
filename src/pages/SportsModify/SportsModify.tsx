@@ -108,7 +108,7 @@ export const SportsModify: FC = () => {
 
   const changedisability = useCallback(
     (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => {
-      const model: any = disabilityState;
+      const model: Record<number, number> = disabilityState;
       if (disablitity?.id) {
         const { categoryId, id: subCetegoryId } = disablitity;
         model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1]?.id;

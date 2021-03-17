@@ -1,7 +1,7 @@
 import { IDisabilitiesCategory } from '../pages/SportsModify/consts';
 import { disabilityTypes } from './types';
 
-const setDisability = (payload?: IDisabilitiesCategory) => {
+const setDisability = (payload?: Record<number, number>) => {
   return {
     type: disabilityTypes.CHANGE_DISABILITY_STATE,
     payload: payload,
