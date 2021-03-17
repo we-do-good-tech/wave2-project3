@@ -19,7 +19,7 @@ export const MainLayout: FC = () => {
         component={_.Component}></Route>
     ));
 
-  window.onload = () => dispatch(setNotLoading());
+  document.onload = () => dispatch(setNotLoading());
 
   return (
     <Router>
