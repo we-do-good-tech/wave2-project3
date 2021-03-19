@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/wave2-project3/static/css/main.97d6e74f.chunk.css",
-    "main.js": "/wave2-project3/static/js/main.ccac2abb.chunk.js",
-    "main.js.map": "/wave2-project3/static/js/main.ccac2abb.chunk.js.map",
+    "main.css": "/wave2-project3/static/css/main.4801b339.chunk.css",
+    "main.js": "/wave2-project3/static/js/main.1fbf57ec.chunk.js",
+    "main.js.map": "/wave2-project3/static/js/main.1fbf57ec.chunk.js.map",
     "runtime-main.js": "/wave2-project3/static/js/runtime-main.4017473d.js",
     "runtime-main.js.map": "/wave2-project3/static/js/runtime-main.4017473d.js.map",
     "static/js/2.85140659.chunk.js": "/wave2-project3/static/js/2.85140659.chunk.js",
     "static/js/2.85140659.chunk.js.map": "/wave2-project3/static/js/2.85140659.chunk.js.map",
     "index.html": "/wave2-project3/index.html",
-    "static/css/main.97d6e74f.chunk.css.map": "/wave2-project3/static/css/main.97d6e74f.chunk.css.map",
+    "static/css/main.4801b339.chunk.css.map": "/wave2-project3/static/css/main.4801b339.chunk.css.map",
     "static/js/2.85140659.chunk.js.LICENSE.txt": "/wave2-project3/static/js/2.85140659.chunk.js.LICENSE.txt",
     "static/media/Arrow.2b2071cf.svg": "/wave2-project3/static/media/Arrow.2b2071cf.svg",
     "static/media/Athletics.95cdd650.svg": "/wave2-project3/static/media/Athletics.95cdd650.svg",
@@ -48,7 +48,7 @@
   "entrypoints": [
     "static/js/runtime-main.4017473d.js",
     "static/js/2.85140659.chunk.js",
-    "static/css/main.97d6e74f.chunk.css",
-    "static/js/main.ccac2abb.chunk.js"
+    "static/css/main.4801b339.chunk.css",
+    "static/js/main.1fbf57ec.chunk.js"
   ]
 }
