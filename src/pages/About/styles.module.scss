@@ -15,7 +15,7 @@
   .mainImage {
     @media screen and (min-width: $tablet) {
       width: px2rem(800);
-      padding: px2rem(75);
+      padding: 0 px2rem(75);
     }
     width: 65vh;
     max-width: 85vw;

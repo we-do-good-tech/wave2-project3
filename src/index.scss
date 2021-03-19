@@ -82,6 +82,7 @@ h6 {
 /* carousle start */
 .rec-carousel-wrapper {
   padding: 0 px2rem(40);
+  min-height: px2rem(500);
 }
 
 .rec-carousel {
@@ -89,12 +90,16 @@ h6 {
   .rec-arrow-left {
     position: absolute;
     bottom: -25%;
-    right: 40%;
+    right: 43%;
     background-color: transparent !important;
     box-shadow: none !important;
 
     @include breakpoint($desktop-large) {
       right: 45%;
+    }
+
+    @include breakpoint($desktop) {
+      right: 40%;
     }
     @include breakpoint($tablet) {
       right: 35%;
@@ -112,12 +117,17 @@ h6 {
 .rec-arrow-right {
   position: absolute;
   bottom: -25%;
-  left: 40%;
+  left: 43%;
   background-color: transparent !important;
   box-shadow: none !important;
   @include breakpoint($desktop-large) {
     left: 45%;
   }
+
+  @include breakpoint($desktop) {
+    left: 40%;
+  }
+
   @include breakpoint($tablet) {
     left: 35%;
   }

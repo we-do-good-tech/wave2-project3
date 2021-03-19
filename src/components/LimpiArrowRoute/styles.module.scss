@@ -13,6 +13,7 @@
 .arrowContainer {
   cursor: pointer;
   position: absolute;
+  height: px2rem(60);
   bottom: 0;
   left: calc(50% - 3.125rem);
   img {
