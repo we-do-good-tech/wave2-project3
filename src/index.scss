@@ -5,6 +5,7 @@ body {
   margin: 0;
 }
 
+label,
 p,
 pre,
 span,
@@ -104,8 +105,8 @@ h6 {
     @include breakpoint($tablet) {
       right: 35%;
     }
-    @include breakpoint($mobile) {
-      right: 25%;
+    @include breakpoint($mobile-medium) {
+      right: 30%;
     }
   }
 }
@@ -131,8 +132,8 @@ h6 {
   @include breakpoint($tablet) {
     left: 35%;
   }
-  @include breakpoint($mobile) {
-    left: 25%;
+  @include breakpoint($mobile-medium) {
+    left: 30%;
   }
 }
 .rec-arrow {

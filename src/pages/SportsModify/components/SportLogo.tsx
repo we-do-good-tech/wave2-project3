@@ -19,7 +19,7 @@ export const SportLogo: FC<ISportLogo> = ({ type, color, disabled, onClick, name
         className={classnames(styles.Icon, styles[color], disabled && styles.disabled)}>
         <Icon type={type} />
       </div>
-      <label>{name}</label>
+      <label className={styles[color]}>{name}</label>
     </div>
   );
 };

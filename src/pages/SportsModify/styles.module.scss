@@ -1,5 +1,4 @@
 @import '../../index.scss';
-$container: 20;
 
 .fullContainer {
   display: flex;
@@ -70,6 +69,13 @@ $container: 20;
     }
 
     .SportIcons {
+      //hide scrollbars - still can scroll
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+
       position: relative;
       flex-basis: 65%;
       flex-grow: 1;
