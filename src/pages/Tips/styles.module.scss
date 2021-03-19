@@ -53,7 +53,7 @@
 .left {
   @include flexCenter;
   flex-basis: 50%;
-  flex-grow: 1;
+  flex-grow: 0.6;
   .tip {
     @media screen and (max-width: $tablet) {
       padding: px2rem(10) px2rem(40);
@@ -115,38 +115,38 @@
 }
 
 .turqiz {
-  border-color: #60cce8 !important;
+  border-color: $turqiz !important;
   &:hover {
-    background-color: #60cce8 !important;
+    background-color: $turqiz !important;
   }
   &.active {
-    background-color: #60cce8 !important;
+    background-color: $turqiz !important;
   }
 }
 .green {
-  border-color: #4fb27f !important;
+  border-color: $green !important;
   &:hover {
-    background-color: #4fb27f !important;
+    background-color: $green !important;
   }
   &.active {
-    background-color: #4fb27f !important;
+    background-color: $green !important;
   }
 }
 .orange {
-  border-color: #f18267 !important;
+  border-color: $orange !important;
   &:hover {
-    background-color: #f18267 !important;
+    background-color: $orange !important;
   }
   &.active {
-    background-color: #f18267 !important;
+    background-color: $orange !important;
   }
 }
-.darkblue {
-  border-color: #7587ae !important;
+.blue {
+  border-color: $blue !important;
   &:hover {
-    background-color: #7587ae !important;
+    background-color: $blue !important;
   }
   &.active {
-    background-color: #7587ae !important;
+    background-color: $blue !important;
   }
 }

@@ -2,7 +2,6 @@
 
 .container {
   @include flexCenter;
-  box-sizing: border-box;
 }
 
 .card {
@@ -77,24 +76,24 @@
 }
 
 .green {
-  background-color: #4fb27f;
-  border: 6px solid #4fb27f;
+  background-color: $green;
+  border: 6px solid $green;
   button {
-    color: #4fb27f;
+    color: $green;
   }
 }
 
 .orange {
-  background-color: #f18267;
-  border: 6px solid #f18267;
+  background-color: $orange;
+  border: 6px solid $orange;
   button {
-    color: #f18267;
+    color: $orange;
   }
 }
 .turqiz {
-  background-color: #60cce8;
-  border: 6px solid #60cce8;
+  background-color: $turqiz;
+  border: 6px solid $turqiz;
   button {
-    color: #60cce8;
+    color: $turqiz;
   }
 }

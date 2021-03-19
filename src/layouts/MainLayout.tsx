@@ -8,7 +8,7 @@ import { Loading } from '../components/Loading';
 import { useSelector } from 'react-redux';
 import { ApplicationState } from '../reducers';
 
-const { setNotLoading } = allActions.loadingActions;
+const { setNotLoading, setLoading } = allActions.loadingActions;
 
 export const MainLayout: FC = () => {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ export const MainLayout: FC = () => {
     ));
   const { loading } = useSelector((state: ApplicationState) => state.loadingState);
   window.onload = () => dispatch(setNotLoading());
+  window.onloadstart = () => dispatch(setLoading());
 
   return (
     <Router>

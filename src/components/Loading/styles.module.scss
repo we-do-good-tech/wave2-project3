@@ -1,16 +1,16 @@
+@import '../../index.scss';
+
 @keyframes colorAnimate {
-  0% {
-    color: #0f9e53;
+  0%,
+  100% {
+    color: $red;
   }
 
   33% {
-    color: #f9fc5d;
+    color: $yellow;
   }
   66% {
-    color: #1198ba;
-  }
-  100% {
-    color: #ef4c23;
+    color: $turqiz;
   }
 }
 
@@ -28,7 +28,7 @@
 }
 
 .loader {
-  color: #ef4c23;
+  color: $red;
   font-size: 90px;
   text-indent: -9999em;
   overflow: hidden;

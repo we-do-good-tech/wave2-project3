@@ -1,4 +1,6 @@
 @import '../../index.scss';
+$container: 20;
+
 .fullContainer {
   display: flex;
   flex-direction: column;
@@ -8,6 +10,7 @@
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  align-items: center;
   .titleContainer {
     display: flex;
     flex-direction: column;
@@ -24,7 +27,6 @@
     }
 
     @media screen and (min-width: $tablet) {
-      margin-right: 32%;
       margin-bottom: px2rem(20);
     }
   }
@@ -35,21 +37,22 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 85%;
 
     .sideMenu {
       flex-basis: 26%;
       flex-grow: 1;
-      @media screen and(min-width: $desktop-small) {
-        max-width: px2rem(400);
-      }
       padding: px2rem(20);
       margin: px2rem(5);
       border: 4px solid rgb(232, 232, 232);
       background-color: white;
       height: px2rem(600);
-
+      @media screen and(min-width: $desktop) {
+        max-width: px2rem(1050);
+      }
       h1 {
-        color: #1298bb;
+        color: $turqiz;
         font-size: px2rem(28);
         font-weight: 100;
       }
@@ -70,8 +73,8 @@
       position: relative;
       flex-basis: 65%;
       flex-grow: 1;
-      @media screen and(min-width: $desktop-small) {
-        max-width: px2rem(1000);
+      @media screen and(min-width: $desktop) {
+        max-width: px2rem(1050);
       }
       padding: px2rem(20);
       border: 4px solid rgb(232, 232, 232);

@@ -46,7 +46,7 @@ export const tips: ITipsCategory[] = [
     gender: 'בת',
     image: '{Caroline}',
     color: '#7587ae',
-    className: 'darkblue',
+    className: 'blue',
   },
   {
     id: 4,
