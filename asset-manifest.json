@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/wave2-project3/static/css/main.05d48f9d.chunk.css",
-    "main.js": "/wave2-project3/static/js/main.b2e115d4.chunk.js",
-    "main.js.map": "/wave2-project3/static/js/main.b2e115d4.chunk.js.map",
+    "main.css": "/wave2-project3/static/css/main.f4a07252.chunk.css",
+    "main.js": "/wave2-project3/static/js/main.8af2336a.chunk.js",
+    "main.js.map": "/wave2-project3/static/js/main.8af2336a.chunk.js.map",
     "runtime-main.js": "/wave2-project3/static/js/runtime-main.4017473d.js",
     "runtime-main.js.map": "/wave2-project3/static/js/runtime-main.4017473d.js.map",
     "static/js/2.5a2ad248.chunk.js": "/wave2-project3/static/js/2.5a2ad248.chunk.js",
     "static/js/2.5a2ad248.chunk.js.map": "/wave2-project3/static/js/2.5a2ad248.chunk.js.map",
     "index.html": "/wave2-project3/index.html",
-    "static/css/main.05d48f9d.chunk.css.map": "/wave2-project3/static/css/main.05d48f9d.chunk.css.map",
+    "static/css/main.f4a07252.chunk.css.map": "/wave2-project3/static/css/main.f4a07252.chunk.css.map",
     "static/js/2.5a2ad248.chunk.js.LICENSE.txt": "/wave2-project3/static/js/2.5a2ad248.chunk.js.LICENSE.txt",
     "static/media/Arrow.2b2071cf.svg": "/wave2-project3/static/media/Arrow.2b2071cf.svg",
     "static/media/Athletics.95cdd650.svg": "/wave2-project3/static/media/Athletics.95cdd650.svg",
@@ -37,7 +37,7 @@
     "static/media/Triathlon.0bf4d08d.svg": "/wave2-project3/static/media/Triathlon.0bf4d08d.svg",
     "static/media/Volleyball.9bc9636c.svg": "/wave2-project3/static/media/Volleyball.9bc9636c.svg",
     "static/media/circles.63aac8d5.svg": "/wave2-project3/static/media/circles.63aac8d5.svg",
-    "static/media/close.733bd3a9.svg": "/wave2-project3/static/media/close.733bd3a9.svg",
+    "static/media/close.53e17fbc.svg": "/wave2-project3/static/media/close.53e17fbc.svg",
     "static/media/line.1db06dd8.svg": "/wave2-project3/static/media/line.1db06dd8.svg",
     "static/media/logoSmall.02835fd5.svg": "/wave2-project3/static/media/logoSmall.02835fd5.svg",
     "static/media/main.913a7727.png": "/wave2-project3/static/media/main.913a7727.png",
@@ -48,7 +48,7 @@
   "entrypoints": [
     "static/js/runtime-main.4017473d.js",
     "static/js/2.5a2ad248.chunk.js",
-    "static/css/main.05d48f9d.chunk.css",
-    "static/js/main.b2e115d4.chunk.js"
+    "static/css/main.f4a07252.chunk.css",
+    "static/js/main.8af2336a.chunk.js"
   ]
 }
