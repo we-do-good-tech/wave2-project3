@@ -96,7 +96,7 @@ $container: 20;
         font-size: px2rem(22);
         margin: 0;
       }
-      @media screen and (max-width: $tablet) {
+      @include breakpoint($tablet) {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -107,7 +107,7 @@ $container: 20;
 
 .popupBody {
   width: 96%;
-  @media screen and (max-width: $mobile) {
+  @include breakpoint($mobile) {
     width: 90%;
     padding-bottom: px2rem(10);
   }

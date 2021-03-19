@@ -6,7 +6,7 @@
   align-items: flex-start;
   box-sizing: border-box;
   padding: px2rem(100) 10%;
-  @media screen and (max-width: $mobile) {
+  @include breakpoint($mobile) {
     padding: px2rem(70) 10% px2rem(30) 10%;
   }
   position: relative;

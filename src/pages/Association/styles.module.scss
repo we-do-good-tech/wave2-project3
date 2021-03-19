@@ -9,7 +9,7 @@
   background-position: right bottom;
   flex-direction: column;
   transition: 200ms;
-  @media screen and (max-width: $tablet) {
+  @include breakpoint($tablet) {
     background-size: px2rem(150);
     transition: 200ms;
   }
@@ -20,7 +20,7 @@
   max-width: px2rem(485);
   width: fit-content;
   display: flex;
-  @media screen and (max-width: $mobile) {
+  @include breakpoint($mobile) {
     background-color: rgba(255, 255, 255, 0.5);
     padding: px2rem(10);
     margin: px2rem(10) 0;

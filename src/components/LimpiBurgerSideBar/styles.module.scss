@@ -32,7 +32,7 @@
     width: px2rem(40);
     cursor: pointer;
 
-    @media screen and (max-width: $mobile) {
+    @include breakpoint($mobile) {
       left: px2rem(20);
       top: px2rem(40);
       opacity: 0.4;

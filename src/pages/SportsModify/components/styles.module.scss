@@ -97,10 +97,10 @@
   background-color: white;
   border: 2px solid;
   transition: 100ms;
-  @media screen and (max-width: $tablet) {
+  @include breakpoint($tablet) {
     margin: px2rem(16);
   }
-  @media screen and (max-width: $desktop) {
+  @include breakpoint($desktop) {
     width: px2rem(75);
     height: px2rem(75);
   }

@@ -48,10 +48,6 @@ h6 {
 }
 
 .limpiLogo {
-  @media screen and (max-width: $tablet) {
-  }
-  @media screen and (max-width: $mobile) {
-  }
   position: fixed;
   top: px2rem(36);
   transition: 200ms;
@@ -96,13 +92,14 @@ h6 {
     right: 40%;
     background-color: transparent !important;
     box-shadow: none !important;
-    @media screen and (max-width: $desktop-large) {
+
+    @include breakpoint($desktop-large) {
       right: 45%;
     }
-    @media screen and (max-width: $tablet) {
+    @include breakpoint($tablet) {
       right: 35%;
     }
-    @media screen and (max-width: $mobile) {
+    @include breakpoint($mobile) {
       right: 25%;
     }
   }
@@ -118,13 +115,13 @@ h6 {
   left: 40%;
   background-color: transparent !important;
   box-shadow: none !important;
-  @media screen and (max-width: $desktop-large) {
+  @include breakpoint($desktop-large) {
     left: 45%;
   }
-  @media screen and (max-width: $tablet) {
+  @include breakpoint($tablet) {
     left: 35%;
   }
-  @media screen and (max-width: $mobile) {
+  @include breakpoint($mobile) {
     left: 25%;
   }
 }

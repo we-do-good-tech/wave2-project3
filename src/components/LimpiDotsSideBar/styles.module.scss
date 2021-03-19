@@ -14,7 +14,7 @@
   left: px2rem(25);
   z-index: 1000 !important;
   position: fixed;
-  @media screen and (max-width: $mobile) {
+  @include breakpoint($mobile) {
     display: none;
   }
   @include flexCenter;

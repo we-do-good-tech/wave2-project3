@@ -26,7 +26,7 @@
 
 .shadow {
   position: absolute;
-  @media screen and (max-width: $mobile) {
+  @include breakpoint($mobile) {
     position: sticky;
     padding: 0;
   }
