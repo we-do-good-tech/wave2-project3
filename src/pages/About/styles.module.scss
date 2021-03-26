@@ -8,8 +8,14 @@
     color: #353535;
     font-weight: 100;
     text-align: center;
-    width: 80%;
+    width: 40%;
     margin-top: px2rem(140);
+    @include breakpoint($tablet) {
+      width: 60%;
+    }
+    @include breakpoint($mobile) {
+      width: 70%;
+    }
   }
 
   .mainImage {

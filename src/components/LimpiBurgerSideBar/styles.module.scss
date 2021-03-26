@@ -61,7 +61,7 @@
         transform: scale(1.1);
       }
     }
-    @media screen and(max-width: $tablet) {
+    @include breakpoint($tablet) {
       width: px2rem(250);
       // height: fit-content;
       padding-bottom: px2rem(50);
@@ -81,7 +81,7 @@
       img {
         width: px2rem(130);
       }
-      @media screen and(max-width: $tablet) {
+      @include breakpoint($tablet) {
         // position: static;
         // padding-top: px2rem(50);
         img {
@@ -92,7 +92,7 @@
   }
   .goingOut {
     animation: slideOut 1s;
-    @media screen and(max-width: $tablet) {
+    @include breakpoint($tablet) {
       animation: none;
     }
   }
@@ -115,7 +115,7 @@
   p:hover {
     text-decoration: underline;
   }
-  @media screen and(max-width: $tablet) {
+  @include breakpoint($tablet) {
     margin-top: 50px;
     margin-right: 50px;
   }

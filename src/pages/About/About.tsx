@@ -16,7 +16,7 @@ export const About: FC = () => {
         src={logo}
         alt='logo'
         id='limpiLogo'
-        className={classnames('limpiLogo', scrollTopPosition >= 110 && 'limpiLogoRight')}
+        className={classnames('limpiLogo', scrollTopPosition >= 85 && 'limpiLogoRight')}
       />
       <h1>זה המקום בו תוכלו לחלום ולהבין שלפעמים דברים גדולים מתחילים בהחלטה קטנה וההחלטה הזו היא שלכם</h1>
       <img loading='eager' className={styles.mainImage} alt='logo' src={main} />
