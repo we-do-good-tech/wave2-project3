@@ -40,6 +40,8 @@
     max-width: 85%;
 
     .sideMenu {
+      display: flex;
+      flex-direction: column;
       flex-basis: 26%;
       flex-grow: 1;
       padding: px2rem(20);
@@ -56,6 +58,7 @@
         font-weight: 100;
       }
       hr {
+        width: 100%;
         opacity: 0.2;
         border: 0.1px solid #8e8d8d;
         box-shadow: 0 0 8px 1px black;
@@ -66,22 +69,21 @@
         height: 90%;
         padding-left: px2rem(15);
         justify-content: space-between;
-        .resetButton {
-          margin: 0 0 px2rem(10) 0;
-          padding: px2rem(6) px2rem(30);
-          align-self: center;
-          font-weight: 100;
-          font-size: px2rem(20);
-          border: none;
-          border-radius: 20px;
-          outline: none;
-          cursor: pointer;
+      }
+      .resetButton {
+        padding: px2rem(5) px2rem(30);
+        align-self: center;
+        font-weight: 100;
+        font-size: px2rem(20);
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        cursor: pointer;
+        transition: 100ms;
+        background-color: $--color-gray-1;
+        &:active {
           transition: 100ms;
-          background-color: $--color-gray-1;
-          &:active {
-            transition: 100ms;
-            background-color: $--color-gray-2;
-          }
+          background-color: $--color-gray-2;
         }
       }
     }

@@ -147,10 +147,10 @@ export const SportsModify: FC = () => {
               />
             ))}
           </div>
-          <button className={styles.resetButton} onClick={() => dispatch(resetDisability())}>
-            איפוס
-          </button>
         </div>
+        <button className={styles.resetButton} onClick={() => dispatch(resetDisability())}>
+          איפוס
+        </button>
       </div>
     );
   }, [changeDisability, currentOpen, toggleOpen]);
