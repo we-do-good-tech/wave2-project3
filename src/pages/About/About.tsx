@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { useBoolean } from 'ahooks';
 import { LimpiArrowRoute } from '../../components/LimpiArrowRoute';
 import main from '../../images/about/main.png';
 import styles from './styles.module.scss';

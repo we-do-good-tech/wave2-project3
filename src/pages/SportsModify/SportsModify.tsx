@@ -21,6 +21,15 @@ import { ApplicationState } from '../../reducers';
 
 const { resetDisability, setDisability } = allActions.disabilityActions;
 
+//check if there are not matching values in two arrays
+const checkValid = (arrOne: number[], arrTwo: number[]) => {
+  let flag = true;
+  arrOne.forEach((id: number) => {
+    if (arrTwo.includes(id)) flag = false;
+  });
+  return flag;
+};
+
 export const SportsModify: FC = () => {
   const { disabilityState } = useSelector((state: ApplicationState) => state);
   const dispatch = useDispatch();
@@ -32,15 +41,6 @@ export const SportsModify: FC = () => {
     (id: number) => (currentOpen === id ? setCurrentOpen(undefined) : setCurrentOpen(id)),
     [currentOpen, setCurrentOpen],
   );
-
-  //check if there are not matching disablities ids
-  const checkValid = (arrOne: number[], arrTwo: number[]) => {
-    let flag = true;
-    arrOne.forEach((id: number) => {
-      if (arrTwo.includes(id)) flag = false;
-    });
-    return flag;
-  };
 
   //reset disablities
   const reset = () => {
@@ -106,7 +106,7 @@ export const SportsModify: FC = () => {
     [activeSportIds, activePopup],
   );
 
-  const changedisability = useCallback(
+  const changeDisability = useCallback(
     (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => {
       const model: Record<number, number> = disabilityState;
       if (disablitity?.id) {
@@ -116,38 +116,44 @@ export const SportsModify: FC = () => {
       if (deleteOne) {
         delete model[deleteOne];
       }
-
       dispatch(setDisability(model));
+
       const wouldBeActiveSports = SportCateories.filter((category: ISportCategory) =>
         checkValid(category.categoryIds, Object.values(model)),
       );
+
       setActiveSports(wouldBeActiveSports);
     },
     [disabilityState, dispatch],
   );
 
-  const rightSideMenu = useCallback(() => {
+  const RightSideMenu = useCallback(() => {
     return (
       <div className={styles.sideMenu}>
         <h1>התאמת ענף ספורט לפי סיווג</h1>
         <hr />
         <div className={classnames('d-flex flex-column', styles.chooseMenu)}>
-          {disabilitiesCategories.map((category: IDisabilitiesCategory, idx: number) => (
-            <DisabilityCategory
-              title={category.title}
-              key={idx}
-              isOpen={currentOpen === category.id}
-              toggleOpen={toggleOpen}
-              subcategories={disabilitiesSubCategoris.filter(
-                (subCategory: IDisabilitiesSubCategory) => subCategory.categoryId === category.id,
-              )}
-              onSubCategoryChose={changedisability}
-            />
-          ))}
+          <div>
+            {disabilitiesCategories.map((category: IDisabilitiesCategory, idx: number) => (
+              <DisabilityCategory
+                title={category.title}
+                key={idx}
+                isOpen={currentOpen === category.id}
+                toggleOpen={toggleOpen}
+                subcategories={disabilitiesSubCategoris.filter(
+                  (subCategory: IDisabilitiesSubCategory) => subCategory.categoryId === category.id,
+                )}
+                onSubCategoryChose={changeDisability}
+              />
+            ))}
+          </div>
+          <button className={styles.resetButton} onClick={() => dispatch(resetDisability())}>
+            איפוס
+          </button>
         </div>
       </div>
     );
-  }, [changedisability, currentOpen, toggleOpen]);
+  }, [changeDisability, currentOpen, toggleOpen]);
 
   return (
     <div className={styles.fullContainer}>
@@ -156,7 +162,7 @@ export const SportsModify: FC = () => {
         <h2>בלחיצה על כל אחד תקבלו מידע נוסף</h2>
       </div>
       <div className={styles.container}>
-        {rightSideMenu()}
+        {RightSideMenu()}
         {SportLogos}
       </div>
     </div>

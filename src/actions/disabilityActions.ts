@@ -1,4 +1,3 @@
-import { IDisabilitiesCategory } from '../pages/SportsModify/consts';
 import { disabilityTypes } from './types';
 
 const setDisability = (payload?: Record<number, number>) => {
@@ -14,7 +13,9 @@ const resetDisability = () => {
   };
 };
 
-export default {
+const disabilityActions = {
   setDisability,
   resetDisability,
 };
+
+export default disabilityActions;

@@ -12,7 +12,9 @@ const setNotLoading = () => {
   };
 };
 
-export default {
+const loadingActions = {
   setLoading,
   setNotLoading,
 };
+
+export default loadingActions;

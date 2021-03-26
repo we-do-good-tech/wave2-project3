@@ -8,7 +8,7 @@ interface ISportLogo {
   color: string;
   name: string;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const SportLogo: FC<ISportLogo> = ({ type, color, disabled, onClick, name }) => {
@@ -19,7 +19,7 @@ export const SportLogo: FC<ISportLogo> = ({ type, color, disabled, onClick, name
         className={classnames(styles.Icon, styles[color], disabled && styles.disabled)}>
         <Icon type={type} />
       </div>
-      <label className={styles[color]}>{name}</label>
+      <label className={classnames(disabled ? styles.disabled : styles[color])}>{name}</label>
     </div>
   );
 };

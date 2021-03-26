@@ -1,7 +1,7 @@
 @import '../../../index.scss';
 
 .container {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid $--color-gray-1;
   padding: px2rem(20) px2rem(10) px2rem(10) 0;
   .categoryContainer {
     display: flex;
@@ -21,7 +21,7 @@
 
       .indicator {
         margin: 0 px2rem(20);
-        background-color: #e5e5e5;
+        background-color: $--color-gray-1;
         color: #8e8d8d;
         border-radius: 50%;
         height: 26px;
@@ -93,7 +93,6 @@
   width: px2rem(80);
   @include flexCenter;
   height: px2rem(80);
-  // margin: 0 px2rem(16); //TODO: delete
   background-color: white;
   border: 2px solid;
   transition: 100ms;
@@ -104,6 +103,7 @@
     width: px2rem(75);
     height: px2rem(75);
   }
+  margin-bottom: 0 !important;
   svg {
     padding: 10%;
     cursor: pointer;
@@ -116,38 +116,39 @@
 }
 
 .green {
-  color: $green;
-  border-color: $green;
+  color: $--color-green;
+  border-color: $--color-green;
   svg {
-    background-color: $green;
+    background-color: $--color-green;
   }
 }
 .orange {
-  color: $orange;
-  border-color: $orange;
+  color: $--color-orange;
+  border-color: $--color-orange;
   svg {
-    background-color: $orange;
+    background-color: $--color-orange;
   }
 }
 .turqiz {
-  color: $turqiz;
-  border-color: $turqiz;
+  color: $--color-turqiz;
+  border-color: $--color-turqiz;
   svg {
-    background-color: $turqiz;
+    background-color: $--color-turqiz;
   }
 }
 .blue {
-  color: $blue;
-  border-color: $blue;
+  color: $--color-blue;
+  border-color: $--color-blue;
   svg {
-    background-color: $blue;
+    background-color: $--color-blue;
   }
 }
 
 .disabled {
-  border-color: #e5e5e5;
+  border-color: $--color-gray-1;
+  color: $--color-gray-1;
   svg {
-    background-color: #e5e5e5;
+    background-color: $--color-gray-1;
     cursor: default !important;
   }
 }

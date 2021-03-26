@@ -3,14 +3,14 @@
 @keyframes colorAnimate {
   0%,
   100% {
-    color: $red;
+    color: $--color-red;
   }
 
   33% {
-    color: $yellow;
+    color: $--color-yellow;
   }
   66% {
-    color: $turqiz;
+    color: $--color-turqiz;
   }
 }
 
@@ -28,7 +28,7 @@
 }
 
 .loader {
-  color: $red;
+  color: $--color-red;
   font-size: 90px;
   text-indent: -9999em;
   overflow: hidden;

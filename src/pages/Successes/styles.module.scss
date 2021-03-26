@@ -76,24 +76,24 @@
 }
 
 .green {
-  background-color: $green;
-  border: 6px solid $green;
+  background-color: $--color-green;
+  border: 6px solid $--color-green;
   button {
-    color: $green;
+    color: $--color-green;
   }
 }
 
 .orange {
-  background-color: $orange;
-  border: 6px solid $orange;
+  background-color: $--color-orange;
+  border: 6px solid $--color-orange;
   button {
-    color: $orange;
+    color: $--color-orange;
   }
 }
 .turqiz {
-  background-color: $turqiz;
-  border: 6px solid $turqiz;
+  background-color: $--color-turqiz;
+  border: 6px solid $--color-turqiz;
   button {
-    color: $turqiz;
+    color: $--color-turqiz;
   }
 }

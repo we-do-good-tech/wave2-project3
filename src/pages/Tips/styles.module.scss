@@ -115,38 +115,38 @@
 }
 
 .turqiz {
-  border-color: $turqiz !important;
+  border-color: $--color-turqiz !important;
   &:hover {
-    background-color: $turqiz !important;
+    background-color: $--color-turqiz !important;
   }
   &.active {
-    background-color: $turqiz !important;
+    background-color: $--color-turqiz !important;
   }
 }
 .green {
-  border-color: $green !important;
+  border-color: $--color-green !important;
   &:hover {
-    background-color: $green !important;
+    background-color: $--color-green !important;
   }
   &.active {
-    background-color: $green !important;
+    background-color: $--color-green !important;
   }
 }
 .orange {
-  border-color: $orange !important;
+  border-color: $--color-orange !important;
   &:hover {
-    background-color: $orange !important;
+    background-color: $--color-orange !important;
   }
   &.active {
-    background-color: $orange !important;
+    background-color: $--color-orange !important;
   }
 }
 .blue {
-  border-color: $blue !important;
+  border-color: $--color-blue !important;
   &:hover {
-    background-color: $blue !important;
+    background-color: $--color-blue !important;
   }
   &.active {
-    background-color: $blue !important;
+    background-color: $--color-blue !important;
   }
 }
