@@ -2,11 +2,7 @@ import React, { FC } from 'react';
 import { jumpTo } from '../../utils/jumpTo';
 import styles from './styles.module.scss';
 
-export interface IArrowRoute {
-  toPage: number;
-}
-
-export const LimpiArrowRoute: FC<IArrowRoute> = ({ toPage }) => {
+export const LimpiArrowRoute: FC = () => {
   return (
     <div className={styles.arrowContainer}>
       <img
