@@ -4,6 +4,8 @@ import styles from './styles.module.scss';
 import classnames from 'classnames';
 import plusImage from '../../../images/plus.svg';
 import closeImage from '../../../images/line.svg';
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../../reducers';
 
 const replaceValuesInArr = (arr: number[], valuesToEnter: number[], valuesToDelete: number[]) => {
   let model = arr.filter((val: number) => !valuesToDelete.includes(val));
@@ -79,6 +81,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({
 }) => {
   //stateIds is needed for the first category, for supporting body parts matching
   const [stateIds, setStateIds] = useState<number[]>([]);
+  const { isReset } = useSelector((state: ApplicationState) => state.disabilityState);
 
   const clickHandler = useCallback(
     //Check combinations of body parts - for example: one hand + one leg => one hand and one leg combination
@@ -106,6 +109,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({
   );
 
   useEffect(() => {
+    //taking the higherst category for matching, for example - subCategory 2+ subCategory 4 => subCategory 8
     stateIds.sort((a: number, b: number) => b - a);
     const categoryToState = subcategories.filter(
       (subCategory: IDisabilitiesSubCategory) => subCategory.id === stateIds[0],
@@ -116,6 +120,12 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({
       onSubCategoryChose(categoryToState[0], subcategories[0].categoryId);
     }
   }, [stateIds]);
+
+  useEffect(() => {
+    if (isReset) {
+      setStateIds([]);
+    }
+  }, [isReset]);
 
   const renderedSubCategories = useCallback(
     () =>
