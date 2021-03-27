@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/wave2-project3/static/css/main.050ba8d6.chunk.css",
-    "main.js": "/wave2-project3/static/js/main.5b361153.chunk.js",
-    "main.js.map": "/wave2-project3/static/js/main.5b361153.chunk.js.map",
+    "main.js": "/wave2-project3/static/js/main.1a80080b.chunk.js",
+    "main.js.map": "/wave2-project3/static/js/main.1a80080b.chunk.js.map",
     "runtime-main.js": "/wave2-project3/static/js/runtime-main.4017473d.js",
     "runtime-main.js.map": "/wave2-project3/static/js/runtime-main.4017473d.js.map",
     "static/js/2.b0601b50.chunk.js": "/wave2-project3/static/js/2.b0601b50.chunk.js",
@@ -49,6 +49,6 @@
     "static/js/runtime-main.4017473d.js",
     "static/js/2.b0601b50.chunk.js",
     "static/css/main.050ba8d6.chunk.css",
-    "static/js/main.5b361153.chunk.js"
+    "static/js/main.1a80080b.chunk.js"
   ]
 }
