@@ -53,7 +53,7 @@
         max-width: px2rem(1050);
       }
       h1 {
-        color: $--color-turqiz;
+        color: $--color-light-blue;
         font-size: px2rem(28);
         font-weight: 100;
       }
@@ -122,6 +122,7 @@
         font-weight: 100;
         font-size: px2rem(22);
         margin: 0;
+        place-self: flex-start;
       }
       @include breakpoint($tablet) {
         display: flex;

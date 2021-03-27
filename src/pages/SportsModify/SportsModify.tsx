@@ -43,10 +43,10 @@ export const SportsModify: FC = () => {
   );
 
   //reset disablities
-  const reset = () => {
+  const reset = useCallback(() => {
     dispatch(resetDisability());
     setActiveSports(SportCateories);
-  };
+  }, [dispatch]);
 
   const getColor = (num: number) => {
     switch (num) {
