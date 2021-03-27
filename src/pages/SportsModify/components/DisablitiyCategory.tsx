@@ -119,6 +119,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({
     } else {
       onSubCategoryChose(categoryToState[0], subcategories[0].categoryId);
     }
+    // eslint-disable-next-line
   }, [stateIds]);
 
   useEffect(() => {
