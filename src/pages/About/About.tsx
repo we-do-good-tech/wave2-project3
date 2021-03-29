@@ -8,7 +8,6 @@ import classnames from 'classnames';
 
 export const About: FC = () => {
   const { y: scrollTopPosition } = useScrollPosition();
-  // const [isLoaded, { setTrue: setLoaded }] = useBoolean(false);
 
   return (
     <div className={styles.container}>
@@ -16,7 +15,7 @@ export const About: FC = () => {
         src={logo}
         alt='logo'
         id='limpiLogo'
-        className={classnames('limpiLogo', scrollTopPosition >= 85 && 'limpiLogoRight')}
+        className={classnames('limpiLogo', scrollTopPosition >= 45 && 'limpiLogoRight')}
       />
       <h1>זה המקום בו תוכלו לחלום ולהבין שלפעמים דברים גדולים מתחילים בהחלטה קטנה וההחלטה הזו היא שלכם</h1>
       <img loading='eager' className={styles.mainImage} alt='logo' src={main} />

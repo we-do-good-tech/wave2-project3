@@ -75,18 +75,12 @@
 
     .circlesImageContainer {
       position: absolute;
-      bottom: px2rem(80);
+      bottom: px2rem(50);
       width: 100%;
       @include flexCenter;
       img {
-        width: px2rem(130);
-      }
-      @include breakpoint($tablet) {
-        // position: static;
-        // padding-top: px2rem(50);
-        img {
-          width: px2rem(100);
-        }
+        width: px2rem(100);
+        height: fit-content;
       }
     }
   }

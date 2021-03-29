@@ -46,6 +46,7 @@ export const SportsModify: FC = () => {
   const reset = useCallback(() => {
     dispatch(resetDisability());
     setActiveSports(SportCateories);
+    setCurrentOpen(undefined);
   }, [dispatch]);
 
   const getColor = (num: number) => {
@@ -161,7 +162,7 @@ export const SportsModify: FC = () => {
         <h1>מצאו את ענפי הספורט המתאימים לכם</h1>
         <h2>בלחיצה על כל אחד תקבלו מידע נוסף</h2>
       </div>
-      <div className={styles.container}>
+      <div className={styles.container} id='sportsModifyAnchor'>
         {RightSideMenu()}
         {SportLogos}
       </div>

@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 import { limpiHomeComponents } from '../../pages/LimpiHome/consts';
@@ -9,6 +9,7 @@ import { useBoolean, useMount } from 'ahooks';
 
 export const LimpiDotsSideBar: FC = () => {
   const { y: scrollTopPosition } = useScrollPosition();
+  const filteredHomeComponets = limpiHomeComponents.filter((_: LimpiHomePage) => !_.hideInBar);
 
   const [wasMount, { setTrue: setMounted }] = useBoolean(false);
   useMount(() => setMounted());
@@ -34,15 +35,22 @@ export const LimpiDotsSideBar: FC = () => {
     return current;
   }, [steps, scrollTopPosition]);
 
-  const renderedDots = limpiHomeComponents
-    .filter((_: LimpiHomePage) => !_.hideInBar)
-    .map((_, idx) => (
-      <div
-        key={idx}
-        className={classnames(styles.dot, idx === currentActiveIdx && styles.activeDot)}
-        onClick={() => jumpTo(idx)}
-      />
-    ));
+  const isActive = useCallback(
+    (idx: number) => {
+      if (idx === currentActiveIdx) {
+        return true;
+      }
+      if (currentActiveIdx === filteredHomeComponets.length) {
+        return idx >= filteredHomeComponets.length - 1;
+      }
+      return false;
+    },
+    [currentActiveIdx, filteredHomeComponets.length],
+  );
+
+  const renderedDots = filteredHomeComponets.map((_, idx) => (
+    <div key={idx} className={classnames(styles.dot, isActive(idx) && styles.activeDot)} onClick={() => jumpTo(idx)} />
+  ));
 
   return (
     <div className={styles.sideBarContainer}>

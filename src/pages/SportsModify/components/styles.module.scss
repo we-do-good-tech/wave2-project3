@@ -13,9 +13,8 @@
       align-items: center;
       .dropDownToggle,
       .openDropdownToggle {
-        width: px2rem(20);
-        height: px2rem(20);
-        color: red;
+        width: px2rem(16);
+        height: px2rem(16);
         cursor: pointer;
       }
 
@@ -34,7 +33,7 @@
     }
     .title {
       color: #8e8d8d;
-      font-size: px2rem(26);
+      font-size: px2rem(20);
       font-weight: 100;
       direction: ltr;
       text-align: right;
@@ -83,7 +82,7 @@
     }
     span {
       color: #8e8d8d;
-      font-size: px2rem(22);
+      font-size: px2rem(18);
       font-weight: 100;
     }
   }

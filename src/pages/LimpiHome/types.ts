@@ -4,4 +4,5 @@ export interface LimpiHomePage {
   title: string;
   hideInBar?: boolean;
   specialClassName?: string;
+  specialScrollId?: string;
 }

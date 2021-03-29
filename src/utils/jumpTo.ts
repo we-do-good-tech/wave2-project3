@@ -6,7 +6,5 @@ const scroll = (element: string) => {
 };
 
 export const jumpTo = (idx: number) => {
-  if (idx === 0) {
-    scroll('root');
-  } else scroll(limpiHomeComponents[idx].name);
+  scroll(limpiHomeComponents[idx].specialScrollId ?? limpiHomeComponents[idx].name);
 };

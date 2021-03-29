@@ -11,6 +11,7 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     name: 'About',
     component: About,
     title: 'דף הבית',
+    specialScrollId: 'root',
   },
   {
     name: 'Association',
@@ -20,13 +21,14 @@ export const limpiHomeComponents: LimpiHomePage[] = [
   {
     name: 'Successes',
     component: Successes,
-    title: 'הצלחות',
+    title: 'סיפורי השראה',
   },
   {
     name: 'SportsModify',
     component: SportsModify,
     title: 'התאמת ענף ספורט',
     specialClassName: 'graySection',
+    specialScrollId: 'sportsModifyAnchor',
   },
   {
     name: 'Tips',
