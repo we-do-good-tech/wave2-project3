@@ -12,7 +12,9 @@
 
 .arrowContainer {
   cursor: pointer;
-  height: px2rem(60);
+  position: absolute;
+  bottom: 0;
+
   img {
     width: px2rem(100);
     animation: movingShadow 0.5s infinite alternate;

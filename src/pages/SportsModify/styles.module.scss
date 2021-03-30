@@ -1,5 +1,7 @@
 @import '../../index.scss';
 
+$containersHeight: px2rem(500);
+
 .fullContainer {
   display: flex;
   flex-direction: column;
@@ -49,7 +51,7 @@
       margin: px2rem(5);
       border: 4px solid rgb(232, 232, 232);
       background-color: white;
-      height: px2rem(500);
+      height: $containersHeight;
       @media screen and(min-width: $desktop) {
         max-width: px2rem(1050);
       }
@@ -99,7 +101,7 @@
       padding: px2rem(20);
       border: 4px solid rgb(232, 232, 232);
       background-color: white;
-      height: px2rem(500);
+      height: $containersHeight;
       display: grid;
       place-items: center;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

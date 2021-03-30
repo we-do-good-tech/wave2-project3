@@ -60,8 +60,9 @@ h6 {
 
 .limpiLogo {
   position: absolute;
-  top: px2rem(50);
+  top: 15%;
   width: px2rem(150);
+  min-width: 15%;
   z-index: 2;
 }
 .limpiLogoRight {
@@ -69,6 +70,7 @@ h6 {
   right: px2rem(14);
   top: px2rem(20);
   width: px2rem(80);
+  min-width: unset;
 }
 
 .rounded {
