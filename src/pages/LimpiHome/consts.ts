@@ -28,7 +28,6 @@ export const limpiHomeComponents: LimpiHomePage[] = [
     component: SportsModify,
     title: 'התאמת ענף ספורט',
     specialClassName: 'graySection',
-    specialScrollId: 'sportsModifyAnchor',
   },
   {
     name: 'Tips',

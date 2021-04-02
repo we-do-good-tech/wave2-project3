@@ -162,7 +162,7 @@ export const SportsModify: FC = () => {
         <h1>מצאו את ענפי הספורט המתאימים לכם</h1>
         <h2>בלחיצה על כל אחד תקבלו מידע נוסף</h2>
       </div>
-      <div className={styles.container} id='sportsModifyAnchor'>
+      <div className={styles.container}>
         {RightSideMenu()}
         {SportLogos}
       </div>
