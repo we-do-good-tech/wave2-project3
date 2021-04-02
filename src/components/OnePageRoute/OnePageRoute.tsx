@@ -1,4 +1,4 @@
-import React, { FC, cloneElement } from 'react';
+import React, { FC } from 'react';
 import { jumpTo } from '../../utils/jumpTo';
 
 interface IOnePageRoute {
