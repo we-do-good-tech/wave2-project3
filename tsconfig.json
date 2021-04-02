@@ -3,12 +3,12 @@
     "target": "es5",
     "lib": [
       "dom",
-      "dom.iterable"
+      "dom.iterable",
+      "esnext"
     ],
     "allowJs": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
     "skipLibCheck": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -17,6 +17,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true
   },
   "include": [

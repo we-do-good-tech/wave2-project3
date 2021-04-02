@@ -18,6 +18,7 @@
   .squaresContaienr {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: fit-content;
     @include breakpoint($desktop-small) {
       grid-template-columns: 1fr 1fr 1fr;
       padding: 0;
@@ -25,8 +26,6 @@
     @include breakpoint($mobile-medium) {
       grid-template-columns: 1fr 1fr;
     }
-    padding: px2rem(100) 0;
-    width: fit-content;
     img {
       background-clip: content-box;
       position: relative;

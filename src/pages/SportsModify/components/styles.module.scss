@@ -2,7 +2,7 @@
 
 .container {
   border-bottom: 1px solid $--color-gray-1;
-  padding: px2rem(20) px2rem(10) px2rem(10) 0;
+  padding: px2rem(15) px2rem(10) px2rem(10) 0;
   .categoryContainer {
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@
     align-items: center;
     justify-content: flex-start;
     cursor: pointer;
-    padding: px2rem(10) px2rem(5) px2rem(5) px2rem(5);
+    padding: px2rem(10) px2rem(5) px2rem(2) px2rem(2);
     input[type='checkbox'] {
       transition: 100ms;
       cursor: pointer;

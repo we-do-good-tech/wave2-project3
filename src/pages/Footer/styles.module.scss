@@ -26,6 +26,12 @@ p {
   font-size: medium;
   text-align: right;
 }
+.onePageRoute {
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
 
 .column {
   flex-grow: 1;
