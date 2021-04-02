@@ -8,14 +8,15 @@ import classnames from 'classnames';
 import { limpiHomeComponents } from '../../pages/LimpiHome/consts';
 import { LimpiHomePage } from '../../pages/LimpiHome/types';
 import { jumpTo } from '../../utils/jumpTo';
+import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../reducers';
 
 export const LimpiBurgerSideBar: FC = () => {
   const [isSideBarShow, { setTrue: showSideBar, setFalse: hideSideBar }] = useBoolean(false);
   const [isGoingOut, { setTrue: turnOnGoingOut, setFalse: turnOffGoingOut }] = useBoolean(false);
-
+  const { isMobile } = useSelector((state: ApplicationState) => state.appState);
   const goOutDebounce = useDebounce(isGoingOut, { wait: 1000 });
-  const { innerWidth } = window;
-  const effectDelay = useMemo(() => (innerWidth < 770 ? 0 : 600), [innerWidth]);
+  const effectDelay = useMemo(() => (isMobile ? 0 : 600), [isMobile]);
 
   useEffect(() => {
     turnOffGoingOut();
