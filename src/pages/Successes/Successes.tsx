@@ -1,12 +1,12 @@
+import classnames from 'classnames';
 import React, { FC, useEffect, useState } from 'react';
-import styles from './styles.module.scss';
-import { ISuccessCategory, ISuccessConsts } from './consts';
-import Caroline from '../../images/tips/Carolin.png';
 import Carousel from 'react-elastic-carousel';
 import { Popup } from '../../components/SportPopup';
 import closeImage from '../../images/close.svg';
-import classnames from 'classnames';
+import Caroline from '../../images/tips/Carolin.png';
 import { lockScreen, unlockScreen } from '../../utils/lockScreen';
+import { ISuccessCategory, ISuccessConsts } from './consts';
+import styles from './styles.module.scss';
 
 interface ICardProps extends ISuccessCategory {
   onClickHandler: (_: ICardProps) => void;
@@ -17,7 +17,7 @@ const Card: FC<ICardProps> = (_: ICardProps) => (
     <img alt='carol' loading='lazy' src={Caroline} />
     <div className={styles.textBox}>
       <h1>ההצלחה של {_.name}</h1>
-      <p>{_.detail}</p>
+      <p>{_.title}</p>
       <button onClick={() => _.onClickHandler(_)}>כנסו לקרוא</button>
     </div>
   </div>

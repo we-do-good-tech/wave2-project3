@@ -1,66 +1,59 @@
 export interface ISuccessCategory {
   id: number;
   name: string;
-  detail: string;
+  title: string;
   image?: String;
   color: 'green' | 'orange' | 'turqiz';
-  question: string;
-  answer: string;
+  description: string;
 }
 
 export const ISuccessConsts: ISuccessCategory[] = [
   {
     id: 1,
     name: 'שם ומשפחה',
-    detail: 'סיפור הצלחה',
+    title: 'סיפור הצלחה',
     image: '',
     color: 'green',
-    question: 'שאלה 1',
-    answer: 'תשובה 1',
+    description: '',
   },
   {
     id: 2,
     name: 'שם ומשפחה 2',
-    detail: 'סיפור הצלחה 2',
+    title: 'סיפור הצלחה 2',
     image: '',
     color: 'orange',
-    question: 'שאלה 2',
-    answer: 'תשובה 2',
+    description: '',
   },
   {
     id: 3,
     name: 'שם ומשפחה 3',
-    detail: 'סיפור הצלחה 3',
+    title: 'סיפור הצלחה 3',
     image: '',
     color: 'turqiz',
-    question: 'שאלה 3',
-    answer: 'תשובה 3',
+    description: '',
   },
   {
     id: 4,
     name: 'שם ומשפחה 4',
-    detail: 'סיפור הצלחה 4',
+    title: 'סיפור הצלחה 4',
     image: '',
     color: 'green',
-    question: 'שאלה 4',
-    answer: 'תשובה 4',
+    description: '',
   },
   {
     id: 3,
     name: 'שם ומשפחה 3',
-    detail: 'סיפור הצלחה 3',
+    title: 'סיפור הצלחה 3',
     image: '',
     color: 'turqiz',
-    question: 'שאלה 3',
-    answer: 'תשובה 3',
+    description: '',
   },
   {
     id: 4,
     name: 'שם ומשפחה 4',
-    detail: 'סיפור הצלחה 4',
+    title: 'סיפור הצלחה 4',
     image: '',
     color: 'orange',
-    question: 'שאלה 4',
-    answer: 'תשובה 4',
+    description: '',
   },
 ];
