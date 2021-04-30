@@ -1,4 +1,4 @@
-import { disabilityTypes } from './types';
+import { disabilityTypes } from '../types';
 
 const setDisability = (payload?: Record<number, number>) => {
   return {

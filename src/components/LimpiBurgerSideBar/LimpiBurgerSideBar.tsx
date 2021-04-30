@@ -9,7 +9,7 @@ import { limpiHomeComponents } from '../../pages/LimpiHome/consts';
 import { LimpiHomePage } from '../../pages/LimpiHome/types';
 import { jumpTo } from '../../utils/jumpTo';
 import { useSelector } from 'react-redux';
-import { ApplicationState } from '../../reducers';
+import { ApplicationState } from '../../saga';
 
 export const LimpiBurgerSideBar: FC = () => {
   const [isSideBarShow, { setTrue: showSideBar, setFalse: hideSideBar }] = useBoolean(false);

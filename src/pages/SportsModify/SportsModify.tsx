@@ -16,8 +16,8 @@ import { SportPopup } from '../../components/SportPopup/SportPopup';
 import { Icon } from '../../components/Icon';
 import closeImage from '../../images/close.svg';
 import { useSelector, useDispatch } from 'react-redux';
-import allActions from '../../actions';
-import { ApplicationState } from '../../reducers';
+import allActions from '../../saga/saga';
+import { ApplicationState } from '../../saga';
 
 const { resetDisability, setDisability } = allActions.disabilityActions;
 
@@ -109,7 +109,7 @@ export const SportsModify: FC = () => {
 
   const changeDisability = useCallback(
     (disablitity: IDisabilitiesSubCategory, deleteOne?: number) => {
-      const model: Record<number, number> = disabilityState;
+      const model: Record<number, number> = disabilityState ?? {};
       if (disablitity?.id) {
         const { categoryId, id: subCetegoryId } = disablitity;
         model[categoryId] = disabilitiesSubCategoris[subCetegoryId - 1]?.id;

@@ -1,6 +1,6 @@
-import disabilityReducers from './disabilities';
-import loadingReducers from './loading';
-import appReducers from './app';
+import disabilityReducers from './disabilities/reducer';
+import loadingReducers from './loading/reducer';
+import appReducers from './app/reducer';
 import { combineReducers } from 'redux';
 
 export type ApplicationState = ReturnType<typeof rootReducer>;

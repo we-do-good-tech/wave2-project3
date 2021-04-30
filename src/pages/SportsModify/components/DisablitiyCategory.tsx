@@ -1,11 +1,11 @@
+import classnames from 'classnames';
 import React, { FC, useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import closeImage from '../../../images/line.svg';
+import plusImage from '../../../images/plus.svg';
+import { ApplicationState } from '../../../saga';
 import { IDisabilitiesSubCategory } from '../consts';
 import styles from './styles.module.scss';
-import classnames from 'classnames';
-import plusImage from '../../../images/plus.svg';
-import closeImage from '../../../images/line.svg';
-import { useSelector } from 'react-redux';
-import { ApplicationState } from '../../../reducers';
 
 const replaceValuesInArr = (arr: number[], valuesToEnter: number[], valuesToDelete: number[]) => {
   let model = arr.filter((val: number) => !valuesToDelete.includes(val));
@@ -81,7 +81,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({
 }) => {
   //stateIds is needed for the first category, for supporting body parts matching
   const [stateIds, setStateIds] = useState<number[]>([]);
-  const { isReset } = useSelector((state: ApplicationState) => state.disabilityState);
+  const { isReset } = useSelector((state: ApplicationState) => state.disabilityState || { isReset: false });
 
   const clickHandler = useCallback(
     //Check combinations of body parts - for example: one hand + one leg => one hand and one leg combination

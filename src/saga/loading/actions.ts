@@ -1,4 +1,4 @@
-import { loadingTypes } from './types';
+import { loadingTypes } from '../types';
 
 const setLoading = () => {
   return {

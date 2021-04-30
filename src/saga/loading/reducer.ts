@@ -1,7 +1,7 @@
-import { loadingTypes } from '../actions/types';
-import { IReducerPayload } from './types';
+import { loadingTypes } from '../types';
+import { IReducerPayload } from '../interfaces';
 
-const changeLoadingState = (state = { loading: true }, payload: IReducerPayload) => {
+const changeLoadingState = (state = { loading: true }, payload: IReducerPayload<any>) => {
   switch (payload.type) {
     case loadingTypes.SET_LOADING:
       return (state = { loading: true });

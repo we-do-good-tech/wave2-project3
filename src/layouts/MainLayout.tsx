@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { limpiRouters } from './consts';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { RouterType } from './types';
 import { useDispatch } from 'react-redux';
-import allActions from '../actions';
 import { Loading } from '../components/Loading';
 import { useSelector } from 'react-redux';
-import { ApplicationState } from '../reducers';
 import { useMount } from 'ahooks';
+import allActions from '../saga/saga';
+import { ApplicationState } from '../saga';
 
 const { setNotLoading, setLoading } = allActions.loadingActions;
 const { setIsMobile, setIsTablet } = allActions.appActions;
@@ -45,6 +45,8 @@ export const MainLayout: FC = () => {
   const { loading } = useSelector((state: ApplicationState) => state.loadingState);
   window.onload = () => dispatch(setNotLoading());
   window.onloadstart = () => dispatch(setLoading());
+
+  const isLoading = useMemo(() => loading, [loading]);
 
   return (
     <Router>
