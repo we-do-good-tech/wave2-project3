@@ -23,7 +23,12 @@ export type IconType =
   | 'tennis'
   | 'triathlon'
   | 'ski'
-  | 'volleyball';
+  | 'volleyball'
+  | 'documents'
+  | 'users'
+  | 'dashboard'
+  | 'edit'
+  | 'delete';
 
 export interface IconProps {
   type: IconType;

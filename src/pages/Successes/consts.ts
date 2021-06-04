@@ -1,15 +1,16 @@
 export interface ISuccessCategory {
-  id: number;
+  id: string;
   name: string;
   title: string;
   image?: String;
   color: 'green' | 'orange' | 'turqiz';
   description: string;
+  active?: boolean;
 }
 
 export const ISuccessConsts: ISuccessCategory[] = [
   {
-    id: 1,
+    id: '1',
     name: 'שם ומשפחה',
     title: 'סיפור הצלחה',
     image: '',
@@ -17,7 +18,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     description: '',
   },
   {
-    id: 2,
+    id: '2',
     name: 'שם ומשפחה 2',
     title: 'סיפור הצלחה 2',
     image: '',
@@ -25,7 +26,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     description: '',
   },
   {
-    id: 3,
+    id: '3',
     name: 'שם ומשפחה 3',
     title: 'סיפור הצלחה 3',
     image: '',
@@ -33,7 +34,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     description: '',
   },
   {
-    id: 4,
+    id: '4',
     name: 'שם ומשפחה 4',
     title: 'סיפור הצלחה 4',
     image: '',
@@ -41,7 +42,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     description: '',
   },
   {
-    id: 3,
+    id: '3',
     name: 'שם ומשפחה 3',
     title: 'סיפור הצלחה 3',
     image: '',
@@ -49,7 +50,7 @@ export const ISuccessConsts: ISuccessCategory[] = [
     description: '',
   },
   {
-    id: 4,
+    id: '4',
     name: 'שם ומשפחה 4',
     title: 'סיפור הצלחה 4',
     image: '',

@@ -25,6 +25,11 @@ import { ReactComponent as Tennis } from '../../images/sportLogos/Tennis.svg';
 import { ReactComponent as Triathlon } from '../../images/sportLogos/Triathlon.svg';
 import { ReactComponent as Volleyball } from '../../images/sportLogos/Volleyball.svg';
 import { ReactComponent as Ski } from '../../images/sportLogos/Ski.svg';
+import { ReactComponent as DocumentsLogo } from '../../images/documents.svg';
+import { ReactComponent as UsersLogo } from '../../images/users.svg';
+import { ReactComponent as Dashboard } from '../../images/dashboard.svg';
+import { ReactComponent as Edit } from '../../images/edit.svg';
+import { ReactComponent as Delete } from '../../images/delete.svg';
 
 export const SVGs: SVGsType<JSX.IntrinsicElements | any> = {
   arrow: Arrow,
@@ -52,6 +57,11 @@ export const SVGs: SVGsType<JSX.IntrinsicElements | any> = {
   triathlon: Triathlon,
   volleyball: Volleyball,
   ski: Ski,
+  documents: DocumentsLogo,
+  users: UsersLogo,
+  dashboard: Dashboard,
+  edit: Edit,
+  delete: Delete,
 };
 
 export const Icon: FC<IconProps> = ({ type, ...props }) => React.createElement(SVGs[type], props);

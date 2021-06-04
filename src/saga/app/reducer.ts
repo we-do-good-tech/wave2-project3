@@ -1,7 +1,7 @@
 import { appTypes } from '../types';
 import { IReducerPayload } from '../interfaces';
 
-interface User {
+export interface User {
   id: string;
   username: string;
   admin: boolean;
@@ -9,16 +9,19 @@ interface User {
 
 interface TokenConfiguration {
   refresh_token: string;
-  access_token: string;
+  token: string;
 }
 
-export interface AuthenticatedUser extends User, TokenConfiguration {}
+export interface AuthenticatedUser extends User, TokenConfiguration {
+  expiresIn?: Date;
+}
 
 export interface LoginResponse {
   status: string;
   data: {
     payload: TokenConfiguration;
     user: User;
+    expiresIn?: Date;
   };
 }
 
@@ -50,6 +53,8 @@ const changeAppState = (state: IAppState = initialState, { type, payload }: IRed
     case appTypes.LOGOUT_USER:
       return { ...state, user: undefined, isAuth: false };
     case appTypes.LOGIN_USER:
+      return { ...state, user: undefined, isAuth: false, isLoading: true };
+    case appTypes.REFRESH_USER:
       return { ...state, user: undefined, isAuth: false, isLoading: true };
     default:
       return state;

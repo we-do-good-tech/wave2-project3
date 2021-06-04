@@ -134,7 +134,7 @@ export const DisabilityCategory: FC<IDisabilityCategory> = ({
         ? undefined
         : subcategories.map((subCategory: IDisabilitiesSubCategory, idx: number) =>
             subCategory.hide ? undefined : (
-              <div className={styles.subCategory} key={idx} onClick={() => clickHandler(subCategory)}>
+              <div className={styles.subCategory} key={`${idx}`} onClick={() => clickHandler(subCategory)}>
                 <input
                   key={subCategory.id}
                   type='checkbox'

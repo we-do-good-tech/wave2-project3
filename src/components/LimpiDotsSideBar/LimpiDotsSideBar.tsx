@@ -1,11 +1,11 @@
-import React, { FC, useCallback, useMemo } from 'react';
-import styles from './styles.module.scss';
-import classnames from 'classnames';
-import { limpiHomeComponents } from '../../pages/LimpiHome/consts';
-import { useScrollPosition } from 'react-use-scroll-position';
-import { jumpTo } from '../../utils/jumpTo';
-import { LimpiHomePage } from '../../pages/LimpiHome/types';
 import { useBoolean, useMount } from 'ahooks';
+import classnames from 'classnames';
+import React, { FC, useCallback, useMemo } from 'react';
+import { useScrollPosition } from 'react-use-scroll-position';
+import { limpiHomeComponents } from '../../pages/LimpiHome/consts';
+import { LimpiHomePage } from '../../pages/LimpiHome/types';
+import { jumpTo } from '../../utils/jumpTo';
+import styles from './styles.module.scss';
 
 export const LimpiDotsSideBar: FC = () => {
   const { y: scrollTopPosition } = useScrollPosition();
@@ -49,7 +49,11 @@ export const LimpiDotsSideBar: FC = () => {
   );
 
   const renderedDots = filteredHomeComponets.map((_, idx) => (
-    <div key={idx} className={classnames(styles.dot, isActive(idx) && styles.activeDot)} onClick={() => jumpTo(idx)} />
+    <div
+      key={`${idx}`}
+      className={classnames(styles.dot, isActive(idx) && styles.activeDot)}
+      onClick={() => jumpTo(idx)}
+    />
   ));
 
   return (

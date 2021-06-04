@@ -1,5 +1,14 @@
+import classnames from 'classnames';
+import { toInteger } from 'lodash';
 import React, { FC, useCallback, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Icon } from '../../components/Icon';
+import { SportPopup } from '../../components/SportPopup/SportPopup';
+import closeImage from '../../images/close.svg';
+import { ApplicationState } from '../../saga';
+import allActions from '../../saga/saga';
 import { DisabilityCategory } from './components';
+import { SportLogo } from './components/SportLogo';
 import {
   disabilitiesCategories,
   disabilitiesSubCategoris,
@@ -9,15 +18,6 @@ import {
   SportCateories,
 } from './consts';
 import styles from './styles.module.scss';
-import classnames from 'classnames';
-import { SportLogo } from './components/SportLogo';
-import { toInteger } from 'lodash';
-import { SportPopup } from '../../components/SportPopup/SportPopup';
-import { Icon } from '../../components/Icon';
-import closeImage from '../../images/close.svg';
-import { useSelector, useDispatch } from 'react-redux';
-import allActions from '../../saga/saga';
-import { ApplicationState } from '../../saga';
 
 const { resetDisability, setDisability } = allActions.disabilityActions;
 
@@ -94,7 +94,7 @@ export const SportsModify: FC = () => {
           return (
             <SportLogo
               type={sportCategory.name}
-              key={idx}
+              key={`${idx}`}
               name={sportCategory.title}
               disabled={!activeSportIds.includes(sportCategory.id)}
               color={getColor(toInteger((sportCategory.id - 1) / 6))}
@@ -138,7 +138,7 @@ export const SportsModify: FC = () => {
             {disabilitiesCategories.map((category: IDisabilitiesCategory, idx: number) => (
               <DisabilityCategory
                 title={category.title}
-                key={idx}
+                key={`${idx}`}
                 isOpen={currentOpen === category.id}
                 toggleOpen={toggleOpen}
                 subcategories={disabilitiesSubCategoris.filter(

@@ -1,0 +1,58 @@
+@import '../../index.scss';
+
+$purple: rgb(15, 6, 15);
+.sidebar {
+  grid-column-start: 11;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 11;
+  display: flex;
+  width: 100%;
+  background-color: $purple;
+  flex-direction: column;
+  align-items: center;
+  span {
+    width: 100%;
+    margin: 0 px2rem(12);
+    color: whitesmoke;
+  }
+  img {
+    width: px2rem(120);
+    margin: px2rem(10);
+    filter: invert(1);
+  }
+  button:not(.logoutButton) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    direction: ltr;
+    background-color: transparent;
+    width: 80%;
+    color: whitesmoke;
+    border-radius: 10px;
+    border: none;
+    text-align: left;
+    padding: px2rem(6) px2rem(20) px2rem(6) px2rem(5);
+    margin: px2rem(12) 0;
+    cursor: pointer;
+    transition: 400ms;
+    font-size: px2rem(20);
+    &:hover,
+    &.active {
+      background-color: whitesmoke;
+      color: black;
+      svg {
+        fill: black;
+      }
+    }
+  }
+
+  svg,
+  label {
+    transition: 300ms;
+    height: px2rem(20);
+    width: px2rem(20);
+    fill: whitesmoke;
+    margin: 0 px2rem(12);
+  }
+}

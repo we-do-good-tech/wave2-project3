@@ -1,0 +1,310 @@
+@import '../../index.scss';
+
+$margin-vertical: px2rem(12);
+$margin-horizontal: px2rem(12);
+@keyframes blurIn {
+  0% {
+    text-shadow: 0 0 15px white;
+    color: transparent;
+  }
+  100% {
+    text-shadow: none;
+    color: white;
+  }
+}
+.form {
+  $radius: 8px;
+  font-size: 16px;
+  text-transform: capitalize;
+  * {
+    outline: none;
+  }
+  display: flex;
+  flex-direction: column;
+  direction: ltr;
+  width: fit-content;
+
+  textarea {
+    resize: none;
+    height: px2rem(300);
+    width: px2rem(600);
+    border: 1px solid black;
+  }
+
+  input,
+  select {
+    padding: px2rem(6);
+  }
+  textarea,
+  input,
+  select {
+    border-radius: $radius;
+    border: 1px solid black;
+  }
+  label {
+    margin-top: 10px;
+  }
+
+  button {
+    margin: px2rem(10) 0;
+  }
+}
+
+.popUp {
+  width: fit-content !important;
+  height: fit-content !important;
+  padding: px2rem(18) px2rem(24);
+  background-color: $--color-gray-2;
+  border-radius: 10px;
+  .closeButton {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    text-shadow: 2px 2px 2px gray;
+    animation: none !important;
+  }
+}
+
+.contentDisplayer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  z-index: 1;
+  box-sizing: border-box;
+  .contentCard {
+    $open: px2rem(300);
+    $closed: px2rem(50);
+
+    border: 2px solid $--color-gray-2;
+    background-color: $--color-gray-1;
+    border-radius: 3px;
+    padding: px2rem(16);
+    direction: ltr;
+    display: flex;
+    word-break: break-word;
+    overflow: scroll;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: $margin-vertical $margin-horizontal;
+    box-shadow: 0px 0px 1px $margin-horizontal/2.5 $--color-gray-1;
+    transition: 200ms;
+    transition-delay: 100ms;
+    &.closed {
+      min-height: $closed;
+      max-height: $closed;
+    }
+    &.open {
+      min-height: $open;
+      max-height: $open;
+    }
+    .toggleOpen {
+      $size: 30;
+      width: px2rem($size);
+      height: px2rem($size);
+
+      background: linear-gradient(to top, transparent, #b1b1b1 100%),
+        gray
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(255, 255, 255, 0.5) 35px,
+            rgba(255, 255, 255, 0.5) 70px
+          );
+
+      background-clip: padding-box;
+      cursor: pointer;
+      padding: px2rem($size * 0.1);
+      margin: px2rem($size * 0.1);
+      border: 3px solid $--color-gray-2;
+      border-radius: 10px;
+      &:not(.toggleOpened) {
+        transform: rotate(270deg);
+        background: linear-gradient(to right, transparent, #b1b1b1 100%),
+          gray
+            repeating-linear-gradient(
+              135deg,
+              transparent,
+              transparent 35px,
+              rgba(255, 255, 255, 0.5) 35px,
+              rgba(255, 255, 255, 0.5) 70px
+            );
+      }
+    }
+    .closedContent {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .cardSpans {
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      flex-basis: 85%;
+      margin: 0 px2rem(15) 0 0;
+      padding: px2rem(5);
+      transition: 200ms all;
+      :nth-child(odd) {
+        font-size: 17px;
+      }
+      :nth-child(even) {
+        font-weight: 100;
+        color: darken($--color-gray-2, 50%);
+      }
+      &.closed {
+        justify-content: center;
+        overflow: hidden;
+        flex-basis: 90%;
+      }
+    }
+
+    /*
+     *  STYLE 1
+     */
+
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: $--color-gray-1;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      display: block;
+      background-color: $--color-gray-2;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(168, 230, 255, 0.3);
+      background-color: darken($--color-gray-2, 10%);
+      cursor: pointer !important;
+      &:hover {
+        background-color: darken($--color-gray-2, 20%);
+      }
+      &:active {
+        background-color: darken($--color-gray-2, 30%);
+      }
+    }
+
+    .cardButtons {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 20%;
+      flex-grow: 0.1;
+      width: 100%;
+      justify-content: center;
+      &.open {
+        justify-content: flex-end;
+        flex-basis: 15%;
+      }
+      button {
+        height: px2rem(40);
+        padding: px2rem(6) px2rem(12) !important ;
+        @include flexCenter;
+        white-space: nowrap;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+          padding-right: px2rem(10);
+          font-weight: 100;
+          white-space: nowrap;
+        }
+      }
+      .acceptDelete {
+        display: flex;
+        flex-direction: row;
+        button {
+          flex-grow: 1;
+          &:nth-of-type(1) {
+            margin-right: px2rem(5);
+          }
+          &:nth-of-type(2) {
+            margin-left: px2rem(5);
+          }
+        }
+      }
+    }
+  }
+}
+
+.chooseContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin: 0 $margin-horizontal;
+  padding: $margin-horizontal;
+  border-left: 2px solid $--color-light-blue;
+  height: 100%;
+  width: px2rem(190);
+  transition: 200ms;
+
+  span {
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    width: 80%;
+    margin-bottom: px2rem(5);
+    padding: px2rem(5);
+    white-space: nowrap;
+    transition: all 100ms;
+    &:hover,
+    &.active {
+      border-color: $--color-light-blue;
+    }
+    &.active {
+      &::before {
+        content: '<';
+        position: absolute;
+        direction: ltr;
+        right: 0;
+      }
+    }
+  }
+  .addContent {
+    &:hover {
+      border-color: $--color-orange !important;
+      // background-color: lighten($--color-orange, 10%);
+    }
+  }
+  &.hidden {
+    width: px2rem(2);
+    .toggleSideBar {
+      color: darken($--color-gray-2, 60%);
+    }
+  }
+  .toggleSideBar {
+    @include flexCenter;
+    position: absolute;
+    top: 3%;
+    left: px2rem(-14);
+    background-color: $--color-gray-1;
+    border: 1px solid $--color-gray-2;
+    height: px2rem(15);
+    width: px2rem(15);
+    border-radius: 50%;
+    color: darken($--color-gray-2, 20%);
+  }
+}
+
+.contentSection {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 px2rem(10);
+  border-radius: 10px;
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 1;
+  grid-row-end: 11;
+}

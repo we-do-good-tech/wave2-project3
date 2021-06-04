@@ -1,6 +1,9 @@
 import React, { FC, useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { Field } from '../../components/Field';
+import { Loading } from '../../components/Loading';
+import { ApplicationState } from '../../saga';
 import allActions from '../../saga/saga';
 import styles from './styles.module.scss';
 
@@ -12,7 +15,17 @@ export const Login: FC = () => {
   const [password, setPassword] = useState<string>('');
   const onSubmit = useCallback(() => {
     dispatch(loginUser({ username, password }));
-  }, [username, password]);
+  }, [dispatch, username, password]);
+
+  const { isAuth, isLoading } = useSelector(({ appState }: ApplicationState) => appState);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (isAuth) {
+    return <Redirect to='/admin' />;
+  }
 
   return (
     <div className={styles.loginBox}>

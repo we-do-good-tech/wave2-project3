@@ -39,12 +39,26 @@ const loginUser = (payload: LoginPayload) => {
   };
 };
 
+const logoutUser = () => {
+  return {
+    type: appTypes.LOGOUT_USER,
+  };
+};
+
+const refreshUser = () => {
+  return {
+    type: appTypes.REFRESH_USER,
+  };
+};
+
 const appActions = {
   setIsMobile,
   setIsTablet,
   setUser,
   setError,
   loginUser,
+  logoutUser,
+  refreshUser,
 };
 
 export default appActions;

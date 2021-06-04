@@ -4,6 +4,11 @@ import classnames from 'classnames';
 import { tips, ITipsCategory } from './consts';
 import Caroline from '../../images/tips/Carolin.png';
 
+export enum GenderEnum {
+  male = 'בן',
+  female = 'בת',
+}
+
 export const Tips: FC = () => {
   const [tipbox, setTipBox] = useState<ITipsCategory>(tips[0]);
   return (
@@ -23,13 +28,13 @@ export const Tips: FC = () => {
       </div>
 
       <div className={classnames(styles.left)}>
-        <div className={classnames(styles.tip)}>
-          <h1 style={{ color: tipbox.color }}>הטיפ של</h1>
-          <h2 style={{ color: tipbox.color }}>{tipbox.name}</h2>
+        <div className={classnames(styles.tip, styles[`color-${tipbox.className}`])}>
+          <h1>הטיפ של</h1>
+          <h2>{tipbox.name}</h2>
           <p>
             {tipbox.tip}
             <span>
-              {tipbox.name} {tipbox.lastName} | {tipbox.title} | {tipbox.gender} {tipbox.age}
+              {tipbox.name} {tipbox.lastName} | {tipbox.title} | {GenderEnum[tipbox.gender]} {tipbox.age}
             </span>
           </p>
         </div>

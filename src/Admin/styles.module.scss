@@ -1,0 +1,33 @@
+@import '../index.scss';
+
+.dashboardContainer {
+  display: grid;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+}
+
+.logoutContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  span {
+    font-weight: 100;
+    text-align: center;
+  }
+}
+.logoutButton {
+  @include flexCenter;
+  font-size: 16px !important;
+  padding: px2rem(2) !important;
+  width: max-content;
+  margin: 0 px2rem(10);
+  font-weight: 100;
+  background-color: $blue !important;
+  &:hover {
+    color: white !important;
+  }
+}

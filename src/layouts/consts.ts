@@ -1,5 +1,4 @@
 import { Admin } from '../Admin';
-import { Login } from '../Admin/Login/Login';
 import { LimpiHome } from '../pages/LimpiHome';
 import { RouterType } from './types';
 

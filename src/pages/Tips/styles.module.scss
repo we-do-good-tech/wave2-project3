@@ -149,3 +149,28 @@
     background-color: $--color-blue !important;
   }
 }
+
+.color-blue {
+  h1,
+  h2 {
+    color: $--color-blue;
+  }
+}
+.color-orange {
+  h1,
+  h2 {
+    color: $--color-orange;
+  }
+}
+.color-turqiz {
+  h1,
+  h2 {
+    color: $--color-turqiz;
+  }
+}
+.color-green {
+  h1,
+  h2 {
+    color: $--color-green;
+  }
+}

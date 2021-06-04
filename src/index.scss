@@ -22,6 +22,7 @@ body {
 
 button,
 label,
+caption,
 p,
 pre,
 span,
@@ -173,5 +174,25 @@ h6 {
   transform: scale(1.1) !important;
   transition: 100ms;
 }
-
 /* carousle end*/
+$blue: #2196f3;
+
+.admin-button {
+  background-color: $blue;
+  margin: px2rem(10) 0;
+  padding: px2rem(12) px2rem(18);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 6px 0px $--color-red;
+  cursor: pointer;
+  &__small {
+    padding: px2rem(6) px2rem(9);
+  }
+}
+
+.error-msg {
+  animation: none !important;
+  font-size: 14px;
+  color: $--color-red;
+}

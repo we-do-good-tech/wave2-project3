@@ -27,8 +27,10 @@ function detectTablet() {
     return navigator.userAgent.match(toMatchItem);
   });
 }
+
 export const MainLayout: FC = () => {
   const dispatch = useDispatch();
+
   useMount(() => {
     dispatch(setIsMobile(detectMob()));
     dispatch(setIsTablet(detectTablet()));
@@ -38,20 +40,27 @@ export const MainLayout: FC = () => {
     limpiRouters.map((_: RouterType) => (
       <Route
         path={_.path === '/' ? process.env.PUBLIC_URL : _.path}
-        exact={_.path === '/'}
+        exact={_.path === '/' || _.exact}
         key={_.name}
         component={_.Component}></Route>
     ));
-  const { loading } = useSelector((state: ApplicationState) => state.loadingState);
+
+  const { isLoadingState, isRefreshing } = useSelector(
+    ({ loadingState: { loading }, appState: { isLoading } }: ApplicationState) => ({
+      isLoadingState: loading,
+      isRefreshing: isLoading,
+    }),
+  );
+
   window.onload = () => dispatch(setNotLoading());
   window.onloadstart = () => dispatch(setLoading());
 
-  const isLoading = useMemo(() => loading, [loading]);
+  const isLoading = useMemo(() => isLoadingState || isRefreshing, [isLoadingState, isRefreshing]);
 
   return (
     <Router>
       <Switch>{makeRouters()}</Switch>
-      {loading && <Loading />}
+      {isLoading && <Loading />}
     </Router>
   );
 };
