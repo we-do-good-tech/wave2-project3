@@ -17,7 +17,7 @@ function* loadContentFunction() {
     ]);
     yield put(setContentSuccess({ success, tip }));
   } catch (e) {
-    yield put(setContentFailed(e.message));
+    yield put(setContentFailed(e.response.data.message));
   }
 }
 
@@ -26,7 +26,7 @@ function* createContentFunction({ payload }: IReducerPayload<{ payload: ContentD
     yield api.post(`${CONTENT_URL}/${payload?.dataType}`, payload?.payload);
     yield loadContentFunction();
   } catch (e) {
-    yield put(setContentFailed(e.message));
+    yield put(setContentFailed(e.response.data.message));
   }
 }
 
@@ -37,7 +37,7 @@ function* updateContentFunction({
     yield api.patch(`${CONTENT_URL}/${payload?.dataType}/${payload?.id}`, payload?.payload);
     yield loadContentFunction();
   } catch (e) {
-    yield put(setContentFailed(e.message));
+    yield put(setContentFailed(e.response.data.message));
   }
 }
 
@@ -46,7 +46,7 @@ function* setActiveFunction({ payload }: IReducerPayload<{ active: boolean; data
     yield api.put(`${CONTENT_URL}/${payload?.dataType}/${payload?.id}/active`, { active: payload?.active });
     yield loadContentFunction();
   } catch (e) {
-    yield put(setContentFailed(e.message));
+    yield put(setContentFailed(e.response.data.message));
   }
 }
 
@@ -55,7 +55,7 @@ function* deleteContentFunction({ payload }: IReducerPayload<{ dataType: Content
     yield api.delete(`${CONTENT_URL}/${payload?.dataType}/${payload?.id}`);
     yield loadContentFunction();
   } catch (e) {
-    yield put(setContentFailed(e.message));
+    yield put(setContentFailed(e.response.data.message));
   }
 }
 

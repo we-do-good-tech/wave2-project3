@@ -31,7 +31,7 @@ function* loginFunction({ payload }: IReducerPayload<LoginPayload>) {
     yield put(setUser({ ...res.user, ...res.payload }));
     yield apiConfig({ Authorization: `Bearer ${res.payload.token}` });
   } catch (e) {
-    yield put(setError(e.message));
+    yield put(setError(e.response.data.message));
   }
 }
 
@@ -46,7 +46,7 @@ function* refreshTokenFunction() {
     yield put(setUser({ ...res.user, ...res.payload }));
     yield apiConfig({ Authorization: `Bearer ${res.payload.token}` });
   } catch (e) {
-    yield put(setError(e.message));
+    yield put(setError(e.response.data.message));
   }
 }
 
@@ -60,7 +60,7 @@ function* logoutFunction() {
     yield api.post(LOGOUT_URL);
     yield apiConfig({ Authorization: `null` });
   } catch (e) {
-    yield put(setError(e.message));
+    yield put(setError(e.response.data.message));
   }
 }
 
@@ -71,7 +71,7 @@ function* logoutFunction() {
 //          yield put(setUser(res.data));
 //       }
 //    } catch (e) {
-//       yield put(setError(e.message));
+//       yield put(setError(e.response.data.message));
 //    }
 // }
 

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { ApplicationState } from '../saga';
@@ -43,11 +43,11 @@ export const Admin: FC = () => {
     dispatch(refreshUser());
   });
 
-  // useEffect(() => {
-  //   if(!!user?.expiresIn) {
-  //     user.expiresIn.getDate() < Date.now() && dispatch(refreshUser())
-  //   }
-  // }, [user?.expiresIn]);
+  useEffect(() => {
+    if (!!user?.expiresIn) {
+      Number(new Date(user.expiresIn)) < Number(Date.now()) && dispatch(refreshUser());
+    }
+  }, [user?.expiresIn, dispatch]);
 
   if (!isAuth && !isLoading && !isAppLoading && location.pathname !== pathes.LOGIN.path) {
     return <Redirect to={pathes.LOGIN.path} />;

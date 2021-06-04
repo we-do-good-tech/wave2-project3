@@ -1,7 +1,7 @@
 import { useBoolean } from 'ahooks';
 import classnames from 'classnames';
 import { Field, Form, Formik } from 'formik';
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { FC, useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { Popup } from '../../components/SportPopup';
@@ -15,17 +15,18 @@ const initialValues = {
   username: ' ',
   password: '',
 };
-export const validationSchema = Yup.object({
-  username: Yup.string().matches(/^[A-Za-z0-9]{6,30}$/, { message: 'User name must be between 6 to 30' }),
-  password: Yup.string().matches(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/, { message: ' ' }),
-});
 
 export const Users: FC = () => {
   const [isCreating, { setTrue: setIsCreatingOn, setFalse: setIsCreatingOff }] = useBoolean(false);
-  const { users, isAuth, isAuthLoading, currentUser } = useSelector(
-    ({ usersState: { users }, appState: { isAuth, isLoading, user } }: ApplicationState) => ({
+  const { users, isAuth, isAuthLoading, isUsersLoading, currentUser, error } = useSelector(
+    ({
+      usersState: { users, error, isLoading: isUsersLoading },
+      appState: { isAuth, isLoading, user },
+    }: ApplicationState) => ({
       users,
+      error,
       isAuth,
+      isUsersLoading,
       isAuthLoading: isLoading,
       currentUser: user,
     }),
@@ -38,10 +39,21 @@ export const Users: FC = () => {
   const createUserFunction = useCallback(
     (username: string, password: string) => {
       dispatch(createUser(username, password));
-      setIsCreatingOff();
+      !error && !isUsersLoading && setIsCreatingOff();
     },
-    [dispatch, setIsCreatingOff],
+    [dispatch, setIsCreatingOff, error, isUsersLoading],
   );
+
+  const userNamesArray: string[] = useMemo(() => {
+    return users?.map((_: User) => _.username) ?? [];
+  }, [users]);
+
+  const validationSchema = Yup.object({
+    username: Yup.string()
+      .matches(/^[A-Za-z0-9]{6,30}$/, { message: 'User name must be between 6 to 30' })
+      .notOneOf(userNamesArray, 'username already in use'),
+    password: Yup.string().matches(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/, { message: ' ' }),
+  });
 
   const deleteUserFunction = useCallback(
     (id: string) => {
@@ -60,7 +72,7 @@ export const Users: FC = () => {
   return (
     <div className={styles.usersContainer}>
       <div className={styles.addUser}>
-        <button onClick={setIsCreatingOn} className={styles.addButton}>
+        <button onClick={setIsCreatingOn} className={classnames(styles.addButton, 'shiny-button')}>
           +
         </button>
       </div>
@@ -84,6 +96,9 @@ export const Users: FC = () => {
             <tr key={`${idx}`}>
               <td>
                 <span>{user.username}</span>
+                {user.id === currentUser?.id && (
+                  <span style={{ color: 'gray', fontWeight: 'lighter' }}>{` `}(You)</span>
+                )}
               </td>
               <td>
                 <span className={classnames(user.admin ? styles.admin : styles.notadmin)}>
@@ -154,6 +169,7 @@ export const Users: FC = () => {
                       </span>
                     </div>
                     {errors.username && <span className='error-msg'>{errors.username}</span>}
+                    {error && <span className='error-msg'>{error}</span>}
                     <button disabled={!isValid} className='admin-button' type='submit'>
                       Create
                     </button>

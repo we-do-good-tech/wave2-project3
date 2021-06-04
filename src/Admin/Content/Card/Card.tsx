@@ -47,28 +47,41 @@ export const Card: FC<ICard> = ({ updateContent, deleteContent, setActive, conte
         {' '}
         ✖{' '}
       </span>
-      <CreateContentForm
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-        initialValues={Object.fromEntries(Object.entries(content))}
-      />
+      <div className={styles.createContentForm}>
+        <CreateContentForm
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+          initialValues={Object.fromEntries(Object.entries(content))}
+        />
+      </div>
     </Popup>
   ) : (
     <div className={classnames(styles.contentCard, isOpen ? styles.open : styles.closed)}>
       <img
-        className={classnames(styles.toggleOpen, isOpen && styles.toggleOpened)}
+        className={classnames(styles.toggleOpen, isOpen && styles.toggleOpened, 'shiny-button')}
         src='https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg'
         alt='down-arrow'
         onClick={toggleCardHandler}
       />
       <div className={classnames(styles.cardSpans, !isOpen && styles.closed)}>
         {isOpen ? (
-          Object.entries(content).map((entriesObject: string[], idx: number) => (
-            <div key={`wrapper-${idx}`} id={`wrapper-${idx}`}>
-              <span key={`entry-${idx}`}>{entriesObject[0]}:</span>
-              <span key={`value-${idx}`}>{entriesObject[1]}</span>
-            </div>
-          ))
+          <>
+            {Object.entries(content).map(
+              (entriesObject: string[], idx: number) =>
+                !['image'].includes(entriesObject[0]) && (
+                  <div key={`wrapper-${idx}`} id={`wrapper-${idx}`}>
+                    <span key={`entry-${idx}`}>{entriesObject[0]}:</span>
+                    <span key={`value-${idx}`}>{entriesObject[1]}</span>
+                  </div>
+                ),
+            )}
+            {content.image && content.image.length > 10 && (
+              <div className='d-flex flex-column'>
+                <span key={`value-image`}>image: </span>
+                <img src={content.image} alt='missing' />
+              </div>
+            )}
+          </>
         ) : (
           <>
             <div className={styles.closedContent}>

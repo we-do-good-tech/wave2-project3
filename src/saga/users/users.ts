@@ -13,7 +13,7 @@ function* loadUsersFunction() {
     const { data: users } = yield api.get(`${AUTH_URL}`);
     yield put(loadUsersSuccess({ users }));
   } catch (e) {
-    yield put(loadUsersFailed(e.message));
+    yield put(loadUsersFailed(e.response.data.message));
   }
 }
 
@@ -22,7 +22,7 @@ function* registerFunction({ payload }: IReducerPayload<{ username: string; pass
     yield api.post(`${AUTH_URL}register`, payload);
     yield loadUsersFunction();
   } catch (e) {
-    yield put(loadUsersFailed(e.message));
+    yield put(loadUsersFailed(e.response.data.message));
   }
 }
 
@@ -31,7 +31,7 @@ function* deleteFunction({ payload }: IReducerPayload<{ id: string }>) {
     yield api.delete(`${AUTH_URL}${payload?.id}`);
     yield loadUsersFunction();
   } catch (e) {
-    yield put(loadUsersFailed(e.message));
+    yield put(loadUsersFailed(e.response.data.message));
   }
 }
 
@@ -40,7 +40,7 @@ function* makeAdminFunction({ payload }: IReducerPayload<{ id: string; admin: bo
     yield api.post(`${AUTH_URL}${payload?.id}/admin`, { admin: payload?.admin });
     yield loadUsersFunction();
   } catch (e) {
-    yield put(loadUsersFailed(e.message));
+    yield put(loadUsersFailed(e.response.data.message));
   }
 }
 

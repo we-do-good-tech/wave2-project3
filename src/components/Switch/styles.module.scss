@@ -3,7 +3,7 @@
 $translate-small: 36px;
 $translate-large: 76px;
 $blue: #2196f3;
-
+$transition: 300ms;
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -28,8 +28,8 @@ $blue: #2196f3;
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: $transition;
+  transition: $transition;
 }
 
 .slider:before {
@@ -40,8 +40,8 @@ $blue: #2196f3;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: $transition;
+  transition: $transition;
 }
 
 input:checked + .slider {
@@ -78,8 +78,8 @@ input:checked + .slider:before {
   left: 6px;
   bottom: 6px;
   background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: $transition;
+  transition: $transition;
 }
 
 input:checked + .slider.large:before {

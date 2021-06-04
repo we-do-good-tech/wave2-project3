@@ -196,3 +196,24 @@ $blue: #2196f3;
   font-size: 14px;
   color: $--color-red;
 }
+
+.shiny-button {
+  background-clip: padding-box;
+  cursor: pointer;
+  $size: 30;
+  padding: px2rem($size * 0.1);
+  margin: px2rem($size * 0.1);
+  border: 3px solid $--color-gray-2;
+  border-radius: 10px;
+
+  transform: rotate(270deg);
+  background: linear-gradient(to right, transparent, #b1b1b1 100%),
+    gray
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 35px,
+        rgba(255, 255, 255, 0.5) 35px,
+        rgba(255, 255, 255, 0.5) 70px
+      ) !important;
+}

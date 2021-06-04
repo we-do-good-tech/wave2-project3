@@ -2,7 +2,7 @@ export interface ISuccessCategory {
   id: string;
   name: string;
   title: string;
-  image?: String;
+  image?: string;
   color: 'green' | 'orange' | 'turqiz';
   description: string;
   active?: boolean;

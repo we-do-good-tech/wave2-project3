@@ -5,7 +5,7 @@ export interface ITipsCategory {
   tip: string;
   age: number;
   title: string;
-  image?: String;
+  image?: string;
   gender: GenderType;
   className: TipClassNameType;
   active?: boolean;

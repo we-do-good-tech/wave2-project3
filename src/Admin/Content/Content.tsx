@@ -10,6 +10,7 @@ import contentActions from '../../saga/content/actions';
 import { Card } from './Card';
 import { ContentDataType, ContentType, initialValues, successValidationSchema, tipValidationSchema } from './consts';
 import styles from './styles.module.scss';
+import { UploadImage } from './UploadImage';
 
 const { loadContent, createContent, updateContent, deleteContent, setActive } = contentActions;
 
@@ -120,17 +121,35 @@ interface ICreateContentForm {
 
 export const CreateContentForm: VFC<ICreateContentForm> = ({ validationSchema, initialValues, onSubmit }) => (
   <Formik validationSchema={validationSchema} validateOnBlur={false} onSubmit={onSubmit} initialValues={initialValues}>
-    {({ initialValues, errors, isValid }) => (
+    {({ initialValues, errors, isValid, values, setFieldValue }) => (
       <Form className={styles.form}>
         {Object.keys(initialValues).map(
           (v: string, idx: number) =>
-            !['className', 'active', 'id', 'createdAt', 'updatedAt'].includes(v) && (
-              <>
+            !['className', 'active', 'id', 'createdAt', 'updatedAt', 'image'].includes(v) && (
+              <React.Fragment key={`idx-${idx}`}>
                 <label key={`label-${idx}`}> {v}: </label>{' '}
                 <Field key={`field-${idx}`} component={getComponent(v)} name={v} />{' '}
-              </>
+              </React.Fragment>
             ),
         )}
+
+        <label key='label-image'> image: </label>
+        <div className={styles.imageContainer}>
+          {typeof values.image === 'string' && values.image?.length > 10 ? (
+            <img src={values.image} alt='missing' />
+          ) : typeof initialValues.image === 'string' && initialValues.image?.length > 10 ? (
+            <img src={initialValues.image} alt='missing' />
+          ) : (
+            <UploadImage key='field-image' name='image' onChange={(value: string) => setFieldValue('image', value)} />
+          )}
+          <span
+            onClick={() => {
+              setFieldValue('image', ' ');
+              initialValues.image = '';
+            }}>
+            X
+          </span>
+        </div>
 
         <label> color: </label>
         <Field key='className' as='select' name='className'>
@@ -162,7 +181,7 @@ const CreateContentPopup: VFC<ICreateContnetPopup> = ({ CreateContentForm, onClo
       {' '}
       ✖{' '}
     </span>
-    {CreateContentForm}
+    <div className={styles.createContentForm}>{CreateContentForm}</div>
   </Popup>
 );
 

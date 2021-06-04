@@ -50,8 +50,8 @@ $purple: rgb(15, 6, 15);
   svg,
   label {
     transition: 300ms;
-    height: px2rem(20);
-    width: px2rem(20);
+    min-height: px2rem(20);
+    min-width: px2rem(20);
     fill: whitesmoke;
     margin: 0 px2rem(12);
   }

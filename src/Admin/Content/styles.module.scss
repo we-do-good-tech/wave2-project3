@@ -48,6 +48,48 @@ $margin-horizontal: px2rem(12);
   button {
     margin: px2rem(10) 0;
   }
+  .imageContainer {
+    align-self: center;
+    position: relative;
+    padding: px2rem(15);
+    @include flexCenter;
+    width: 85%;
+    min-height: px2rem(100);
+    border: 2px solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 $--color-gray-1;
+    background: white;
+    margin: 8px;
+
+    img {
+      height: auto;
+      width: auto;
+      max-height: 70%;
+      max-width: 70%;
+    }
+    span {
+      display: none;
+    }
+    img + span {
+      @include flexCenter;
+      position: absolute;
+      top: 0;
+      left: 14%;
+      background-color: $--color-gray-1;
+      border-radius: 50%;
+      font-size: 12px;
+      border: 2px solid $--color-gray-2;
+      $size: px2rem(18);
+      height: $size;
+      width: $size;
+      animation: none !important;
+      transition: 200ms;
+      &:hover {
+        cursor: pointer;
+        background-color: darken($--color-gray-1, 10%);
+      }
+    }
+  }
 }
 
 .popUp {
@@ -56,6 +98,17 @@ $margin-horizontal: px2rem(12);
   padding: px2rem(18) px2rem(24);
   background-color: $--color-gray-2;
   border-radius: 10px;
+  top: 0;
+  border: 2px solid black;
+
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute !important;
+  .createContentForm {
+    max-height: 80vh;
+    overflow: scroll;
+  }
   .closeButton {
     position: absolute;
     top: 2px;
@@ -76,7 +129,7 @@ $margin-horizontal: px2rem(12);
   z-index: 1;
   box-sizing: border-box;
   .contentCard {
-    $open: px2rem(300);
+    $open: px2rem(400);
     $closed: px2rem(50);
 
     border: 2px solid $--color-gray-2;
@@ -105,17 +158,6 @@ $margin-horizontal: px2rem(12);
       $size: 30;
       width: px2rem($size);
       height: px2rem($size);
-
-      background: linear-gradient(to top, transparent, #b1b1b1 100%),
-        gray
-          repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 35px,
-            rgba(255, 255, 255, 0.5) 35px,
-            rgba(255, 255, 255, 0.5) 70px
-          );
-
       background-clip: padding-box;
       cursor: pointer;
       padding: px2rem($size * 0.1);
@@ -150,6 +192,8 @@ $margin-horizontal: px2rem(12);
       transition: 200ms all;
       :nth-child(odd) {
         font-size: 17px;
+        color: black;
+        font-weight: 400;
       }
       :nth-child(even) {
         font-weight: 100;
@@ -160,10 +204,19 @@ $margin-horizontal: px2rem(12);
         overflow: hidden;
         flex-basis: 90%;
       }
+
+      img {
+        $max: 70%;
+        max-width: $max;
+        max-height: $max;
+        align-self: center;
+        width: auto;
+        height: auto;
+      }
     }
 
     /*
-     *  STYLE 1
+     *  SCROLLBAR
      */
 
     ::-webkit-scrollbar-track {
