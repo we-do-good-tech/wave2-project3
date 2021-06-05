@@ -17,16 +17,21 @@ export const createTipsInitials = createTipKeys.reduce((prev: Record<string, str
   return prev;
 }, {});
 
-export const createSuccessInitials = createSuccessKeys.reduce((prev: Record<string, string | number>, curr: string) => {
-  if (curr === 'age') {
-    prev[curr] = 0;
-  } else {
-    prev[curr] = '';
-  }
-  return prev;
-}, {});
+export const createSuccessInitials = createSuccessKeys.reduce(
+  (prev: Record<string, string | number | string[]>, curr: string) => {
+    if (curr === 'age') {
+      prev[curr] = 0;
+    } else if (curr === 'content') {
+      prev[curr] = [];
+    } else {
+      prev[curr] = '';
+    }
+    return prev;
+  },
+  {},
+);
 
-export const initialValues: Record<ContentType, Record<string, string | number>> = {
+export const initialValues: Record<ContentType, Record<string, string | number | string[]>> = {
   success: createSuccessInitials,
   tip: createTipsInitials,
 };
@@ -42,6 +47,5 @@ export const tipValidationSchema = Yup.object({
 
 export const successValidationSchema = Yup.object({
   name: Yup.string().required('Name is a required field'),
-  content: Yup.string().required('Content is a required field'),
   title: Yup.string().required('Title is a required field'),
 });

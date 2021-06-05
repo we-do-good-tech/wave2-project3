@@ -1,7 +1,7 @@
 import { useBoolean, useMount } from 'ahooks';
 import classnames from 'classnames';
 import { Field, Form, Formik } from 'formik';
-import React, { FC, useCallback, useMemo, useState, VFC } from 'react';
+import React, { ChangeEvent, FC, useCallback, useMemo, useState, VFC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { OptionalObjectSchema, TypeOfShape } from 'yup/lib/object';
 import { Popup } from '../../components/SportPopup';
@@ -115,7 +115,7 @@ interface ICreateContnetPopup {
 
 interface ICreateContentForm {
   validationSchema: OptionalObjectSchema<Record<string, any>>;
-  initialValues: Record<string, string | boolean>;
+  initialValues: Record<string, string | boolean | string[]>;
   onSubmit: (values: any) => void;
 }
 
@@ -125,7 +125,7 @@ export const CreateContentForm: VFC<ICreateContentForm> = ({ validationSchema, i
       <Form className={styles.form}>
         {Object.keys(initialValues).map(
           (v: string, idx: number) =>
-            !['className', 'active', 'id', 'createdAt', 'updatedAt', 'image'].includes(v) && (
+            !['className', 'active', 'id', 'createdAt', 'updatedAt', 'image', 'content'].includes(v) && (
               <React.Fragment key={`idx-${idx}`}>
                 <label key={`label-${idx}`}> {v}: </label>{' '}
                 <Field key={`field-${idx}`} component={getComponent(v)} name={v} />{' '}
@@ -150,6 +150,58 @@ export const CreateContentForm: VFC<ICreateContentForm> = ({ validationSchema, i
             X
           </span>
         </div>
+        {
+          //@ts-ignore
+          values.content?.map((_: string, idx: number) => {
+            //@ts-ignorea
+            return (
+              <div className={styles.textAreasWrapper}>
+                {' '}
+                <Field
+                  key={`field-${idx}`}
+                  value={values.content[idx]}
+                  component={'textarea'}
+                  onChange={(v: ChangeEvent<HTMLInputElement>) => {
+                    const newArr: string[] =
+                      typeof values.content === 'object'
+                        ? values.content.map((c: string, cidx: number): string => (cidx === idx ? v.target.value : c))
+                        : [];
+                    setFieldValue('content', newArr);
+                  }}
+                />
+                <label
+                  className={styles.deleteArea}
+                  onClick={() => {
+                    const newArr: string[] =
+                      typeof values.content === 'object'
+                        ? values.content.filter((c: string, cidx: number) => cidx !== idx)
+                        : [];
+                    setFieldValue('content', newArr);
+                  }}>
+                  {' '}
+                  X
+                </label>
+              </div>
+            );
+          })
+        }
+
+        {
+          //@ts-ignore
+          !!values.content && (
+            <label
+              className={styles.addArea}
+              onClick={(e) => {
+                e.stopPropagation();
+                const newArr: string[] = typeof values.content === 'object' ? values.content.concat() : [];
+                newArr.push('your text here');
+                setFieldValue('content', newArr);
+              }}>
+              {' '}
+              +{' '}
+            </label>
+          )
+        }
 
         <label> color: </label>
         <Field key='className' as='select' name='className'>

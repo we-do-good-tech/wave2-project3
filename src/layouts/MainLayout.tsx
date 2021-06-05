@@ -11,6 +11,7 @@ import { ApplicationState } from '../saga';
 
 const { setNotLoading, setLoading } = allActions.loadingActions;
 const { setIsMobile, setIsTablet } = allActions.appActions;
+const { loadContent } = allActions.contentActions;
 
 function detectMob() {
   const toMatch = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
@@ -34,6 +35,7 @@ export const MainLayout: FC = () => {
   useMount(() => {
     dispatch(setIsMobile(detectMob()));
     dispatch(setIsTablet(detectTablet()));
+    dispatch(loadContent());
   });
 
   const makeRouters = () =>

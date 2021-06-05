@@ -12,20 +12,27 @@ import { IconType } from '../components/Icon';
 import classnames from 'classnames';
 import { Users } from './Users';
 import { useMount } from 'ahooks';
+import { Dashboard } from './Dashboard';
 
 export interface IPath {
   path: string;
   title: string;
   showInBar: boolean;
   icon?: IconType;
+  adminOnly?: boolean;
 }
 
 export const pathes: Record<string, IPath> = {
   DASHBOARD: { path: '/admin/dashboard', showInBar: true, title: 'Dashboard', icon: 'dashboard' },
   CONTENT: { path: '/admin/content', showInBar: true, title: 'Content', icon: 'documents' },
   LOGIN: { path: '/admin/login', showInBar: false, title: 'Login' },
-  USERS: { path: '/admin/users', showInBar: true, title: 'Users', icon: 'users' },
+  USERS: { path: '/admin/users', showInBar: true, adminOnly: true, title: 'Users', icon: 'users' },
 };
+
+const adminOnlyPathes = Object.values(pathes)
+  .filter((p: IPath) => p.adminOnly)
+  .map((p: IPath) => p.path);
+
 const { logoutUser } = allActions.appActions;
 const { refreshUser } = allActions.appActions;
 
@@ -51,6 +58,10 @@ export const Admin: FC = () => {
 
   if (!isAuth && !isLoading && !isAppLoading && location.pathname !== pathes.LOGIN.path) {
     return <Redirect to={pathes.LOGIN.path} />;
+  }
+
+  if (adminOnlyPathes.includes(location.pathname) && !user?.admin && !isLoading && !isAppLoading) {
+    return <Redirect to={pathes.DASHBOARD.path} />;
   }
 
   const logout = (): void => {
@@ -82,7 +93,7 @@ export const Admin: FC = () => {
           <Login />
         </Route>
         <Route exact path={pathes.DASHBOARD.path}>
-          <Users />
+          <Dashboard />
         </Route>
         <Route path={pathes.USERS.path}>
           <Users />
@@ -91,7 +102,7 @@ export const Admin: FC = () => {
           <Content />
         </Route>
         <Route>
-          <Redirect to={pathes.CONTENT.path} />
+          <Redirect to={pathes.DASHBOARD.path} />
         </Route>
       </Switch>
     </div>

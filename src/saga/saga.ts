@@ -5,6 +5,7 @@ import { contentSagas } from './content/content';
 import disabilityActions from './disabilities/actions';
 import loadingActions from './loading/actions';
 import usersActions from './users/actions';
+import contentActions from './content/actions';
 import { usersSagas } from './users/users';
 
 const allActions = {
@@ -12,6 +13,7 @@ const allActions = {
   loadingActions,
   appActions,
   usersActions,
+  contentActions,
 };
 
 export default allActions;

@@ -1,5 +1,6 @@
 import { all, put, takeEvery } from 'redux-saga/effects';
 import { ContentDataType, ContentType } from '../../Admin/Content/consts';
+import { ISuccessCategory } from '../../pages/Successes/consts';
 import { api } from '../api/api';
 import { apiEndpoints } from '../api/api-endpoints';
 import { IReducerPayload } from '../interfaces';
@@ -15,7 +16,18 @@ function* loadContentFunction() {
       yield api.get(`${CONTENT_URL}/success`),
       yield api.get(`${CONTENT_URL}/tip`),
     ]);
-    yield put(setContentSuccess({ success, tip }));
+
+    const parsedSuccess = success.map((s: ISuccessCategory) => {
+      try {
+        //@ts-ignore
+        const parsedContent: string[] = JSON.parse(s.content);
+        return { ...s, content: parsedContent };
+      } catch (e) {
+        return { ...s, content: [] };
+      }
+    });
+
+    yield put(setContentSuccess({ success: parsedSuccess, tip }));
   } catch (e) {
     yield put(setContentFailed(e.response.data.message));
   }
@@ -23,6 +35,11 @@ function* loadContentFunction() {
 
 function* createContentFunction({ payload }: IReducerPayload<{ payload: ContentDataType; dataType: ContentType }>) {
   try {
+    if (payload?.dataType === 'success') {
+      //@ts-ignore
+      payload.payload.content = JSON.stringify(payload.payload.content);
+    }
+
     yield api.post(`${CONTENT_URL}/${payload?.dataType}`, payload?.payload);
     yield loadContentFunction();
   } catch (e) {
@@ -34,6 +51,10 @@ function* updateContentFunction({
   payload,
 }: IReducerPayload<{ payload: ContentDataType; dataType: ContentType; id: string }>) {
   try {
+    if (payload?.dataType === 'success') {
+      //@ts-ignore
+      payload.payload.content = JSON.stringify(payload.payload.content);
+    }
     yield api.patch(`${CONTENT_URL}/${payload?.dataType}/${payload?.id}`, payload?.payload);
     yield loadContentFunction();
   } catch (e) {

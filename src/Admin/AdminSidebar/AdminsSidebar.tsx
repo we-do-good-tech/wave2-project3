@@ -1,7 +1,9 @@
 import classnames from 'classnames';
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Icon } from '../../components/Icon';
+import { ApplicationState } from '../../saga';
 import { IPath, pathes } from '../Admin';
 import styles from './styles.module.scss';
 
@@ -15,11 +17,22 @@ export const AdminsSidebar: FC<IAdminSidebar> = ({ element }) => {
   const clickHandler = (path: string): void => {
     history.push(path);
   };
+
+  const isAdmin = useSelector(({ appState: { user } }: ApplicationState) => !!user?.admin);
+
   return (
     <div className={styles.sidebar}>
       {element}
       {Object.values(pathes)
-        .filter((path: IPath) => path.showInBar)
+        .filter((path: IPath) => {
+          if (path.adminOnly && !isAdmin) {
+            return false;
+          }
+          if (!path.showInBar) {
+            return false;
+          }
+          return path;
+        })
         .map((path: IPath, idx: number) => (
           <button
             key={`${idx}`}

@@ -22,14 +22,7 @@ $margin-horizontal: px2rem(12);
   display: flex;
   flex-direction: column;
   direction: ltr;
-  width: fit-content;
-
-  textarea {
-    resize: none;
-    height: px2rem(300);
-    width: px2rem(600);
-    border: 1px solid black;
-  }
+  width: 100%;
 
   input,
   select {
@@ -95,6 +88,7 @@ $margin-horizontal: px2rem(12);
 .popUp {
   width: fit-content !important;
   height: fit-content !important;
+  min-width: 50%;
   padding: px2rem(18) px2rem(24);
   background-color: $--color-gray-2;
   border-radius: 10px;
@@ -108,6 +102,7 @@ $margin-horizontal: px2rem(12);
   .createContentForm {
     max-height: 80vh;
     overflow: scroll;
+    width: 100%;
   }
   .closeButton {
     position: absolute;
@@ -164,8 +159,8 @@ $margin-horizontal: px2rem(12);
       margin: px2rem($size * 0.1);
       border: 3px solid $--color-gray-2;
       border-radius: 10px;
-      &:not(.toggleOpened) {
-        transform: rotate(270deg);
+      &.toggleOpened {
+        transform: rotate(0);
         background: linear-gradient(to right, transparent, #b1b1b1 100%),
           gray
             repeating-linear-gradient(
@@ -360,4 +355,42 @@ $margin-horizontal: px2rem(12);
   grid-column-end: 11;
   grid-row-start: 1;
   grid-row-end: 11;
+}
+
+.textAreasWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: fit-content;
+  margin: px2rem(10) px2rem(5);
+  position: relative;
+  textarea {
+    resize: vertical;
+    height: px2rem(300);
+    direction: rtl;
+    border: 1px solid black;
+    width: 100%;
+    margin: px2rem(5) 0;
+  }
+
+  .deleteArea {
+    @include flexCenter;
+    position: absolute;
+    top: -4%;
+    left: -1%;
+    background-color: $--color-gray-1;
+    border-radius: 50%;
+    font-size: 12px;
+    border: 2px solid $--color-gray-2;
+    $size: px2rem(18);
+    height: $size;
+    width: $size;
+    animation: none !important;
+    transition: 200ms;
+    &:hover {
+      cursor: pointer;
+      background-color: darken($--color-gray-1, 10%);
+    }
+  }
 }
